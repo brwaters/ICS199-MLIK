@@ -1,3 +1,15 @@
+commit 62bc61113841fcca1bbaf77f08bdb2ce6518f939
+Author: Isaac Thiessen <isaac.thiessen31@online.camosun.ca>
+Date:   Tue May 22 11:32:07 2018 -0700
+
+    added documents around project
+
+commit 3a6dc5b476368bb9518c616b7aaf4f7ac9cccaa1
+Author: Isaac Thiessen <isaac.thiessen31@online.camosun.ca>
+Date:   Tue May 22 11:28:15 2018 -0700
+
+    added logfile
+
 commit 780fa19b47cbe0c11b053bbd13e372c33a445863
 Author: Isaac Thiessen <isaac.thiessen31@online.camosun.ca>
 Date:   Tue May 22 11:09:22 2018 -0700
