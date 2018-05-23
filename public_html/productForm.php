@@ -4,7 +4,7 @@
 <body>
 
 <form action="submitproduct.php" method="POST">
-<p> NAME: <input type="text" name="name" value=''></p>
+<p> Name: <input type="text" name="name" value='' id='name'></p>
 <p> Decription: <input type="text" name="description" ></p>
 <p> Price: <input type="text" name="price" ></p>
 <p> Category: <select name="category">
@@ -22,8 +22,11 @@
 
 		}
 ?></select></p>
-<input type="submit" value="SUBMIT" />
+<input type="submit" value="SUBMIT" id="submit1" />
 </form>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script src="productForm.js"></script>
 
 </body>
 </html>
