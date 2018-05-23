@@ -1,4 +1,0 @@
-Isaac Thiessen: updated log
-Isaac Thiessen: added documents around project
-Isaac Thiessen: added logfile
-Isaac Thiessen: Initial commit
