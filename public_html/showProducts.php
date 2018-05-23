@@ -19,20 +19,54 @@
 		margin-left: 30px;
 	}
 </style>
+<?php
+//Setting up connection to database
+$connection = new mysqli("localhost", "cst170","381953","ICS199Group07_dev");
+
+if($connection -> connect_error){
+	die("Connection failed: ". $connection ->connect_error);
+}
+
+//variables
+$categories = $_POST['category'];
+?>
+
 </head>
 
 
 <h1>Products Page!</h1>
 
+
 <body>
+<form action="showProducts.php" method='POST'> 
+<p> Category: </p> 
+<select name='category[ ]' multiple>
+<?php  //category info
+$query =$connection->query("SELECT * FROM CATEGORIES");
+while ($dataCat = $query->fetch_assoc()){
+$name = $dataCat['cat_name']?>
+
+<option value="<?php echo $name;?>"><?php echo $name;?></option>
+<?php } ?>
+
+</select>
+<input type='submit'>
+</form>
+
 <hr>
+
 <?php
-	$connection = new mysqli("localhost", "cst170","381953","ICS199Group07_dev");
-	
-	if($connection -> connect_error){
-		die("Connection failed: ". $connection ->connect_error);
+	//Displaying products based on selection of category
+	if (isset($categories)){
+		foreach ($categories as $cat ) {
+			$query1 = "SELECT p.prod_id, p.Name, p.Price FROM PRODUCTS p, CATEGORIES c, PRODUCT_CATEGORY pc WHERE c.cat_name = '" . $cat . "' AND p.prod_id = pc.PRODUCTS_prod_id AND c.cat_id = pc.CATEGORIES_cat_id;";
+			$query = $connection->query($query1);
+		
+		}
+	} else {
+		$query = $connection->query("SELECT * FROM PRODUCTS");
 	}
-	$query =$connection->query("SELECT * FROM PRODUCTS");
+
 	while($dataCat = $query->fetch_assoc()){ 
 		?>
 		<div class='product'>
@@ -44,7 +78,9 @@
 		</div>
 		<?php		
 		
-		}?>
+		}
+		$connection ->close()?>
+
 <br>
 <hr>
 </body>
