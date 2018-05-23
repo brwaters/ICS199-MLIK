@@ -8,8 +8,8 @@
 	if($connection -> connect_error){
 		die("Connection failed: ". $connection ->connect_error);
 	}
-	$sql = "INSERT INTO PRODUCTS (name,description,price,categories_cat_id)
-			VALUES ('".$name."','".$description."','".$price."','".$category."')";
+	$sql = "INSERT INTO PRODUCTS (name,description,price)
+			VALUES ('".$name."','".$description."','".$price."')";
 	if($connection->query($sql) === TRUE){
 		echo "entered";
 	}

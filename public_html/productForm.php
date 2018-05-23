@@ -21,7 +21,9 @@
 		echo "<option value=".$dataCat["cat_id"].">".$dataCat["cat_name"]." </option>";
 
 		}
-?></select></p>
+?>
+</select></p>
+<p> Image: <input  name="image" type="file"> </p>
 <input type="submit" value="SUBMIT" id="submit1" />
 </form>
 
