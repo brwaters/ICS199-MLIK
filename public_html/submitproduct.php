@@ -24,9 +24,8 @@
 	/********** uploading image   *****///////
 	$target_dir ="images/";  ///UPADTE THIS TO DATABASE AT SOME POINT
 	$target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]); ///Need to rename image filename 
-	echo basename($_FILES["fileToUpload"]["name"]);
-	echo $_FILES["fileToUpload"]["name"]. "<br>
-	";
+	echo "basename :". basename($_FILES["fileToUpload"]["name"]);
+	echo "<br>FILES:".$_FILES["fileToUpload"]["name"]."<br>";
 	echo $target_file;
 	
 	$uploadOk = 1;

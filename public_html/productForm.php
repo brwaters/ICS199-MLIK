@@ -3,10 +3,11 @@
 </head>
 <body>
 
-<form action="submitproduct.php" method="POST">
+<form action="submitproduct.php" method="POST" enctype="multipart/form-data">
 <p> Name: <input type="text" name="name" value='' id='name'></p>
 <p> Decription: <input type="text" name="description" ></p>
 <p> Price: <input type="text" name="price" ></p>
+<p> Image: <input type="file"  name="fileToUpload" id="fileToUpload"> </p>
 <p> Category: <select multiple name="category">
 <?php
 	$connection = new mysqli("localhost", "cst170","381953","ICS199Group07_dev");
@@ -23,7 +24,6 @@
 		}
 ?>
 </select></p>
-<p> Image: <input type="file"  name="fileToUpload" id="fileToUpload"> </p>
 <input type="submit" value="submit" id="submit1" />
 </form>
 
