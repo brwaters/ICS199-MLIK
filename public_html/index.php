@@ -7,7 +7,7 @@
 	<header><h1>Welcome to company name!</h1>
 <hr>
 <h2>
-	<a href="index.html">Home</a> | <a href="products.html">Products</a> | <a href="cart.html">Cart</a> | <a href="about.php">About</a>
+	<a href="index.php">Home</a> | <a href="products.html">Products</a> | <a href="cart.php">Cart</a> | <a href="about.php">About</a>
 		</h2>
 </header>
 </head>
