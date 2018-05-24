@@ -40,7 +40,7 @@ $categories = $_POST['category'];
 <body>
 <form action="showProducts.php" method='POST'> 
 <p> Category: </p> 
-<select name='category[ ]' multiple>
+<select name='category'>
 <?php  //category info
 $query =$connection->query("SELECT * FROM CATEGORIES");
 while ($dataCat = $query->fetch_assoc()){
@@ -57,12 +57,10 @@ $name = $dataCat['cat_name']?>
 
 <?php
 	//Displaying products based on selection of category
+
 	if (isset($categories)){
-		foreach ($categories as $cat ) {
-			$query1 = "SELECT p.prod_id, p.Name, p.Price FROM PRODUCTS p, CATEGORIES c, PRODUCT_CATEGORY pc WHERE c.cat_name = '" . $cat . "' AND p.prod_id = pc.PRODUCTS_prod_id AND c.cat_id = pc.CATEGORIES_cat_id;";
-			$query = $connection->query($query1);
-		
-		}
+		$queryStr = "SELECT p.prod_id, p.Name, p.Price FROM PRODUCTS p, CATEGORIES c, PRODUCT_CATEGORY pc WHERE c.cat_name = '" . $categories . "' AND p.prod_id = pc.PRODUCTS_prod_id AND c.cat_id = pc.CATEGORIES_cat_id;";
+		$query = $connection->query($queryStr);
 	} else {
 		$query = $connection->query("SELECT * FROM PRODUCTS");
 	}
@@ -81,7 +79,5 @@ $name = $dataCat['cat_name']?>
 		}
 		$connection ->close()?>
 
-<br>
-<hr>
 </body>
 </html>
