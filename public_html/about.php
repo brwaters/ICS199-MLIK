@@ -9,7 +9,7 @@
 				<ul id = "navbar">
 					<li><a href="index.php">Home</a></li>
 					<li><a href="products.php">Products</a></li>
-					<li><a href="cart.html">php</a></li>
+					<li><a href="cart.php">php</a></li>
 					<li><a href="about.php">php<a/></li>
 				</ul>
 		</header>

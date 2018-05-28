@@ -7,9 +7,10 @@
 			<header>
 				<h1>The mlik header image goes here!</h1>
 				<ul id = "navbar">
-					<li><a href="index.html">Home</a></li>
-					<li><a href="products.html">Products</a></li>
-					<li><a href="cart.html" id="active">Cart</a></li>
+					<li><a href="index.php">Home</a></li>
+					<li><a href="products.php">Products</a></li>
+					<li><a href="cart.php" id="active">Cart</a></li>
+					i><a href="about.php" id="active">About</a></li>
 				</ul>
 			</header>
 	</head>
