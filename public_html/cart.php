@@ -10,7 +10,7 @@
 					<li><a href="index.php">Home</a></li>
 					<li><a href="products.php">Products</a></li>
 					<li><a href="cart.php" id="active">Cart</a></li>
-					i><a href="about.php" id="active">About</a></li>
+					<i><a href="about.php" id="active">About</a></li>
 				</ul>
 			</header>
 	</head>
