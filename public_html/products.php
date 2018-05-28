@@ -18,7 +18,7 @@
 			<header>
 				<h1>The mlik header image goes here!</h1>
 				<ul id = "navbar">
-					<li><a href="index.html">Home</a></li>
+					<li><a href="index.php">Home</a></li>
 					<li>
 						<div class="dropdown">
 						  <button class="dropbtn">Dropdown</button>
@@ -38,7 +38,7 @@
 						  </div>
 						</div>
 					</li>
-					<li><a href="cart.html">Cart</a></li>
+					<li><a href="cart.php">Cart</a></li>
 				</ul>
 			</header>
 	</head>
