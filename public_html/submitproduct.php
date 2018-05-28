@@ -5,8 +5,9 @@
 	$category = $_POST['category'];
 	$connection = new mysqli("localhost", "cst170","381953","ICS199Group07_dev");
 	
+	
 	// Adding Product to database
-	/*
+	
 	if($connection -> connect_error){
 		die("Connection failed: ". $connection ->connect_error);
 	}
@@ -19,26 +20,37 @@
 		echo "Error: ".sql . "<br>". $connection ->error;
 		$connection ->close();
 	}
-	*/
-	//*** 
-	/********** uploading image   *****///////
+	
+
+	
 	
 	//***** get product id of product just entered ******////
 
 	$sql = "SELECT prod_id
 			FROM PRODUCTS 
-			WHERE name = 'Goat supreme'";
+			WHERE name = '$name'";
 	$query =$connection->query($sql);		
 	while($results = $query->fetch_all()){ 
 		 $id =$results[0][0];	
 	}
-	
+	// ***** insert id into categories and 
+	$sql = "INSERT INTO PRODUCT_CATEGORY (CATEGORIES_cat_id,PRODUCTS_prod_id)
+			VALUES ('".$category."','".$id."')";
+			
+	if($connection->query($sql) === TRUE){
+		echo "entered";
+	}
+	else{
+		echo "Error: ".sql . "<br>". $connection ->error;
+		$connection ->close();
+	}	
+	/********** uploading image   *****///////
 	$target_dir ="product_pics/";  ///UPADTE THIS TO DATABASE AT SOME POINT
 	
 	$target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]); ///Need to rename image filename 
 	$uploadOk = 1;
 	$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
-	$target_file = $target_dir .$id.".".$imageFileType; ///Need to rename image filename 
+	$target_file = $target_dir .$id.".".$imageFileType; /// <- update name to path/id.filetype
 	echo "<br>target_file = $target_file<br>";
 	
 	
