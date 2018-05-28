@@ -10,13 +10,14 @@
 					<li><a href="index.php">Home</a></li>
 					<li><a href="products.php">Products</a></li>
 					<li><a href="cart.php" id="active">Cart</a></li>
-					<i><a href="about.php">About</a></li>
+					<li><a href="about.php">About</a></li>
 				</ul>
 			</header>
 	</head>
 
 	<body>
 	<div>
+	<p> List of cart items to go here
 		</div>
 	</body>
 

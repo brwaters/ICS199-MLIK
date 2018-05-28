@@ -10,9 +10,9 @@
 					<li><a href="index.php">Home</a></li>
 					<li><a href="products.php">Products</a></li>
 					<li><a href="cart.php">Cart</a></li>
-					<li><a href="about.php" id="active">About<a/></li>
+					<li><a href="about.php" id="active">About</a></li>
 				</ul>
-		</header>
+			</header>
 </head>
 
 <body>
