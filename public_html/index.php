@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<link rel="stylesheet" href="css.css">
+<link rel="stylesheet" href="./css.css">
 <title>home</title>
 	<header><h1>Welcome to company name!</h1>
 <hr>
