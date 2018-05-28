@@ -3,6 +3,25 @@
 	<head>
 		<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="stylesheet" href="./css.css">
+		<style>
+	.product {
+		height:250px; 
+		width:250px; 
+		background-color:blue;  
+		float: left; 
+		margin: 10px;
+	}
+	.prod_img {
+		width:80%;
+		height:60%; 
+		margin-left: auto; 
+		margin-right: auto;
+	        display: block;
+	}
+	.prod_txt {
+		margin-left: 30px;
+	}
+</style>
 			<?php
 			//Setting up connection to database
 			$connection = new mysqli("localhost", "cst170","381953","ICS199Group07_dev");
@@ -15,37 +34,13 @@
 			$categories = $_POST['category'];
 			?>
 		<title>Products - MLIK</title>
-			<header>
-				<h1>The mlik header image goes here!</h1>
-				<ul id = "navbar">
-					<li><a href="index.php">Home</a></li>
-					<li>
-						<div class="dropdown">
-						  <button class="dropbtn">Dropdown</button>
-						  <div class="dropdown-content">
-							<?php  //category info
-
-							//getting all categories
-							$query =$connection->query("SELECT * FROM CATEGORIES");
-						
-							//Looping for each category in database
-							while ($dataCat = $query->fetch_assoc()){
-								
-								$name = $dataCat['cat_name']; ?>
-
-								<option value="<?php echo $name;?>"><?php echo $name;?></option>
-						<?php } ?>
-						  </div>
-						</div>
-					</li>
-					<li><a href="cart.php">Cart</a></li>
-				</ul>
-			</header>
+			<?php include 'navbar.php'; ?>
 	</head>
 
 
 	<body>
-		<form action="showProducts.php" method='POST'> 
+				
+		<form action="products.php" method='POST'> 
 			<p> Category: </p> 
 			<select name='category'>
 
@@ -54,6 +49,7 @@
 					//getting all categories
 					$query =$connection->query("SELECT * FROM CATEGORIES");
 				
+					?><option value="ALL">ALL</option> <?php
 					//Looping for each category in database
 					while ($dataCat = $query->fetch_assoc()){
 						
@@ -74,8 +70,7 @@
 				// the $categories variable will be set. Otherwise we 
 				// select everything
 
-				
-				if (isset($categories)){
+				 if (isset($categories) && $categories != "ALL"){
 
 					//We are only looking at the category that they selected
 					$queryStr = "SELECT p.prod_id, p.Name, p.Price FROM PRODUCTS p, CATEGORIES c, PRODUCT_CATEGORY pc WHERE c.cat_name = '" . $categories . "' AND p.prod_id = pc.PRODUCTS_prod_id AND c.cat_id = pc.CATEGORIES_cat_id;";
@@ -86,28 +81,26 @@
 					//Here we select everything	
 					$query = $connection->query("SELECT * FROM PRODUCTS");
 				}
-						<ul class = "searched_items">
-							//Here is a div generating loop, for each row that was returned in the query from earlier
-							while($dataCat = $query->fetch_assoc()){ ?>
-								<li class = "item">
-									<div class = 'product'> <!-- tile holds all of the item info together -->
-										<div class = "item_photo"> 
-													<!-- Here we retrieve the image based on the product id. The product with a product id of 1 will retrieve 1.jpg from the product_pics directory -->
-											<img class='prod_img' src='product_pics/<?php echo $dataCat['prod_id'];?>.jpg' alt=<?php echo $dataCat['Name'];?> >	
-											<p class = "item_info">
-												<?php print $dataCat['Name'];?><br>
-												$ <?php print $dataCat['Price'];?>
-											</p>
-										</div>
-									</div>
-								</li>
-							<?php 
-							//Closing the while loop from before. Yes this is wierd.
-							} 
-							$connection ->close()?>
-						</ul>
-		</div>
+				//Here is a div generating loop, for each row that was returned in the query from earlier
+				while($dataCat = $query->fetch_assoc()){ ?>
+					<div class='product'>
 
+					<!-- subtle but important break -->
+					<br>
+
+					<!-- Here we retrieve the image based on the product id. The product with a product id of 1 will retrieve 1.jpg from the product_pics directory -->
+					<img class='prod_img' src='product_pics/<?php echo $dataCat['prod_id'];?>.jpg' alt=<?php echo $dataCat['Name'];?> >	
+
+					<p class='prod_txt'><b><?php print $dataCat['Name'];?></b></p> 
+					<p class='prod_txt'>$ <?php print $dataCat['Price'];?></p>
+					</div>
+				<?php 
+				//Closing the while loop from before. Yes this is wierd.
+				} 
+				$connection ->close()?>
+			</ul>
+		</div>
+	<br>
 	</body>
 
 

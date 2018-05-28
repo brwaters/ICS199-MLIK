@@ -136,7 +136,7 @@ $categories = $_POST['category'];
 
 		<div class='product'>
 		
-		<!-- subtle but important break --!>
+		<!-- subtle but important break -->
 		<br>
 		
 		<!-- Here we retrieve the image based on the product id. The product with a product id of 1 will retrieve 1.jpg from the product_pics directory -->

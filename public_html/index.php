@@ -4,12 +4,7 @@
 <meta charset="utf-8">
 <link rel="stylesheet" href="./css.css">
 <title>home</title>
-	<header><h1>Welcome to company name!</h1>
-<hr>
-<h2>
-	<a href="index.php" id="active">Home</a> | <a href="products.php">Products</a> | <a href="cart.php">Cart</a> | <a href="about.php">About</a>
-		</h2>
-</header>
+			<?php include 'navbar.php'; ?>
 </head>
 
 <body>
