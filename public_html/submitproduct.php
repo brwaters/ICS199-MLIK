@@ -43,11 +43,13 @@
 	else{
 		echo "Error: ".sql . "<br>". $connection ->error;
 		$connection ->close();
-	}	
+	}
+
+	
 	/********** uploading image   *****///////
 	$target_dir ="product_pics/";  ///UPADTE THIS TO DATABASE AT SOME POINT
 	
-	$target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]); ///Need to rename image filename 
+	$target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]); 
 	$uploadOk = 1;
 	$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 	$target_file = $target_dir .$id.".".$imageFileType; /// <- update name to path/id.filetype
