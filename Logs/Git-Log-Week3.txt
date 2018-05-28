@@ -1,0 +1,48 @@
+Brendon Waters: Fixing file structure - minor
+Brendon Waters: Cart.php typo
+Brendon Waters: Updated header links
+Brendon Waters: changed css point to be consistent with other pages
+Brendon Waters: Amended file path for main pages, corrected link on header
+Brendon Waters: deleted old gantt
+Brendon Waters: newest gantt chart
+Ashleigh Logan: Upload New products.html to a .php
+Ashleigh Logan: Update cart.php with new head, removed placeholder text
+Ashleigh Logan: fixed head, replaced placeholder text.
+Brendon Waters: Updating Gantt Chart
+Brendon Waters: Updated file path to new index.php and new about.php
+Brendon Waters: Merge branch 'master' of https://gitlab.camosun.bc.ca/ics199-2018/group07/website-development-build
+Brendon Waters: renamed cart.html to cart.php
+jwarnes: Merge branch 'master' of https://gitlab.camosun.bc.ca/ics199-2018/group07/website-development-build
+jwarnes: Pics finally work
+Brendon Waters: Delete index.html, replaced with index.php
+Brendon Waters: Changed index.html to index.php and added about.php
+Isaac Thiessen: pleeease work Merge branch 'jacob-productForm'
+jwarnes: Images adjustment
+Isaac Thiessen: removed unnessisary files
+Brendon Waters: Merge branch 'master' of https://gitlab.camosun.bc.ca/ics199-2018/group07/website-development-build
+Brendon Waters: Directory restructure
+Isaac Thiessen: Improved readability and formating on showProducts.php.
+Isaac Thiessen: Merge branch 'master' of https://gitlab.camosun.bc.ca/ics199-2018/group07/website-development-build
+Isaac Thiessen: Finished show products scripts, with restriction of results based on categories
+jwarnes: adding pictures
+Brendon Waters: Delete css.css
+Brendon Waters: Delete index.html
+Brendon Waters: Delete log1.txt
+Brendon Waters: Delete navbar.css
+Brendon Waters: Delete products.html
+Brendon Waters: Delete Website design notes.docx
+Brendon Waters: Delete cart.html
+Isaac Thiessen: added category restrictions on query for products page
+jwarnes: adding images to form
+Isaac Thiessen: Merge branch 'master' of https://gitlab.camosun.bc.ca/ics199-2018/group07/website-development-build
+Isaac Thiessen: Added products page middleware!!!
+jacob: Merge branch 'jacob-datamodel' into 'master'
+jwarnes: new data model and js added
+jacob: product form for submitForm
+jacob: php submit product
+Isaac Thiessen: Changed directory structure
+Isaac Thiessen: updated proper formating for log
+Isaac Thiessen: updated log
+Isaac Thiessen: added documents around project
+Isaac Thiessen: added logfile
+Isaac Thiessen: Initial commit
