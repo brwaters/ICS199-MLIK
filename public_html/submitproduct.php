@@ -20,17 +20,28 @@
 		$connection ->close();
 	}
 	*/
-	
+	//*** 
 	/********** uploading image   *****///////
-	$target_dir ="images/";  ///UPADTE THIS TO DATABASE AT SOME POINT
-	$target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]); ///Need to rename image filename 
-	echo "basename :". basename($_FILES["fileToUpload"]["name"]);
-	echo "<br>FILES:".$_FILES["fileToUpload"]["name"]."<br>";
-	echo $target_file;
 	
+	//***** get product id of product just entered ******////
+
+	$sql = "SELECT prod_id
+			FROM PRODUCTS 
+			WHERE name = 'Goat supreme'";
+	$query =$connection->query($sql);		
+	while($results = $query->fetch_all()){ 
+		 $id =$results[0][0];	
+	}
+	
+	$target_dir ="product_pics/";  ///UPADTE THIS TO DATABASE AT SOME POINT
+	
+	$target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]); ///Need to rename image filename 
 	$uploadOk = 1;
 	$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
-	echo $imageFileType;
+	$target_file = $target_dir .$id.".".$imageFileType; ///Need to rename image filename 
+	echo "<br>target_file = $target_file<br>";
+	
+	
 	// Check if image file is a actual image or fake image
 	if(isset($_POST["fileToUpload"])) {
 		echo "<br> we here now";
