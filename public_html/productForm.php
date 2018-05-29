@@ -8,7 +8,7 @@
 <p> Decription: <input type="text" name="description" ></p>
 <p> Price: <input type="text" name="price" ></p>
 <p> Image: <input type="file"  name="fileToUpload" id="fileToUpload"> </p>
-<p> Category: <select multiple name="category">
+<p> Category<br> 
 <?php
 	$connection = new mysqli("localhost", "cst170","381953","ICS199Group07_dev");
 	
@@ -17,13 +17,12 @@
 	}
 	$query =$connection->query("SELECT * FROM CATEGORIES");
 	while($dataCat = $query->fetch_assoc()){ 
-		print $dataCat["cat_name"];
-		echo "loop <br>";
-		echo "<option value=".$dataCat["cat_id"].">".$dataCat["cat_name"]." </option>";
+		
+		echo "<input type='checkbox' name=".$dataCat["cat_id"].">".$dataCat["cat_name"]." </input>";
 
 		}
 ?>
-</select></p>
+</p>
 <input type="submit" value="submit" id="submit1" />
 </form>
 
