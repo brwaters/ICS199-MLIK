@@ -85,8 +85,7 @@
 	}
 	// Allow certain file formats INGNORE FOR NOW 
 	
-	if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
-	&& $imageFileType != "gif" ) {
+	if($imageFileType != "jpg" ) {
 		echo "<p>Sorry, only JPG, JPEG, PNG & GIF files are allowed.</p>";
 		$uploadOk = 0;
 	} 
@@ -101,4 +100,9 @@
 			echo "Sorry, there was an error uploading your file.";
 		}
 	}
+<<<<<<< HEAD
 	$connection ->close(); */?>
+=======
+	$connection ->close();
+?>
+>>>>>>> 568984ff7999574943ac97d15e5984183de2366c

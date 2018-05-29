@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <link rel="stylesheet" href="./css.css">
 <title>home</title>
-			<?php include 'navbar.php'; ?>
+			<?php $page = "index"; include 'navbar.php'; ?>
 </head>
 
 <body>

@@ -1,5 +1,9 @@
 <html>
 <head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="./css.css">
+<title>home</title>
+			<?php include 'navbar.php'; ?>
 </head>
 <body>
 

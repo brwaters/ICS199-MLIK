@@ -6,6 +6,11 @@
 					<li><a href=\"products.php\">Products</a></li>
 					<li><a href=\"cart.php\">Cart</a></li>
 					<li><a href=\"about.php\">About</a></li>
+<<<<<<< HEAD
+=======
+                                        <li><a href=\"login.php\">Login</a></li>
+                                        <li><a href=\"productForm.php\">Add Product</a></li>
+>>>>>>> 568984ff7999574943ac97d15e5984183de2366c
 				</ul>
 			</header>";
 	$reg = "index\.php";
