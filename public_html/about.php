@@ -12,7 +12,5 @@
 		<p>This is our group's project about page, informing our lovely customers about who we are and what we sell.</p>
 	</div>
 </body>
-<footer>
-  <hr>
-  We sell quality goods! Check us out on Twitter, Social Media Site 1, Social Media Site 2</footer>
+<?php include 'footer.php';?>
 </html>

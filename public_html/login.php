@@ -49,3 +49,6 @@ if (sizeOf($_POST) > 0 ){
 	}
 }
 ?>
+</body>
+<?php include 'footer.php';?>
+</html>
