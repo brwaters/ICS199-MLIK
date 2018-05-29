@@ -1,11 +1,11 @@
 <meta charset="utf-8">
 <link rel="stylesheet" href="./css.css">
 <title>home</title>
-			<?php include 'navbar.php'; ?>
+			<?php include 'navbar.php'; include 'functionsIsaac.php';?>
 </head>
 <body>
 
-<form action="submitproduct.php" method="POST" enctype="multipart/form-data">
+<form action="productForm.php" method="POST" enctype="multipart/form-data">
 <p> Name: <input type="text" name="name" value='' id='name'></p>
 <p> Decription: <input type="text" name="description" ></p>
 <p> Price: <input type="text" name="price" ></p>
@@ -31,5 +31,57 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 <script src="productForm.js"></script>
 
+<?php
+
+//getting input
+$name = $_POST['name'];
+$description = $_POST['description'];
+$price = $_POST['price'];
+$image = $_POST['fileToUpload'];
+$catagories[] = $_POST['catagory'];
+$errors[] = array();
+
+//checking for input. Size will be zero if the submit button HASNT been clicked
+if (sizeOf($_POST) > 0){
+	
+	//Checking name
+	if ( ! checkNameProdEntry($name)){
+		//name is invalid
+		array_push ($errors, 'Invalid Name');
+	}
+
+	//Checking description
+	if ( ! checkDescripProdEntry($description)){
+		//description is invalid
+		array_push ($errors, 'Invalid Description');
+	}
+
+	//Checking price
+	if ( ! checkPriceProdEntry($price)){
+		//price is invalid
+		array_push ($errors, 'Invalid Price');
+	}
+	
+	if ($_FILES['fileToUpload']['name'] == '') {
+		//no picture was uploaded
+		array_push($errors, 'Please select an image ');
+		
+	} else {
+		$imageValid = checkImage($_FILES['fileToUpload']);
+
+		if ($imageValid != true){
+			echo 'errors' . gettype($imageValid);
+			array_push($errors, $imageValid);
+		}
+	}
+}
+
+if (sizeOf($errors) > 1){
+	echo errorHandler($errors);
+}
+
+
+?>
 </body>
+
 </html>
