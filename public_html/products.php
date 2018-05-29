@@ -20,6 +20,7 @@
             }
             .prod_txt {
                 margin-left: 30px;
+                margin-right: 30px;
             }
         </style>
         <?php
@@ -83,18 +84,22 @@
             //Here is a div generating loop, for each row that was returned in the query from earlier
             while ($dataCat = $query->fetch_assoc()) {
                 ?>
-                <div class='product'>
+                <form action="addToCart.php" method="POST" enctype="multipart/form-data">
+                    <div class='product'>
 
-                    <!-- subtle but important break -->
-                    <br>
+                        <!-- subtle but important break -->
+                        <br>
 
-                    <!-- Here we retrieve the image based on the product id. The product with a product id of 1 will retrieve 1.jpg from the product_pics directory -->
-                    <img class='prod_img' src='product_pics/<?php echo $dataCat['prod_id']; ?>.jpg' alt=<?php echo $dataCat['Name']; ?> >	
+                        <!-- Here we retrieve the image based on the product id. The product with a product id of 1 will retrieve 1.jpg from the product_pics directory -->
 
-                    <p class='prod_txt'><b><?php print $dataCat['Name']; ?></b></p> 
-                    <p class='prod_txt'>$ <?php print $dataCat['Price']; ?></p>
-                    <p><button type="button">Add to cart</button></p>
-                </div>
+                        <img class='prod_img' src='product_pics/<?php echo $dataCat['prod_id']; ?>.jpg' alt=<?php echo $dataCat['Name']; ?> >	
+
+                        <p class='prod_txt'><b><?php print $dataCat['Name']; ?></b></p> 
+                        <p class='prod_txt'>$ <?php print $dataCat['Price']; ?></p>
+                        <button class='prod_txt' type="Submit" value="<?php echo $dataCat['prod_id']; ?>">Add to cart</button>
+                    </div>
+                </form>
+
                 <?php
                 //Closing the while loop from before. Yes this is wierd.
             }
@@ -102,6 +107,7 @@
             ?>
         </ul>
     </div>
+    <br>
     <br>
 </body>
 
