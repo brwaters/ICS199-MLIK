@@ -80,8 +80,7 @@
 	}
 	// Allow certain file formats INGNORE FOR NOW 
 	
-	if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
-	&& $imageFileType != "gif" ) {
+	if($imageFileType != "jpg" ) {
 		echo "<p>Sorry, only JPG, JPEG, PNG & GIF files are allowed.</p>";
 		$uploadOk = 0;
 	} 
