@@ -161,4 +161,5 @@ $categories = $_POST['category'];
 
 
 </body>
+<?php include 'footer.php';?>
 </html>

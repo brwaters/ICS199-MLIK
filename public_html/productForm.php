@@ -2,7 +2,6 @@
 <link rel="stylesheet" href="./css.css">
 <title>home</title>
 			<?php include 'navbar.php'; include 'functionsIsaac.php';?>
-</head>
 <body>
 
 <form action="productForm.php" method="POST" enctype="multipart/form-data">
@@ -83,5 +82,5 @@ if (sizeOf($errors) > 1){
 
 ?>
 </body>
-
+<?php include 'footer.php';?>
 </html>
