@@ -2,15 +2,14 @@
 	$name = $_POST['name'];
 	$description = $_POST['description'];
 	$price = $_POST['price'];
-	$category = $_POST['category'];
+	
 	$connection = new mysqli("localhost", "cst170","381953","ICS199Group07_dev");
 	
-	
 	// Adding Product to database
-	
+	/
 	if($connection -> connect_error){
 		die("Connection failed: ". $connection ->connect_error);
-	}
+	}/*
 	$sql = "INSERT INTO PRODUCTS (name,description,price)
 			VALUES ('".$name."','".$description."','".$price."')";
 	if($connection->query($sql) === TRUE){
@@ -23,18 +22,24 @@
 	
 
 	
-	
+
 	//***** get product id of product just entered ******////
 
-	$sql = "SELECT prod_id
+	/*$sql = "SELECT prod_id
 			FROM PRODUCTS 
 			WHERE name = '$name'";
 	$query =$connection->query($sql);		
 	while($results = $query->fetch_all()){ 
 		 $id =$results[0][0];	
+	}*/
+	$sql ="SELECT cat_id 
+			FROM CATEGORIES";
+	$query = $connection->query($sql);
+	while($results = $query->fetch_all()){
+		echo $results["cat_id"];
 	}
 	// ***** insert id into categories and 
-	$sql = "INSERT INTO PRODUCT_CATEGORY (CATEGORIES_cat_id,PRODUCTS_prod_id)
+/*	$sql = "INSERT INTO PRODUCT_CATEGORY (CATEGORIES_cat_id,PRODUCTS_prod_id)
 			VALUES ('".$category."','".$id."')";
 			
 	if($connection->query($sql) === TRUE){
@@ -46,8 +51,8 @@
 	}
 
 	
-	/********** uploading image   *****///////
-	$target_dir ="product_pics/";  ///UPADTE THIS TO DATABASE AT SOME POINT
+	/********** uploading image   *****/////// 
+	/*$target_dir ="product_pics/";  ///UPADTE THIS TO DATABASE AT SOME POINT
 	
 	$target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]); 
 	$uploadOk = 1;
@@ -95,5 +100,7 @@
 			echo "Sorry, there was an error uploading your file.";
 		}
 	}
-	$connection ->close();
-?>
+<<<<<<< HEAD
+	$connection ->close(); */?>
+=======
+
