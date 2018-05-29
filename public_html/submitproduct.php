@@ -103,6 +103,4 @@
 <<<<<<< HEAD
 	$connection ->close(); */?>
 =======
-	$connection ->close();
-?>
->>>>>>> 568984ff7999574943ac97d15e5984183de2366c
+
