@@ -35,7 +35,6 @@ if (sizeOf($_POST) > 0 ){
 		echo 'Welcome ' . $login[1]['fname'] . '!';
 		
 		//setting session variables
-		session_start();
 		$_SESSION['loggedIn'] = true;
 		$_SESSION['cust_id'] = $login[1]['cust_id'];
 		$_SESSION['fname'] = $login[1]['fname'];
