@@ -1,5 +1,23 @@
 <?php
+function checkCategories(){
+        $connection = new mysqli("localhost", "cst170","381953","ICS199Group07_dev"); 
+        if($connection -> connect_error){
+                die("Connection failed: ". $connection ->connect_error);
+        } 
+        $sql ="SELECT cat_id 
+                FROM CATEGORIES";
+        $query = $connection->query($sql);
 
+        //loop through seeing a category check box is checked 
+        while($results = $query->fetch_assoc()){
+            if(isset($_POST[$results["cat_id"]])){
+                    return True;
+
+            }
+
+        } 
+        return false;
+}
 function checkNameProdEntry( $input ) {
         $size = strlen($input);
         if($size < 1 || $size > 46){
@@ -33,12 +51,15 @@ function checkDescripProdEntry( $input ) {
     }
 }
 function checkPriceProdEntry( $input ) {
-    $pattern = "/^(?!\.?$)\d.(\.\d{0,2})?$/";
+    if($input <= 0){
+        return "price has to be above 0";
+    }
+    $pattern = "/^(?!\.?$)\d*(\.\d{0,2})?$/";
     if (preg_match($pattern, $input)){ 
 	  return true;
     } 
     else{ 
-	  return false;
+	  return "price must only be numbers with a possible two decimal places";
     } 
 }
 
@@ -197,10 +218,7 @@ function addProduct(){
         if($connection -> connect_error){
                 die("Connection failed: ". $connection ->connect_error);
         } 
-        else{
-            echo"connection done<br>";
-	}
-		
+       
 
         // Adding Product to database
         $sql = "INSERT INTO PRODUCTS (name,description,price)
@@ -226,7 +244,7 @@ function addProduct(){
         $target_file = $target_dir .$id.".".$imageFileType; /// <- update name to path/id.filetype
 
         if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-                        echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
+                        
         } else {
                         echo "Sorry, there was an unexpexted error uploading your file.(probably a premission issue)";
         }
@@ -241,7 +259,7 @@ function addProduct(){
         while($results = $query->fetch_assoc()){
                                 if(isset($_POST[$results["cat_id"]])){
                                         addToCategory( $results["cat_id"],$id,$connection);
-                                        echo $results["cat_id"];
+                                     
                                 }
 
         } 	

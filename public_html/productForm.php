@@ -37,7 +37,6 @@ $name = $_POST['name'];
 $description = $_POST['description'];
 $price = $_POST['price'];
 $image = $_POST['fileToUpload'];
-$catagories[] = $_POST['catagory'];
 $errors[] = array();
 
 //checking for input. Size will be zero if the submit button HASNT been clicked
@@ -58,9 +57,10 @@ if (sizeOf($_POST) > 0){
 	}
 
 	//Checking price
-	if ( !checkPriceProdEntry($price)){
+        $validPrice = checkPriceProdEntry($price);
+	if ( gettype($validPrice) === "string"){
 		//price is invalid
-		array_push ($errors, 'Invalid Price: Price is numbers with up to 2 deciamls');
+		array_push ($errors, 'Invalid Price: '.$validPrice);
 	}
 	
 	if ( $_FILES['fileToUpload']['error']== 0) {
@@ -80,14 +80,17 @@ if (sizeOf($_POST) > 0){
 		array_push($errors, 'Please select an image ');
 		
 	}
-
+        
+        if(!checkCategories()){
+            array_push ($errors, 'Please select a category');
+        }
 
     if (sizeOf($errors) > 1){
             echo errorHandler($errors);
     }
     else{
         echo "adding product";
-        //addProduct();
+        addProduct();
     }
 }
 
