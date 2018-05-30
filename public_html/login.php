@@ -32,7 +32,6 @@ if (sizeOf($_POST) > 0 ){
 	if ($login[0]){
 		//login successful [1] is the name
 
-		echo 'Welcome ' . $login[1]['fname'] . '!';
 		
 		//setting session variables
 		$_SESSION['loggedIn'] = true;
@@ -40,6 +39,7 @@ if (sizeOf($_POST) > 0 ){
 		$_SESSION['fname'] = $login[1]['fname'];
 		$_SESSION['account_type'] = $login[1]['account_type'];
 			
+		echo '<script> if(window.confirm("Welcome ' . $login[1]['fname'] . '!")){window.location.href=\'index.php\';}; </script>';
 
 	} else {
 		//login failed [1] is an array of errors
