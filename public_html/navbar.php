@@ -1,8 +1,15 @@
 <?php
 	session_start();
 	$nav = "<header>
-			<h1>The mlik header image goes here!</h1>
-			<ul id = \"navbar\">
+
+			<h1>The mlik header image goes here!</h1>";
+
+	if ($_SESSION['loggedIn']){
+		$nav = $nav . '<h3>Welcome ' . $_SESSION['fname'] . '! </h3>';
+
+
+	}
+	$nav = $nav ." <ul id = \"navbar\">
 			<li><a href=\"index.php\">Home</a></li>
 			<li><a href=\"products.php\">Products</a></li>
 			<li><a href=\"about.php\">About</a></li>";
