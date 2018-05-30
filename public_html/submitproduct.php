@@ -1,15 +1,54 @@
 <?php
+        function addToCategory($catId, $prodId, $con){
+              // ***** insert insert cat and pro into products category table
+            $sql = "INSERT INTO PRODUCT_CATEGORY (CATEGORIES_cat_id,PRODUCTS_prod_id)
+                            VALUES ('".$catId."','".$prodId."')";
+            if($con->query($sql) === TRUE){
+		echo "entered";
+            }
+            else{
+                    echo "Error: ".sql . "<br>". $con ->error;
+                    $con ->close();
+            }
+        }
+            
 	$name = $_POST['name'];
 	$description = $_POST['description'];
 	$price = $_POST['price'];
 	
-	$connection = new mysqli("localhost", "cst170","381953","ICS199Group07_dev");
-	
-	// Adding Product to database
-	/
+	$connection = new mysqli("localhost", "cst170","381953","ICS199Group07_dev"); 
 	if($connection -> connect_error){
 		die("Connection failed: ". $connection ->connect_error);
-	}/*
+	} 
+	
+	//***** get product id of product just entered ******////
+
+	$sql = "SELECT prod_id
+			FROM PRODUCTS 
+			WHERE name = '$name'";
+	$query =$connection->query($sql);		
+	while($results = $query->fetch_assoc()){ 
+		 $id =$results["prod_id"];	
+	}
+        echo "id = $id name = $name <br>";
+	
+        // all actegories 
+        $sql ="SELECT cat_id 
+		FROM CATEGORIES";
+	$query = $connection->query($sql);
+       
+        //loop through seeing if category check box is checked if so add to table
+	while($results = $query->fetch_assoc()){
+                if(isset($_POST[$results["cat_id"]])){
+                    addToCategory( $results["cat_id"],$id,$connection);
+                    echo $results["cat_id"];
+                }
+                
+	} 
+       
+        
+?> <!--
+        // Adding Product to database
 	$sql = "INSERT INTO PRODUCTS (name,description,price)
 			VALUES ('".$name."','".$description."','".$price."')";
 	if($connection->query($sql) === TRUE){
@@ -25,34 +64,20 @@
 
 	//***** get product id of product just entered ******////
 
-	/*$sql = "SELECT prod_id
+	$sql = "SELECT prod_id
 			FROM PRODUCTS 
 			WHERE name = '$name'";
 	$query =$connection->query($sql);		
 	while($results = $query->fetch_all()){ 
 		 $id =$results[0][0];	
-	}*/
-	$sql ="SELECT cat_id 
-			FROM CATEGORIES";
-	$query = $connection->query($sql);
-	while($results = $query->fetch_all()){
-		echo $results["cat_id"];
 	}
-	// ***** insert id into categories and 
-/*	$sql = "INSERT INTO PRODUCT_CATEGORY (CATEGORIES_cat_id,PRODUCTS_prod_id)
-			VALUES ('".$category."','".$id."')";
-			
-	if($connection->query($sql) === TRUE){
-		echo "entered";
-	}
-	else{
-		echo "Error: ".sql . "<br>". $connection ->error;
-		$connection ->close();
-	}
+ 
+ 
+	
 
 	
 	/********** uploading image   *****/////// 
-	/*$target_dir ="product_pics/";  ///UPADTE THIS TO DATABASE AT SOME POINT
+	$target_dir ="product_pics/";  ///UPADTE THIS TO DATABASE AT SOME POINT
 	
 	$target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]); 
 	$uploadOk = 1;
@@ -100,7 +125,8 @@
 			echo "Sorry, there was an error uploading your file.";
 		}
 	}
-<<<<<<< HEAD
-	$connection ->close(); */?>
-=======
+
+	$connection ->close(); 
+        ?>
+-->
 

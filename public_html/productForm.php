@@ -7,7 +7,7 @@
 
 <form action="productForm.php" method="POST" enctype="multipart/form-data">
 <p> Name: <input type="text" name="name" value='' id='name'></p>
-<p> Decription: <input type="text" name="description" ></p>
+<p> Description: <input type="text" name="description" ></p>
 <p> Price: <input type="text" name="price" ></p>
 <p> Image: <input type="file"  name="fileToUpload" id="fileToUpload"> </p>
 <p> Category<br> 
@@ -62,17 +62,22 @@ if (sizeOf($_POST) > 0){
 		array_push ($errors, 'Invalid Price');
 	}
 	
-	if ($_FILES['fileToUpload']['name'] == '') {
-		//no picture was uploaded
-		array_push($errors, 'Please select an image ');
+	if ( $_FILES['fileToUpload']['error']== 0) {
+            
+		$imageValid = checkImage();
+               
+		if (!empty($imageValid)){
+			
+			foreach($imageValid as $imageError){
+                            array_push($errors, $imageError);
+                        }
+		}
+                
 		
 	} else {
-		$imageValid = checkImage($_FILES['fileToUpload']);
-
-		if ($imageValid != true){
-			echo 'errors' . gettype($imageValid);
-			array_push($errors, $imageValid);
-		}
+                //no picture was uploaded
+		array_push($errors, 'Please select an image ');
+		
 	}
 }
 
