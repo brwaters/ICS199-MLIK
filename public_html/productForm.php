@@ -46,19 +46,19 @@ if (sizeOf($_POST) > 0){
 	//Checking name
 	if ( ! checkNameProdEntry($name)){
 		//name is invalid
-		array_push ($errors, 'Invalid Name');
+		//array_push ($errors, 'Invalid Name');
 	}
 
 	//Checking description
 	if ( ! checkDescripProdEntry($description)){
 		//description is invalid
-		array_push ($errors, 'Invalid Description');
+		//array_push ($errors, 'Invalid Description');
 	}
 
 	//Checking price
 	if ( ! checkPriceProdEntry($price)){
 		//price is invalid
-		array_push ($errors, 'Invalid Price');
+		//array_push ($errors, 'Invalid Price');
 	}
 	
 	if ( $_FILES['fileToUpload']['error']== 0) {
@@ -78,10 +78,15 @@ if (sizeOf($_POST) > 0){
 		array_push($errors, 'Please select an image ');
 		
 	}
-}
 
-if (sizeOf($errors) > 1){
-	echo errorHandler($errors);
+
+    if (sizeOf($errors) > 1){
+            echo errorHandler($errors);
+    }
+    else{
+        echo "adding product";
+        addProduct();
+    }
 }
 
 

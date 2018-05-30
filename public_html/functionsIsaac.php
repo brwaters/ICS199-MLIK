@@ -143,4 +143,75 @@ function check_login ($dbc, $email = '', $pass = '') {
 function typethis(){
 	echo 'FUDSLKFJIDSHFPIDSHKJFHDSFFIUGDSFIDSHF';
 }
+function addToCategory($catId, $prodId, $con){
+        // ***** insert insert cat and pro into products category table
+      $sql = "INSERT INTO PRODUCT_CATEGORY (CATEGORIES_cat_id,PRODUCTS_prod_id)
+                      VALUES ('".$catId."','".$prodId."')";
+      if($con->query($sql) === TRUE){
+          echo "entered";
+      }
+      else{
+              echo "Error: ".sql . "<br>". $con ->error;
+              $con ->close();
+      }
+}
+function addProduct(){
+        echo "<br>add product function <br>";
+        $name = $_POST['name'];
+        $description = $_POST['description'];
+        $price = $_POST['price'];
+
+        $connection = new mysqli("localhost", "cst170","381953","ICS199Group07_dev"); 
+        if($connection -> connect_error){
+                die("Connection failed: ". $connection ->connect_error);
+        } 
+        else{
+            echo"connection done<br>";
+	}
+		
+
+        // Adding Product to database
+        $sql = "INSERT INTO PRODUCTS (name,description,price)
+                        VALUES ('".$name."','".$description."','".$price."')";
+        if($connection->query($sql) === FALSE){
+                echo "Error: ".sql . "<br>". $connection ->error;
+                $connection ->close();
+        }
+        //***** get product id of product just entered ******////
+
+        $sql = "SELECT prod_id
+                        FROM PRODUCTS 
+                        WHERE name = '$name'";
+        $query =$connection->query($sql);		
+        while($results = $query->fetch_all()){ 
+                 $id =$results[0][0];	
+        }
+        /********** uploading image   *****/////// 
+        $target_dir ="product_pics/";  ///UPADTE THIS TO DATABASE AT SOME POINT
+
+        $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]); 
+        $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+        $target_file = $target_dir .$id.".".$imageFileType; /// <- update name to path/id.filetype
+
+        if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
+                        echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
+        } else {
+                        echo "Sorry, there was an unexpexted error uploading your file.(probably a premission issue)";
+        }
+
+        ///***** Add to categories*****///
+        // all actegories 	
+        $sql ="SELECT cat_id 
+                FROM CATEGORIES";
+        $query = $connection->query($sql);
+
+        //loop through seeing if category check box is checked if so add to table
+        while($results = $query->fetch_assoc()){
+                                if(isset($_POST[$results["cat_id"]])){
+                                        addToCategory( $results["cat_id"],$id,$connection);
+                                        echo $results["cat_id"];
+                                }
+
+        } 	
+}	
 ?>
