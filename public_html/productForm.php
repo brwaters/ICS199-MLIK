@@ -89,7 +89,7 @@ if (sizeOf($_POST) > 0){
             echo errorHandler($errors);
     }
     else{
-        echo "adding product";
+        
         addProduct();
     }
 }

@@ -201,7 +201,7 @@ function addToCategory($catId, $prodId, $con){
       $sql = "INSERT INTO PRODUCT_CATEGORY (CATEGORIES_cat_id,PRODUCTS_prod_id)
                       VALUES ('".$catId."','".$prodId."')";
       if($con->query($sql) === TRUE){
-          echo "entered";
+         return;
       }
       else{
               echo "Error: ".sql . "<br>". $con ->error;
@@ -246,7 +246,7 @@ function addProduct(){
         if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
                         
         } else {
-                        echo "Sorry, there was an unexpexted error uploading your file.(probably a premission issue)";
+                        echo "<script> alert('Sorry, there was an unexpexted error uploading your file.(probably a premission issue)');</script>";
         }
 
         ///***** Add to categories*****///
@@ -257,11 +257,12 @@ function addProduct(){
 
         //loop through seeing if category check box is checked if so add to table
         while($results = $query->fetch_assoc()){
-                                if(isset($_POST[$results["cat_id"]])){
-                                        addToCategory( $results["cat_id"],$id,$connection);
-                                     
-                                }
+            if(isset($_POST[$results["cat_id"]])){
+                    addToCategory( $results["cat_id"],$id,$connection);
 
-        } 	
+            }
+
+        } 
+        echo"<script> alert('Product added');</script>";
 }	
 ?>
