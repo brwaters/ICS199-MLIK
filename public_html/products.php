@@ -110,10 +110,10 @@
             $product_id = $_POST['submit'];
             //echo 'Product ID:' . $product_id;
 
-            if (isset($product_id)) {
+            if (isset($product_id)) { //Once pages is reloaded by clicking add cart, a product value is passed back to this page
                 $connection = new mysqli("localhost", "cst170", "381953", "ICS199Group07_dev");
 
-                if ($connection->connect_error) {
+                if ($connection->connect_error) { //Connection to DB opened
                     die("Connection failed: " . $connection->connect_error);
                 }
 
@@ -151,6 +151,6 @@
 </body>
 
 
-<?php include 'footer.php'; ?>
+<?php include 'footer.php';?>
 
 </html>
