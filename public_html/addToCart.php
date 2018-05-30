@@ -13,14 +13,11 @@ $addToCart = "INSERT INTO ICS199Group07_dev.CART(quantity,cust_id,prod_id) VALUE
 $incrementQuantity = "UPDATE ICS199Group07_dev.CART SET quantity = quantity + 1 WHERE cust_id = " . $user_id . " AND prod_id = " . $product_id . ";";
 $checkProdExists = "SELECT prod_id FROM ICS199Group07_dev.CART WHERE cust_id = " . $user_id . " AND prod_id = " . $product_id . ";";
 
-echo $addToCart;
-echo $incrementQuantity;
-echo $checkProdExists;
-
 $prodExists = $connection->query($checkProdExists);
-echo $prodExists;
-if (mysqli_num_rows($prodExists) != 1) {
-    echo "There is an entry already incrementing by 1:";
+//print_r($prodExists);
+//echo $prodExists->num_rows;
+if (($prodExists->num_rows) == 1) {
+    echo "There is an entry already, incrementing by 1:";
     if ($connection->query($incrementQuantity) === TRUE) {
         echo "Incremented cart value";
     } else {
@@ -28,6 +25,7 @@ if (mysqli_num_rows($prodExists) != 1) {
         $connection->close();
     }
 } else {
+    echo "No entry exists.";
     if ($connection->query($addToCart) === TRUE) {
         echo "Added to cart.";
     } else {
@@ -35,6 +33,6 @@ if (mysqli_num_rows($prodExists) != 1) {
         $connection->close();
     }
 }
-//}
+
 mysqli_close($connection);
 ?>
