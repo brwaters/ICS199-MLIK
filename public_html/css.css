@@ -1,67 +1,67 @@
 /* CSS Document */
 header, footer {
-	margin: 10px, 10px, 0px, 10px;
-	text-align: center;
-	font-family: Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", "serif";
-	padding-top: 200px;
+    margin: 10px 10px 0px 10px;
+    text-align: center;
+    font-family: Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", "serif";
+    padding-top: 200px;
 }
 
 body {
-	display: block;
+    display: block;
     background-color: #FFFFFF;
 }
 
 p {
-	background: white;
+    background: white;
 }
 #navbar {
-	background-color: #393D3F;
+    background-color: #393D3F;
 
 }
 
 #navbar ul {
-	list-style-type: none;
-	margin: 0;
-	padding: 0;
-	overflow: hidden;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
 
 }
 
 #navbar li {
-	text-align: center;
-	display:inline-block;
+    text-align: center;
+    display:inline-block;
 }
 
 #navbar li a {
-	display: block;
-	color: white;
-	text-align: center;
-	padding: 14px 16px;
-	text-decoration: none;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
 }
 
 #active {
-	background-color: #111;
+    background-color: #111;
 }
 
 /* Change the link color to #111 (black) on hover */
 #navbar li a:hover {
-	background-color: #111;
+    background-color: #111;
     color: #9BB9C1;
 }
 
 .searched_items {
-	list-style-type: none;
-	padding: 5px;
+    list-style-type: none;
+    padding: 5px;
 }
 
 .item	{
-	display: inline-grid;
+    display: inline-grid;
 
 }
 
 .item_tile  {
-	margin: 5px;
+    margin: 5px;
 }
 
 

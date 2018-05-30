@@ -96,7 +96,7 @@
 
                         <p class='prod_txt'><b><?php print $dataCat['Name']; ?></b></p> 
                         <p class='prod_txt'>$ <?php print $dataCat['Price']; ?></p>
-                        <button class='prod_txt' type="Submit" value="<?php echo $dataCat['prod_id']; ?>">Add to cart</button>
+                        <button class='prod_txt' type="Submit" name="submit" value="<?php echo $dataCat['prod_id']; ?>">Add to cart</button>
                     </div>
                 </form>
 
@@ -112,9 +112,6 @@
 </body>
 
 
-<footer>
-    <hr>
-    We sell quality goods! Check us out on Twitter, Social Media Site 1, Social Media Site 2
-</footer>
+<?php include 'footer.php';?>
 
 </html>
