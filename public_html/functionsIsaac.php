@@ -1,13 +1,45 @@
 <?php
 
 function checkNameProdEntry( $input ) {
-	return false;
+        $size = strlen($input);
+        if($size < 1 || $size > 46){
+            return "Size inccorect";
+        }
+	$connection = new mysqli("localhost", "cst170","381953","ICS199Group07_dev"); 
+        if($connection -> connect_error){
+                die("Connection failed: ". $connection ->connect_error);
+                return false;
+        } 
+        $sql = "SELECT prod_id
+                        FROM PRODUCTS 
+                        WHERE name = '$input'";
+        $query =$connection->query($sql);		
+        while($results = $query->fetch_all()){ 
+                 $id =$results[0][0];	
+        }
+	if(isset($id)){
+            return "Product already in database";
+        }
+        else{
+            return true;
+        }
 }
 function checkDescripProdEntry( $input ) {
-	return false;
+    if(strlen($input)> 60000 || strlen($input) < 1){
+        return false;
+    }
+    else{
+         return true;
+    }
 }
 function checkPriceProdEntry( $input ) {
-	return false;
+    $pattern = "/^(?!\.?$)\d.(\.\d{0,2})?$/";
+    if (preg_match($pattern, $input)){ 
+	  return true;
+    } 
+    else{ 
+	  return false;
+    } 
 }
 
 
@@ -156,7 +188,7 @@ function addToCategory($catId, $prodId, $con){
       }
 }
 function addProduct(){
-        echo "<br>add product function <br>";
+       
         $name = $_POST['name'];
         $description = $_POST['description'];
         $price = $_POST['price'];

@@ -44,21 +44,23 @@ $errors[] = array();
 if (sizeOf($_POST) > 0){
 	
 	//Checking name
-	if ( ! checkNameProdEntry($name)){
+        $validName = checkNameProdEntry($name);
+	if ( gettype($validName) === "string"){
 		//name is invalid
-		//array_push ($errors, 'Invalid Name');
+                
+		array_push ($errors, 'Invalid Name '.$validName);
 	}
 
 	//Checking description
 	if ( ! checkDescripProdEntry($description)){
 		//description is invalid
-		//array_push ($errors, 'Invalid Description');
+		array_push ($errors, 'Description too long');
 	}
 
 	//Checking price
-	if ( ! checkPriceProdEntry($price)){
+	if ( !checkPriceProdEntry($price)){
 		//price is invalid
-		//array_push ($errors, 'Invalid Price');
+		array_push ($errors, 'Invalid Price: Price is numbers with up to 2 deciamls');
 	}
 	
 	if ( $_FILES['fileToUpload']['error']== 0) {
@@ -85,7 +87,7 @@ if (sizeOf($_POST) > 0){
     }
     else{
         echo "adding product";
-        addProduct();
+        //addProduct();
     }
 }
 
