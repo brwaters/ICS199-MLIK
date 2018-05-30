@@ -1,4 +1,5 @@
 <?php
+
 $user_id = 2;
 $product_id = $_POST['submit'];
 echo 'Product ID:' . $product_id;
@@ -8,16 +9,32 @@ if ($connection->connect_error) {
     die("Connection failed: " . $connection->connect_error);
 }
 
-//if (check_login) {
-  $addToCart =  "INSERT INTO `ICS199Group07_dev`.`CART`(`quantity`,`cust_id`,`prod_id`)VALUES('2','" . $user_id . "','" . $product_id . "');";
-  
-  if($connection->query($addToCart) === TRUE){
-		echo "Added:";
-	}
-	else{
-		echo "Error: ".sql . "<br>". $connection ->error;
-		$connection ->close();
-	}
+$addToCart = "INSERT INTO ICS199Group07_dev.CART(quantity,cust_id,prod_id) VALUES(1," . $user_id . "," . $product_id . ");";
+$incrementQuantity = "UPDATE ICS199Group07_dev.CART SET quantity = quantity + 1 WHERE cust_id = " . $user_id . " AND prod_id = " . $product_id . ";";
+$checkProdExists = "SELECT prod_id FROM ICS199Group07_dev.CART WHERE cust_id = " . $user_id . " AND prod_id = " . $product_id . ";";
+
+echo $addToCart;
+echo $incrementQuantity;
+echo $checkProdExists;
+
+$prodExists = $connection->query($checkProdExists);
+echo $prodExists;
+if (mysqli_num_rows($prodExists) != 1) {
+    echo "There is an entry already incrementing by 1:";
+    if ($connection->query($incrementQuantity) === TRUE) {
+        echo "Incremented cart value";
+    } else {
+        echo "Error: " . sql . "<br>" . $connection->error;
+        $connection->close();
+    }
+} else {
+    if ($connection->query($addToCart) === TRUE) {
+        echo "Added to cart.";
+    } else {
+        echo "Error: " . sql . "<br>" . $connection->error;
+        $connection->close();
+    }
+}
 //}
 mysqli_close($connection);
 ?>
