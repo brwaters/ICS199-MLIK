@@ -1,6 +1,6 @@
 <?php
-
-$user_id = 2;
+session_start();
+$user_id = $_SESSION['cust_id'];
 $product_id = $_POST['submit'];
 echo 'Product ID:' . $product_id;
 $connection = new mysqli("localhost", "cst170", "381953", "ICS199Group07_dev");
@@ -14,7 +14,7 @@ $incrementQuantity = "UPDATE ICS199Group07_dev.CART SET quantity = quantity + 1 
 $checkProdExists = "SELECT prod_id FROM ICS199Group07_dev.CART WHERE cust_id = " . $user_id . " AND prod_id = " . $product_id . ";";
 
 $prodExists = $connection->query($checkProdExists);
-//print_r($prodExists);
+print_r($_SESSION);
 //echo $prodExists->num_rows;
 if (($prodExists->num_rows) == 1) {
     echo "There is an entry already, incrementing by 1:";
