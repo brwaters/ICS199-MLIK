@@ -3,28 +3,6 @@
     <head>
         <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="./css.css">
-        <style>
-            .product {
-                height:250px; 
-                width:250px; 
-                background-color:blue;  
-                float: left; 
-                /*position: relative;
-                overflow: hidden;*/
-                margin: 10px;
-            }
-            .prod_img {
-                width:80%;
-                height:60%; 
-                margin-left: auto; 
-                margin-right: auto;
-                display: block;
-            }
-            .prod_txt {
-                margin-left: 30px;
-                margin-right: 30px;
-            }
-        </style>
         <?php
         //Setting up connection to database
         $connection = new mysqli("localhost", "cst170", "381953", "ICS199Group07_dev");
