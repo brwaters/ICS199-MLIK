@@ -11,7 +11,6 @@
 <form action="login.php" method="POST" enctype="multipart/form-data">
 <p> Username: <input type="text" name="username" id='usrname'></p>
 <p> Password: <input type="password" name="password" id='passwd'></p>
-</select></p>
 <input type="submit" value="submit" id="submit1" />
 </form>
 
