@@ -31,10 +31,10 @@
 	$nav = $nav . "
 				</ul>
 			</header>";
-	$reg = "index\.php";
-	$swap = "index\.php\" > here it is";
+	$reg = "/$page/";
+	$swap = "$page.php\" id=\"active\"";
 	
-	//$nav1 = preg_replace($reg, $swap, $nav);
+	$nav = preg_replace($reg, $swap, $nav);
 	echo $nav;
 
 
