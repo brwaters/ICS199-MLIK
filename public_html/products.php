@@ -72,9 +72,9 @@
                         <br>
 
                         <!-- Here we retrieve the image based on the product id. The product with a product id of 1 will retrieve 1.jpg from the product_pics directory -->
-
+                        <a href='product_info.php?product_id=<?php echo $dataCat['prod_id']; ?>'>
                         <img class='prod_img' src='product_pics/<?php echo $dataCat['prod_id']; ?>.jpg' alt=<?php echo $dataCat['Name']; ?> >	
-
+                        </a>
                         <p class='prod_txt'><b><?php print $dataCat['Name']; ?></b></p> 
                         <p class='prod_txt'>$ <?php print $dataCat['Price']; ?></p>
 
