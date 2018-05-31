@@ -86,6 +86,7 @@ if (sizeOf($_POST) > 0){
         }
 
     if (sizeOf($errors) > 1){
+        //errorHandler returns a js alert
             echo errorHandler($errors);
     }
     else{
