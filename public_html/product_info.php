@@ -5,7 +5,7 @@
         <link rel="stylesheet" href="./css.css">
 
         <title>Name of Product</title>
-        <?php include 'navbar.php'; ?>
+        <?php $page="product_info"; include 'navbar.php'; ?>
         <?php
         //session_start();	//start session
         //echo session_id();	//debug session
