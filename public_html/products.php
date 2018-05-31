@@ -9,8 +9,8 @@
                 width:250px; 
                 background-color:blue;  
                 float: left; 
-                //position: relative;
-                //overflow: hidden;
+                /*position: relative;
+                overflow: hidden;*/
                 margin: 10px;
             }
             .prod_img {
