@@ -12,12 +12,20 @@
 				margin: 10px;
 				background-color: grey;
 				padding: 10px;	
+				padding-bottom: 30px;	
 			}
 
 			.cart_img {
 				height: 150px;
-				padding-left: 25px;
+				//padding-left: 25px;
 			}	
+			
+			.cart_info {
+				display: inline;
+				list-style-type: none;
+
+				//padding-left: 50px;
+			}
 		</style>
 	</head>
 
@@ -48,27 +56,42 @@
 			$query = selectFromDB($attributes, 'CART', 'WHERE cust_id = ' . $_SESSION['cust_id']);	
 			$sub_total = 0;
 
+			//each iteration here is a single cart item
 			while ($data = $query->fetch_assoc()){
+				
 				$prod_id = $data['prod_id']; 
+
+				//getting information on the product for this list item
 				$where = 'WHERE prod_id = ' . $prod_id;// . ' AND cust_id = ' . $_SESSION['cust_id'];
 				$product = selectFromDB($attributes, 'PRODUCTS', $where)->fetch_assoc();
+
+				//storing product information in variables to make it easier to access
 				$prod_name = $product['Name'];
 				$qty = $data['quantity'];
 				$single_price = $product['Price'];
+
+				//total price for this item in the cart
 				$total_price = $single_price * $qty;
 
-				echo '<div class=\'cart_item\'>';
-				echo '<img src=\'product_pics/' . $prod_id . '\' class=\'cart_img\'/>';
-				echo $prod_name;
-				echo '<br> Qty: ' .$qty;
-				echo '<br> Price: ' . $total_price;
+				//increasing subtotal to include this cart item
 				$sub_total = $sub_total + $total_price; 
-				echo '</div>';
-				
+
+
+
+				//echoing items
+				echo '
+				<div class=\'cart_item\'>
+				<ul class=\'cart_info\'>
+					<li><img src=\'product_pics/' . $prod_id . '\' class=\'cart_img\'/></li>
+					<li>' . $prod_name . '</li>
+					<li>Qty: ' . $qty . '</li>
+					<li>Price: ' . $total_price . '</li>
+				</ul>
+				</div>';
+
 			} //end while	
 			} //end else
 		?>
-
 		<h3>Sub Total: $<?php echo $sub_total; ?> </h3>	
 
 	</body>
