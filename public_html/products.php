@@ -4,7 +4,26 @@
         <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="./css.css">
         <style>
-
+            .product {
+                height:250px; 
+                width:250px; 
+                background-color:blue;  
+                float: left; 
+                /*position: relative;
+                overflow: hidden;*/
+                margin: 10px;
+            }
+            .prod_img {
+                width:80%;
+                height:60%; 
+                margin-left: auto; 
+                margin-right: auto;
+                display: block;
+            }
+            .prod_txt {
+                margin-left: 30px;
+                margin-right: 30px;
+            }
         </style>
         <?php
         //Setting up connection to database
@@ -18,10 +37,8 @@
         $categories = $_POST['category'];
         ?>
         <title>Products - MLIK</title>
-        <?php
-        $page = 'products';
-        include 'navbar.php';
-        ?>
+        <?php $page = 'products';
+        include 'navbar.php'; ?>
     </head>
 
 
@@ -70,7 +87,7 @@
             //Here is a div generating loop, for each row that was returned in the query from earlier
             while ($dataCat = $query->fetch_assoc()) {
                 ?>
-                <form action="products.php" method="POST" enctype="multipart/form-data">
+                <form action="products.php" method="GET" enctype="multipart/form-data">
                     <div class='product'>
 
                         <!-- subtle but important break -->
@@ -92,69 +109,72 @@
             $connection->close()
             ?>
             <?php
-            // else {
             $user_id = $_SESSION['cust_id'];
-            $product_id = $_POST['submit'];
+            $product_id = $_GET['submit'];
+	
+	echo '<h1>product id = ' . $product_id . '</h1>';
             //echo 'Product ID:' . $product_id;
 
             if (isset($product_id)) { //Once pages is reloaded by clicking add cart, a product value is passed back to this page
-                if (!$_SESSION['loggedIn']) {
+		 if (!$_SESSION['loggedIn']) {
                     //handing product to add to session
                     $_SESSION['addToCart'] = true;
                     $_SESSION['addToCart_prod_id'] = $product_id;
-                    
+
                     //customer is not logged in, we display a message and redirect them to the login page
                     echo '
-			<script>
+                        <script>
                             if (window.confirm(\'You are not logged in\')){
-				window.location.href=\'login.php\';
+                                window.location.href=\'login.php\';
                             } else {
-				window.location.href=\'login.php\';
+                                window.location.href=\'login.php\';
                             }
-			</script>
-			';
+                        </script>
+                        ';
                 } else {
-                    $connection = new mysqli("localhost", "cst170", "381953", "ICS199Group07_dev");
 
-                    if ($connection->connect_error) { //Connection to DB opened
-                        die("Connection failed: " . $connection->connect_error);
-                    }
+                $connection = new mysqli("localhost", "cst170", "381953", "ICS199Group07_dev");
 
-                    $addToCart = "INSERT INTO ICS199Group07_dev.CART(quantity,cust_id,prod_id) VALUES(1," . $user_id . "," . $product_id . ");";
-                    $incrementQuantity = "UPDATE ICS199Group07_dev.CART SET quantity = quantity + 1 WHERE cust_id = " . $user_id . " AND prod_id = " . $product_id . ";";
-                    $checkProdExists = "SELECT prod_id FROM ICS199Group07_dev.CART WHERE cust_id = " . $user_id . " AND prod_id = " . $product_id . ";";
+                if ($connection->connect_error) { //Connection to DB opened
+                    die("Connection failed: " . $connection->connect_error);
+                }
 
-                    $prodExists = $connection->query($checkProdExists);
-                    //print_r($_SESSION);
-                    //echo $prodExists->num_rows;
-                    if (($prodExists->num_rows) == 1) {
-                        //echo "There is an entry already, incrementing by 1:";
-                        if ($connection->query($incrementQuantity) === TRUE) {
-                            //echo "Incremented cart value";
-                        } else {
-                            //echo "Error: " . sql . "<br>" . $connection->error;
-                            $connection->close();
-                        }
+                $addToCart = "INSERT INTO ICS199Group07_dev.CART(quantity,cust_id,prod_id) VALUES(1," . $user_id . "," . $product_id . ");";
+                $incrementQuantity = "UPDATE ICS199Group07_dev.CART SET quantity = quantity + 1 WHERE cust_id = " . $user_id . " AND prod_id = " . $product_id . ";";
+                $checkProdExists = "SELECT prod_id FROM ICS199Group07_dev.CART WHERE cust_id = " . $user_id . " AND prod_id = " . $product_id . ";";
+
+                $prodExists = $connection->query($checkProdExists);
+                //print_r($_SESSION);
+                //echo $prodExists->num_rows;
+                if (($prodExists->num_rows) == 1) {
+                    //echo "There is an entry already, incrementing by 1:";
+                    if ($connection->query($incrementQuantity) === TRUE) {
+                        //echo "Incremented cart value";
                     } else {
-                        //echo "No entry exists.";
-                        if ($connection->query($addToCart) === TRUE) {
-                            //echo "Added to cart.";
-                        } else {
-                            //echo "Error: " . sql . "<br>" . $connection->error;
-                            $connection->close();
-                        }
+                        //echo "Error: " . sql . "<br>" . $connection->error;
+                        $connection->close();
+                    }
+                } else {
+                    //echo "No entry exists.";
+                    if ($connection->query($addToCart) === TRUE) {
+                        //echo "Added to cart.";
+                    } else {
+                        //echo "Error: " . sql . "<br>" . $connection->error;
+                        $connection->close();
                     }
                 }
             }
-                mysqli_close($connection);
-                ?>
-            </ul>
-        </div>
-        <br>
-        <br>
-    </body>
+            mysqli_close($connection);
+	}
+            ?>
+
+        </ul>
+    </div>
+    <br>
+    <br>
+</body>
 
 
-    <?php include 'footer.php'; ?>
+<?php include 'footer.php'; ?>
 
 </html>
