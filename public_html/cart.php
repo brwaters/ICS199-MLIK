@@ -31,6 +31,9 @@
 				<script>
 					if (window.confirm(\'You are not logged in\')){
 						window.location.href=\'login.php\';
+					} else {
+						window.location.href=\'login.php\';
+
 					}
 				</script>
 				';
@@ -43,6 +46,7 @@
 			echo '<br>';
 			
 			$query = selectFromDB($attributes, 'CART', 'WHERE cust_id = ' . $_SESSION['cust_id']);	
+			$sub_total = 0;
 
 			while ($data = $query->fetch_assoc()){
 				$prod_id = $data['prod_id']; 
@@ -57,14 +61,15 @@
 				echo '<img src=\'product_pics/' . $prod_id . '\' class=\'cart_img\'/>';
 				echo $prod_name;
 				echo '<br> Qty: ' .$qty;
-				echo '<br> Price: ' .$total_price;
-
+				echo '<br> Price: ' . $total_price;
+				$sub_total = $sub_total + $total_price; 
 				echo '</div>';
 				
 			} //end while	
 			} //end else
 		?>
 
+		<h3>Sub Total: $<?php echo $sub_total; ?> </h3>	
 
 	</body>
 
