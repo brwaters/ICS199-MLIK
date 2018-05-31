@@ -2,10 +2,10 @@
 <html>
 	<head>
 		<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
-		<link rel="stylesheet" href="./css.css">
 		<title>Cart - MLIK</title>
 			<?php $page = "cart"; include 'navbar.php'; include 'functions.php';?>
 
+		<link rel="stylesheet" href="./css.css">
 		<?php
 		//This deals with incrementing/decrementing cart items
 		
@@ -91,14 +91,14 @@
 				echo '
 				<div class=\'cart_item\'>
 				<ul class=\'cart_info\'>
-					<li><img src=\'product_pics/' . $prod_id . '\' class=\'cart_img\'/></li>
-					<li>' . $prod_name . '</li>
-					<li><form action = "cart.php" method = "post"><input type="submit" name="decrementCart" value="-" /><input type="hidden" name="prod_id" value="' . $prod_id  . '"/></form>
+					<li class=\'cart_info\' ><img src=\'product_pics/' . $prod_id . '\' class=\'cart_img\'/></li>
+					<li class=\'cart_info\' >' . $prod_name . '</li>
+					<li class=\'cart_info\'><form class=\'cart_info\'  action = "cart.php" method = "post"><input type="submit" name="decrementCart" value="-" /><input type="hidden" name="prod_id" value="' . $prod_id  . '"/></form>
 					Qty: ' . $qty . '
-					<form action = "cart.php" method = "post"><input type="submit" name="incrementCart" value="+" /><input type="hidden" name= "prod_id" value="' . $prod_id  . '"/></form></li>
-					<li>Individual Price: ' . $single_price . '</li>
-					<li>Price: ' . $total_price . '</li>
-					<li><form action = "cart.php" method = "post"><input type="submit" name="removeItem" value="Remove" /><input type="hidden" name= "prod_id" value="' . $prod_id  . '"/></form></li>
+					<form class=\'cart_info\'  action = "cart.php" method = "post"><input type="submit" name="incrementCart" value="+" /><input type="hidden" name= "prod_id" value="' . $prod_id  . '"/></form></li>
+					<li class=\'cart_info\'  >Individual Price: ' . $single_price . '</li>
+					<li class=\'cart_info\' >Price: ' . $total_price . '</li>
+					<li class=\'cart_info\' ><form class=\'cart_info\'  action = "cart.php" method = "post"><input type="submit" name="removeItem" value="Remove" /><input type="hidden" name= "prod_id" value="' . $prod_id  . '"/></form></li>
 				</ul>
 				</div>';
 

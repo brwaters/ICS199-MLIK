@@ -21,27 +21,28 @@
 
 
     <body>
+	<div class='cat_select'>
+		<form class='cat_select_text' action="products.php" method='POST'> 
+		    <p class='cat_select_text'> Category: </p> 
+		    <select name='category'>
 
-        <form action="products.php" method='POST'> 
-            <p> Category: </p> 
-            <select name='category'>
+			<?php
+			//category info
+			//getting all categories
+			$query = $connection->query("SELECT * FROM CATEGORIES");
+			?><option value="ALL">ALL</option> <?php
+			//Looping for each category in database
+			while ($dataCat = $query->fetch_assoc()) {
 
-                <?php
-                //category info
-                //getting all categories
-                $query = $connection->query("SELECT * FROM CATEGORIES");
-                ?><option value="ALL">ALL</option> <?php
-                //Looping for each category in database
-                while ($dataCat = $query->fetch_assoc()) {
+			    $name = $dataCat['cat_name'];
+			    ?>
 
-                    $name = $dataCat['cat_name'];
-                    ?>
-
-                    <option value="<?php echo $name; ?>"><?php echo $name; ?></option>
-<?php } ?>
-            </select>
-            <input type='submit'>
-        </form>
+			    <option value="<?php echo $name; ?>"><?php echo $name; ?></option>
+	<?php } ?>
+		    </select>
+		    <input type='submit'>
+		</form>
+	</div>
 
         <div id = "item_grid">
 

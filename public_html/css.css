@@ -77,6 +77,23 @@ p {
 
 }
 
+.cat_select {
+	background-color: #393D3F;
+	padding: 10px;
+	margin: auto;
+	width: 80%;
+
+}
+.cat_select_text {
+	background-color: #393D3F;
+	margin: auto;
+	display: inline;
+	text-align: center;
+	color: white;
+	width: 80%;
+
+}
+
 .product {
     height:350px; 
     width:250px; 
@@ -112,6 +129,8 @@ p {
 }	
 
 .cart_info {
+	padding-left: 15px;
+	padding-right: 25px;
 	display: inline;
 	list-style-type: none;
 }
