@@ -23,10 +23,35 @@
 			.cart_info {
 				display: inline;
 				list-style-type: none;
-
-				//padding-left: 50px;
 			}
 		</style>
+		<?php
+		//This deals with incrementing/decrementing cart items
+		
+		if ( ! empty($_POST)){
+
+			if ( ! empty($_POST['incrementCart'])){
+				
+				if ( ! addToCart($_POST['prod_id']) ) {
+					echo errorHandler(array('Error: There was an error adding to your cart.'));
+				}
+
+			} else if ( ! empty($_POST['decrementCart'])) {
+
+				if ( ! removeFromCart($_POST['prod_id']) ) {
+					echo errorHandler(array('Error: There was an error adding to your cart.'));
+				}
+
+			} else if ( ! empty($_POST['removeItem'] )) {
+				
+				if ( ! deleteFromCart($_POST['prod_id'])){
+					echo errorHandler(array('Error: There was an error deleting that item.'));
+
+				}
+			}
+		}
+		
+		?>
 	</head>
 
 	<body>
@@ -56,6 +81,9 @@
 			$query = selectFromDB($attributes, 'CART', 'WHERE cust_id = ' . $_SESSION['cust_id']);	
 			$sub_total = 0;
 
+
+
+
 			//each iteration here is a single cart item
 			while ($data = $query->fetch_assoc()){
 				
@@ -84,8 +112,12 @@
 				<ul class=\'cart_info\'>
 					<li><img src=\'product_pics/' . $prod_id . '\' class=\'cart_img\'/></li>
 					<li>' . $prod_name . '</li>
-					<li>Qty: ' . $qty . '</li>
+					<li><form action = "cart.php" method = "post"><input type="submit" name="decrementCart" value="-" /><input type="hidden" name="prod_id" value="' . $prod_id  . '"/></form>
+					Qty: ' . $qty . '
+					<form action = "cart.php" method = "post"><input type="submit" name="incrementCart" value="+" /><input type="hidden" name= "prod_id" value="' . $prod_id  . '"/></form></li>
+					<li>Individual Price: ' . $single_price . '</li>
 					<li>Price: ' . $total_price . '</li>
+					<li><form action = "cart.php" method = "post"><input type="submit" name="removeItem" value="Remove" /><input type="hidden" name= "prod_id" value="' . $prod_id  . '"/></form></li>
 				</ul>
 				</div>';
 
@@ -93,6 +125,7 @@
 			} //end else
 		?>
 		<h3>Sub Total: $<?php echo $sub_total; ?> </h3>	
+		<form action = "" method = "post"><input type="submit" name="placeOrder" value="Place Order" /></form>
 
 	</body>
 
