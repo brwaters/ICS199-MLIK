@@ -37,7 +37,7 @@
         $categories = $_POST['category'];
         ?>
         <title>Products - MLIK</title>
-        <?php include 'navbar.php'; ?>
+        <?php $page='products';include 'navbar.php'; ?>
     </head>
 
 
