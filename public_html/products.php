@@ -65,7 +65,6 @@
             //Here is a div generating loop, for each row that was returned in the query from earlier
             while ($dataCat = $query->fetch_assoc()) {
                 ?>
-                <form action="products.php" method="GET" enctype="multipart/form-data">
                     <div class='product'>
 
                         <!-- subtle but important break -->
@@ -77,9 +76,12 @@
 
                         <p class='prod_txt'><b><?php print $dataCat['Name']; ?></b></p> 
                         <p class='prod_txt'>$ <?php print $dataCat['Price']; ?></p>
-                        <button class='prod_txt' type="Submit" name="submit" value="<?php echo $dataCat['prod_id']; ?>">Add to cart</button>
+
+                	<form action="products.php" method="GET" enctype="multipart/form-data">
+                        	<button class='prod_txt' type="Submit" name="submit" value="<?php echo $dataCat['prod_id']; ?>">Add to cart</button>
+               		</form>
+			<br/>
                     </div>
-                </form>
 
                 <?php
                 //Closing the while loop from before. Yes this is wierd.
