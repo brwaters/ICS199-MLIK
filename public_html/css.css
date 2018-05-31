@@ -97,3 +97,23 @@ p {
     margin-right: 30px;
 }
 /*End products page CSS */
+
+//////////Cart info/////////
+.cart_item {
+	width: 100%;
+	margin: 10px;
+	background-color: grey;
+	padding: 10px;	
+	padding-bottom: 30px;	
+}
+
+.cart_img {
+	height: 150px;
+	//padding-left: 25px;
+}	
+
+.cart_info {
+	display: inline;
+	list-style-type: none;
+}
+/////////////////////////////

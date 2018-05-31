@@ -6,25 +6,6 @@
 		<title>Cart - MLIK</title>
 			<?php $page = "cart"; include 'navbar.php'; include 'functions.php';?>
 
-		<style>
-			.cart_item {
-				width: 100%;
-				margin: 10px;
-				background-color: grey;
-				padding: 10px;	
-				padding-bottom: 30px;	
-			}
-
-			.cart_img {
-				height: 150px;
-				//padding-left: 25px;
-			}	
-			
-			.cart_info {
-				display: inline;
-				list-style-type: none;
-			}
-		</style>
 		<?php
 		//This deals with incrementing/decrementing cart items
 		
