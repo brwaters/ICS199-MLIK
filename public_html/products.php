@@ -87,7 +87,7 @@
             //Here is a div generating loop, for each row that was returned in the query from earlier
             while ($dataCat = $query->fetch_assoc()) {
                 ?>
-                <form action="addToCart.php" method="POST" enctype="multipart/form-data">
+                <form action="products.php" method="POST" enctype="multipart/form-data">
                     <div class='product'>
 
                         <!-- subtle but important break -->
