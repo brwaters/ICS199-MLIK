@@ -112,7 +112,6 @@
             $user_id = $_SESSION['cust_id'];
             $product_id = $_GET['submit'];
 	
-	echo '<h1>product id = ' . $product_id . '</h1>';
             //echo 'Product ID:' . $product_id;
 
             if (isset($product_id)) { //Once pages is reloaded by clicking add cart, a product value is passed back to this page
