@@ -1,5 +1,5 @@
 <?php 
-function selectFromDB($attributes, $table, $where = ''){
+function selectFromDB($attributes = array('*'), $table, $where = ''){
 	
 	$dbc = getConnection();
 	$query = 'SELECT ';
@@ -133,5 +133,171 @@ function logOut(){
 	$_SESSION['fname'] = NULL;
         $_SESSION['account_type'] =  NULL;
 }
+
+function addToCart($prod_id){
+	//first check that cart contains item
+	$dbc = getConnection();
+	$cust_id = $_SESSION['cust_id'];
+	$query = 'SELECT * FROM ICS199Group07_dev.CART WHERE cust_id = ' . $cust_id . ' AND prod_id = ' . $prod_id;
+	$r = @mysqli_query($dbc, $query);
+
+	//checking results
+	if (mysqli_num_rows($r) != 1){
+		//there should be one row returned. Return error
+		echo errorHandler(array('Error updating cart, item not in cart'));
+		return false;
+	} 
+
+	
+	//for verification
+	$prev_qty =  $r->fetch_assoc()['quantity'];
+
+	
+	//if we got this far that means the item is in the cart. Theres no reason for it not too because in order for this function to be executed the item would have to be in the cart
+	//anyway
+	//UPDATE Orders SET Quantity = Quantity + 1 WHERE ...
+
+	$insrt_query = 'UPDATE CART SET quantity = quantity + 1 WHERE cust_id = ' . $cust_id . ' AND prod_id = ' . $prod_id;
+	$r2 = @mysqli_query($dbc, $insrt_query);
+	$mysqlErrors = $r2->error;
+
+	if (! empty($mysqlErrors)) {
+		echo errorHandler(array('Error updating cart, sql error'));
+		return false;
+	}  
+
+	//This is all to verify that the update worked;
+	$r3 = @mysqli_query($dbc, $query);
+	$cur_qty =  $r3->fetch_assoc()['quantity'];
+
+	if ( $cur_qty != $prev_qty + 1 ){
+		// if the above statement evaluates to true, there was an issue.
+		echo errorHandler(array('Error updating cart, please try again'));
+		return false;
+	} else {
+		//everything worked!
+		return true;
+	}	
+	
+}	
+
+function removeFromCart($prod_id){
+	//first check that cart contains item
+	$dbc = getConnection();
+	$cust_id = $_SESSION['cust_id'];
+	$query = 'SELECT * FROM ICS199Group07_dev.CART WHERE cust_id = ' . $cust_id . ' AND prod_id = ' . $prod_id;
+	$r = @mysqli_query($dbc, $query);
+
+	//checking results
+	if (mysqli_num_rows($r) != 1){
+		//there should be one row returned. Return error
+		echo errorHandler(array('Error updating cart, item not in cart'));
+		return false;
+	} 
+
+	
+	//for verification
+	$prev_qty =  $r->fetch_assoc()['quantity'];
+
+	//now we need to remove the item if the qty is going from 1 to 0
+	if ($prev_qty <= 1){
+		$insrt_query = 'DELETE FROM CART  WHERE cust_id = ' . $cust_id . ' AND prod_id = ' . $prod_id;
+		$r2 = @mysqli_query($dbc, $insrt_query);
+		$mysqlErrors = $r2->error;
+
+		if (! empty($mysqlErrors)) {
+			echo errorHandler(array('Error updating cart, sql error'));
+			return false;
+		} else {
+			return true;
+		} 
+	}
+
+	
+	//if we got this far that means the item is in the cart. Theres no reason for it not too because in order for this function to be executed the item would have to be in the cart
+	//anyway
+
+	$insrt_query = 'UPDATE CART SET quantity = quantity - 1 WHERE cust_id = ' . $cust_id . ' AND prod_id = ' . $prod_id;
+	$r2 = @mysqli_query($dbc, $insrt_query);
+	$mysqlErrors = $r2->error;
+
+	if (! empty($mysqlErrors)) {
+		echo errorHandler(array('Error updating cart, sql error'));
+		return false;
+	}  
+
+	//This is all to verify that the update worked;
+	$r3 = @mysqli_query($dbc, $query);
+	$cur_qty =  $r3->fetch_assoc()['quantity'];
+
+	if ( $cur_qty != $prev_qty - 1 ){
+		// if the above statement evaluates to true, there was an issue.
+		echo errorHandler(array('Error updating cart, please try again'));
+		return false;
+	} else {
+		//everything worked!
+		return true;
+	}	
+}	
+
+function deleteFromCart($prod_id){
+	//first check that cart contains item
+	$dbc = getConnection();
+	$cust_id = $_SESSION['cust_id'];
+	$query = 'SELECT * FROM ICS199Group07_dev.CART WHERE cust_id = ' . $cust_id . ' AND prod_id = ' . $prod_id;
+	$r = @mysqli_query($dbc, $query);
+
+	//checking results
+	if (mysqli_num_rows($r) != 1){
+		//there should be one row returned. Return error
+		echo errorHandler(array('Error updating cart, item not in cart'));
+		return false;
+	} 
+
+	
+	//now we need to remove the item if the qty is going from 1 to 0
+	$insrt_query = 'DELETE FROM CART  WHERE cust_id = ' . $cust_id . ' AND prod_id = ' . $prod_id;
+	$r2 = @mysqli_query($dbc, $insrt_query);
+	$mysqlErrors = $r2->error;
+
+	if (! empty($mysqlErrors)) {
+		echo errorHandler(array('Error updating cart, sql error'));
+		return false;
+	} else {
+		return true;
+	} 
+}
 ?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
