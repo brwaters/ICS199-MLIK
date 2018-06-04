@@ -4,8 +4,8 @@
         <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="./css.css">
         <?php $page = 'search';
-        include 'navbar.php';
-        include 'functions.php'; ?>
+	include 'functions.php';
+        include 'navbar.php'; ?>
         <?php
         //Setting up connection to database
         $connection = getConnection();
@@ -15,8 +15,7 @@
         }
 
         //variables
-        $search = $_POST['search'];
-	
+        $search = escapeString($_POST['search']);
         ?>
         <title>Products - MLIK</title>
     </head>
@@ -40,11 +39,9 @@
             // select everything
 
             if (isset($search)) {
-		//fixing input
-		$search = escapeString($search);
 
                 //We are only looking at the category that they selected
-                $queryStr = "SELECT * FROM PRODUCTS WHERE Name LIKE '%" . $search . "%' OR Description like '%" . $search . "%'";
+                $queryStr = "SELECT * FROM PRODUCTS WHERE Name LIKE '%" . $search . "%'";
                 $query = $connection->query($queryStr);
             } else {
 
