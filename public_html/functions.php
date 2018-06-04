@@ -284,7 +284,7 @@ function addUser($fname, $lname, $pass, $email, $city, $postal, $prov) {
         } else {
             //echo "Connection made: attempting Insert";
             $newUser = "INSERT INTO ICS199Group07_dev.CUSTOMERS (fname, lname, username, passwd, email, province, address, city, postal_code, account_type) VALUES ('$fname', '$lname', '$email', '$hashedPass', '$email', '$prov', '', '$city', '$postal', 'customer');";
-            echo $newUser;
+            //echo $newUser;
             if (($connection->query($newUser)) === true) {
                 //echo "Added to DB.";
             }

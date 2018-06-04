@@ -57,7 +57,7 @@
 		    echo errorHandler($errors);
             }
             else{
-                 echo "no errors";
+                 //echo "no errors";
                  addUser($fname = $fname, $lname = $lname, $pass2 = $pass, $email = $email, $city = $city, $postal = $postal, $prov = $prov);
             }
         }
