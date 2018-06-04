@@ -28,6 +28,7 @@
                 } else {
 			//user is not logged in, so here they have the option to log in
 			$nav =  $nav . "<li><a href=\"login.php\">Login</a></li>";
+			$nav =  $nav . "<li><a href=\"register.php\">Register</a></li>";
 		}
 	$nav = $nav . "
 				</ul>
