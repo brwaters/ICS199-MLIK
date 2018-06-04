@@ -58,6 +58,7 @@
             }
             else{
                  echo "no errors";
+                 addUser($fname = $fname, $lname = $lname, $pass2 = $pass, $email = $email, $city = $city, $postal = $postal, $prov = $prov);
             }
         }
     ?>
@@ -76,8 +77,8 @@
         <option value="PE">PE</option>
     
             </select></td></tr>
-    <tr><td> Password:</td><td> <input type="text" name="password1" ></td></tr>
-    <tr><td> Verify password:</td><td> <input type="text"  name="password2"></td> </tr>
+    <tr><td> Password:</td><td> <input type="password" name="password1" ></td></tr>
+    <tr><td> Verify password:</td><td> <input type="password"  name="password2"></td> </tr>
 
 
     <tr><td></td><td><input type="submit" value="submit" id="submit1" /> </td><tr>

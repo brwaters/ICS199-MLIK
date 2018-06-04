@@ -275,18 +275,22 @@ function deleteFromCart($prod_id) {
 }
 
 function addUser($fname, $lname, $pass, $email, $city, $postal, $prov) {
-    $hashedPass = md5(pass);
+    $hashedPass = md5($pass);
     
     if (isset($fname)) {
         $connection = new mysqli("localhost", "cst170", "381953", "ICS199Group07_dev"); // Connecting to database
         if ($connection->connect_error) { //show error if database connection fails
             die("Connection failed: " . $connection->connect_error);
         } else {
-            $newUser = "INSERT INTO ICS199Group07_dev.CUSTOMERS (fname, lname, username, passwd, email, province, address, city, postal_code, account_type) VALUES ($fname, $lname, $email, $hashedPass, $email, $prov, '', $city, $postal, 'customer');";
-            $connection->query($newUser);
+            //echo "Connection made: attempting Insert";
+            $newUser = "INSERT INTO ICS199Group07_dev.CUSTOMERS (fname, lname, username, passwd, email, province, address, city, postal_code, account_type) VALUES ('$fname', '$lname', '$email', '$hashedPass', '$email', '$prov', '', '$city', '$postal', 'customer');";
+            echo $newUser;
+            if (($connection->query($newUser)) === true) {
+                //echo "Added to DB.";
+            }
         }
     } else {
-        echo "name";
+        //echo "Didn't add to DB; fname wasn't set.";
     }
     $connection->close();    
 }
