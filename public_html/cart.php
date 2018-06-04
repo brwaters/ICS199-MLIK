@@ -29,6 +29,13 @@
 					echo errorHandler(array('Error: There was an error deleting that item.'));
 
 				}
+
+			} else if ( ! empty($_POST['clearCart'] )) {
+				
+				if ( ! clearCart()){
+					echo errorHandler(array('You have selected to remove all items from cart'));
+
+				}
 			}
 		}
 		
@@ -105,7 +112,9 @@
 			} //end while	
 			} //end else
 		?>
-		<h3>Sub Total: $<?php echo $sub_total; ?> </h3>	
+		<h3>Sub Total: $<?php echo $sub_total; ?> </h3>
+		<form class=\'clear_cart\'  action = "cart.php" method = "post"><input type="submit" name="clearCart" value="Clear Cart" /><input type="hidden" name="confirm" value="removeAllItemsFromCart"/></form>
+
 		<form action = "" method = "post"><input type="submit" name="placeOrder" value="Place Order" /></form>
 
 	</body>

@@ -294,6 +294,23 @@ function addUser($fname, $lname, $pass, $email, $city, $postal, $prov) {
     }
     $connection->close();    
 }
+function clearCart(){
+		//first check that cart contains item
+		$dbc = getConnection();
+		$cust_id = $_SESSION['cust_id'];
+		
+		//now we need to remove the item if the qty is going from 1 to 0
+		$insrt_query = 'DELETE FROM CART  WHERE cust_id = ' . $cust_id;
+		$r2 = @mysqli_query($dbc, $insrt_query);
+		$mysqlErrors = $r2->error;
+
+		if (! empty($mysqlErrors)) {
+			echo errorHandler(array('Error updating cart, sql error'));
+			return false;
+		} else {
+			return true;
+		} 
+}
 ?>
 
 
