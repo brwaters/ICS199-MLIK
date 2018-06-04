@@ -12,7 +12,8 @@
 	$nav = $nav ." <ul id = \"navbar\">
 			<li><a href=\"index.php\">Home</a></li>
 			<li><a href=\"products.php\">Products</a></li>
-			<li><a href=\"about.php\">About</a></li>";
+			<li><a href=\"about.php\">About</a></li>
+			<li><a href=\"search.php\">Search</a></li>";
 	
 
 
