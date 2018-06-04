@@ -18,8 +18,8 @@
 
 //variables
 $conn = getConnection();
-$user = $_POST['username'];
-$pass = $_POST['password'];
+$user = escapeString($_POST['username']);
+$pass = escapeString($_POST['password']);
 
 
 //only runs if there has been input
