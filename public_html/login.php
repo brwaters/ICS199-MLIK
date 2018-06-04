@@ -3,7 +3,7 @@
 <meta charset="utf-8">
 <link rel="stylesheet" href="./css.css">
 <title>home</title>
-			<?php $page="login"; include 'functionsIsaac.php'; include 'navbar.php'; ?>
+			<?php $page="login"; include 'functions.php'; include 'navbar.php'; ?>
 </head>
 <body>
 <h1>LOGIN PAGE!!</h1>
