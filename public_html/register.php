@@ -49,21 +49,16 @@
             $valid = checkNameReg($prov);
             if( ! $valid){
                 array_push($errors, 'Invalid Province' );
-            }
+            }*/
             // validate password
             $valid = checkPassReg($pass1,$pass2);
-		print_r($valid);
-	    if ( ! $valid[0] ) {
-
-
-	
-		array_push($errors, $valid[1]);
-		}*/
+	    if ( !  $valid["valid"] ) {
+		array_push ($errors, $valid['error']);	
+	    }
 
 	
        		//ERRRRRRROOOORRRRRSSSSS
             if (sizeOf($errors) > 0){
-                    echo"CRITICAL ERROR <br>";
 		    echo errorHandler($errors);
             }
             else{
