@@ -4,12 +4,13 @@
 <meta charset="utf-8">
 <link rel="stylesheet" href="./css.css">
 <title>home</title>
-			<?php $page="login"; include 'functions.php'; include 'navbar.php'; ?>
+			<?php $page="register"; include 'functions.php'; include 'navbar.php'; ?>
 </head>
     <?php
-        if(isset($_POST)){
+
+        if(sizeOf($_POST) > 0){
+	
             include'functionsRegister.php';
-            include'functions.php';
             $errors = array();
             $fname = escapeString($_POST["fname"]);
             $lname = escapeString($_POST["lname"]);
@@ -21,50 +22,54 @@
             $pass2 = escapeString($_POST["password2"]);
             // validate first name
             $valid = checkNameReg($fname);
-            if(gettype($valid) === "string"){
-                array_push($errors, 'First Name error '.$valid);
+            if(! $valid){
+                array_push($errors, 'Invalid First Name');
             }
             //validate last name
             $valid = checkNameReg($lname);
-             if(gettype($valid) === "string"){
-                array_push($errors,$valid);
+            if(! $valid){
+                array_push($errors, 'Invalid Last Name');
             }
             // validate email
             $valid = checkEmailReg($email);
-            if(gettype($valid) === "string"){
-                array_push($errors,$valid);
+            if(! $valid){
+                array_push($errors, 'Invalid Email');
             }
             //validate city
-            $valid = checkCityReg($city);
-            if(gettype($valid) === "string"){
-                array_push($errors,$valid);
+            $valid = checkNameReg($city);
+            if( ! $valid ){
+                array_push($errors, 'Invalid City');
             }
+		/*
             //validate postal code
             $valid = checkPostReg($postal);
            if(gettype($valid) === "string"){
                 array_push($errors,$valid);
             }
-            //validate province 
-            $valid = checkProvReg($prov);
-            if(gettype($valid) === "string"){
-                array_push($errors,$valid);
+            $valid = checkNameReg($prov);
+            if( ! $valid){
+                array_push($errors, 'Invalid Province' );
             }
             // validate password
             $valid = checkPassReg($pass1,$pass2);
-              if(gettype($valid) === "string"){
-                array_push($errors,$valid);
-            }
-            
-            if (sizeOf($errors) > 1){
+		print_r($valid);
+	    if ( ! $valid[0] ) {
+
+
+	
+		array_push($errors, $valid[1]);
+		}*/
+
+	
+       		//ERRRRRRROOOORRRRRSSSSS
+            if (sizeOf($errors) > 0){
                     echo"CRITICAL ERROR <br>";
-                    print_r($errors);
+		    echo errorHandler($errors);
             }
             else{
                  echo "no errors";
             }
         }
-    
-    
     ?>
         <form action="register.php" method="POST" enctype="multipart/form-data">
 <table style="width:100%"> 
