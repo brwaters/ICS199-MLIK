@@ -134,3 +134,7 @@ p {
 	display: inline;
 	list-style-type: none;
 }
+
+footer {
+    clear: both;
+}
