@@ -1,18 +1,24 @@
+
 <html>
-    <body>
-        
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="./css.css">
+<title>home</title>
+			<?php $page="login"; include 'functions.php'; include 'navbar.php'; ?>
+</head>
     <?php
         if(isset($_POST)){
             include'functionsRegister.php';
+            include'functions.php';
             $errors = array();
-            $fname = $_POST["fname"];
-            $lname = $_POST["lname"];
-            $email = $_POST["email"];
-            $city = $_POST["city"];
-            $postal = $_POST["postal"];
-            $prov = $_POST["province"];
-            $pass1 = $_POST["password1"];
-            $pass2 = $_POST["password2"];
+            $fname = escapeString($_POST["fname"]);
+            $lname = escapeString($_POST["lname"]);
+            $email = escapeString($_POST["email"]);
+            $city = escapeString($_POST["city"]);
+            $postal = escapeString($_POST["postal"]);
+            $prov = escapeString($_POST["province"]);
+            $pass1 = escapeString($_POST["password1"]);
+            $pass2 = escapeString($_POST["password2"]);
             // validate first name
             $valid = checkNameReg($fname);
             if(gettype($valid) === "string"){
@@ -72,7 +78,7 @@
         <option value="SK">SK</option><option value="MB">MB</option>
         <option value="ON">ON</option><option value="QC">QC</option>
         <option value="NL">NL</option><option value="NB">NB</option>
-        <option value="PE">PE</option><option value="X">Outside of Canada&nbsp&nbsp&nbsp&nbsp</option>
+        <option value="PE">PE</option>
     
             </select></td></tr>
     <tr><td> Password:</td><td> <input type="text" name="password1" ></td></tr>
@@ -82,5 +88,6 @@
     <tr><td></td><td><input type="submit" value="submit" id="submit1" /> </td><tr>
 </table>
 </form>
-    </body> 
+</body>
+<?php include 'footer.php';?>
 </html>
