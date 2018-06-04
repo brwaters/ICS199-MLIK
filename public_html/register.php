@@ -40,16 +40,11 @@
             if( ! $valid ){
                 array_push($errors, 'Invalid City');
             }
-		/*
             //validate postal code
-            $valid = checkPostReg($postal);
-           if(gettype($valid) === "string"){
-                array_push($errors,$valid);
+           $valid = checkPostReg($postal);
+           if( ! $valid ){
+                array_push($errors,'Invalid Postal code \(We accept format: "V0G1H1\)');
             }
-            $valid = checkNameReg($prov);
-            if( ! $valid){
-                array_push($errors, 'Invalid Province' );
-            }*/
             // validate password
             $valid = checkPassReg($pass1,$pass2);
 	    if ( !  $valid["valid"] ) {
