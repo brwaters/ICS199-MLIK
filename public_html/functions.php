@@ -69,9 +69,15 @@ function checkImage( $image ){
 	} 
 }
 
+
 function getConnection () {
 $connection =  new mysqli("localhost", "cst170","381953","ICS199Group07_dev");	
 return $connection;
+}
+
+function escapeString($input){
+	$dbc = getConnection();
+	return mysqli_real_escape_string($dbc, trim(strip_tags($input)));
 }
 
 function check_login ($dbc, $email = '', $pass = '') {
