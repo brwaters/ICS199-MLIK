@@ -1,5 +1,10 @@
 /* CSS Document */
+.header_bg {
+}
 header, footer {
+    background-image: url("header_bg.jpg");
+	background-position-y: center;
+	background-size: cover;
     margin: 10px 10px 0px 10px;
     text-align: center;
     font-family: Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", "serif";
