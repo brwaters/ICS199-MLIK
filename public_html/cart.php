@@ -88,7 +88,7 @@
 
 				//total price for this item in the cart
 				$total_price = $single_price * $qty;
-
+                                $total_price = number_format((float)$total_price, 2, '.', '');
 				//increasing subtotal to include this cart item
 				$sub_total = $sub_total + $total_price; 
 
