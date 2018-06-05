@@ -85,7 +85,6 @@ function check_login($dbc, $email = '', $pass = '') {
     //This function checks login credentials and returns an array
     //  array ( bool, arr )
     // If the bool is true, the login was successfull and the array is the customers first name and email
-	return false;
     // if the bool is false, the array is a list of errors that occured. Unsuccessfull logon is an error.	
 
 
