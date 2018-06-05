@@ -9,12 +9,28 @@ function checkNameReg($name){
 
 function checkEmailReg($email){
 		if ( ! preg_match('/^(\w|\.)+@(\w|\.)+\.[a-z]+$/i', $email, $match) || $email == ''){
-			return false;
-		} else { 
-			return true;
 
+			return false;
+
+		} else {
+			return true;	
 		}
 }
+function checkForUser($email) {
+    //first check that cart contains item
+    $dbc = getConnection();
+    $query = 'SELECT * FROM ICS199Group07_dev.CUSTOMERS WHERE email = \'' . $email . '\'';
+
+    $r = @mysqli_query($dbc, $query);
+    //checking results
+    if (mysqli_num_rows($r) == 0) {
+
+        return true;
+    } else {
+        return false;
+    }
+}
+
 function checkPostReg($postal){
 
          //function by Roshan Bhattara(http://roshanbh.com.np)
@@ -23,7 +39,7 @@ function checkPostReg($postal){
 
             return TRUE;
 
-        }	else {
+        } else {
 
             return FALSE;
 

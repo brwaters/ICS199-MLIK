@@ -34,7 +34,14 @@
             $valid = checkEmailReg($email);
             if(! $valid){
                 array_push($errors, 'Invalid Email');
-            }
+            } 
+	
+	    if ( ! checkForUser($email)) {
+
+            	array_push($errors, 'Email already exists');
+	     }
+                  
+            
             //validate city
             $valid = checkNameReg($city);
             if( ! $valid ){
@@ -59,6 +66,7 @@
             else{
                  //echo "no errors";
                  addUser($fname = $fname, $lname = $lname, $pass2 = $pass, $email = $email, $city = $city, $postal = $postal, $prov = $prov);
+		echo errorHandler(array('Successfully added user'));
             }
         }
     ?>
