@@ -1,6 +1,6 @@
 <?php
 function checkNameReg($name){
-	if ( ! preg_match('/^\w*$/i', $name, $match) || $name == ''){
+	if ( ! preg_match('/^(\w| )*$/i', $name, $match) || $name == ''){
 		return false;
 	} else {
 		return true;

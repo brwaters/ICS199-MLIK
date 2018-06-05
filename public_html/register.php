@@ -14,6 +14,7 @@
             $errors = array();
             $fname = escapeString($_POST["fname"]);
             $lname = escapeString($_POST["lname"]);
+            $address = escapeString($_POST["address"]);
             $email = escapeString($_POST["email"]);
             $city = escapeString($_POST["city"]);
             $postal = escapeString($_POST["postal"]);
@@ -40,6 +41,11 @@
 
             	array_push($errors, 'Email already exists');
 	     }
+            //validate address
+            $valid = checkNameReg($address);
+            if( ! $valid ){
+                array_push($errors, 'Invalid address');
+            }
                   
             
             //validate city
@@ -65,7 +71,7 @@
             }
             else{
                  //echo "no errors";
-                 addUser($fname = $fname, $lname = $lname, $pass2 = $pass, $email = $email, $city = $city, $postal = $postal, $prov = $prov);
+                 echo addUser($address = $address, $fname = $fname, $lname = $lname, $pass2 = $pass, $email = $email, $city = $city, $postal = $postal, $prov = $prov);
 		echo errorHandler(array('Successfully added user'));
             }
         }
@@ -75,6 +81,7 @@
     <tr> <td>First name:</td> <td><input type="text" name="fname" value='' id='name'></td></tr>
     <tr> <td>Last name:</td><td> <input type="text" name="lname" ></td></tr>
     <tr><td> Email: </td><td><input type="text" name="email" ></td></tr>
+    <tr><td> Address: </td><td><input type="text" name="address" ><td></tr>
     <tr><td> City: </td><td><input type="text" name="city" ><td></tr>
     <tr><td> Postal Code: </td><td><input type="text" name="postal" ></td></tr>
     <tr><td> Province: </td><td><select name="province">

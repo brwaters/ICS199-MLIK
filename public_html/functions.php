@@ -85,6 +85,7 @@ function check_login($dbc, $email = '', $pass = '') {
     //This function checks login credentials and returns an array
     //  array ( bool, arr )
     // If the bool is true, the login was successfull and the array is the customers first name and email
+	return false;
     // if the bool is false, the array is a list of errors that occured. Unsuccessfull logon is an error.	
 
 
@@ -187,6 +188,7 @@ function addToCart($prod_id) {
     }
 }
 
+
 function removeFromCart($prod_id) {
     //first check that cart contains item
     $dbc = getConnection();
@@ -274,7 +276,7 @@ function deleteFromCart($prod_id) {
     }
 }
 
-function addUser($fname, $lname, $pass, $email, $city, $postal, $prov) {
+function addUser($address, $fname, $lname, $pass, $email, $city, $postal, $prov) {
     $hashedPass = md5($pass);
     
     if (isset($fname)) {
@@ -283,8 +285,9 @@ function addUser($fname, $lname, $pass, $email, $city, $postal, $prov) {
             die("Connection failed: " . $connection->connect_error);
         } else {
             //echo "Connection made: attempting Insert";
-            $newUser = "INSERT INTO ICS199Group07_dev.CUSTOMERS (fname, lname, username, passwd, email, province, address, city, postal_code, account_type) VALUES ('$fname', '$lname', '$email', '$hashedPass', '$email', '$prov', '', '$city', '$postal', 'customer');";
+            $newUser = "INSERT INTO ICS199Group07_dev.CUSTOMERS (fname, lname, username, passwd, email, province, address, city, postal_code, account_type) VALUES ('$fname', '$lname', '$email', '$hashedPass', '$email', '$prov', '$address', '$city', '$postal', 'customer');";
             //echo $newUser;
+		//return $newUser;
             if (($connection->query($newUser)) === true) {
                 //echo "Added to DB.";
             }
