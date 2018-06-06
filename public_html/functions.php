@@ -95,6 +95,25 @@ function checkPolicy( $cust_id ){
 	}
 		
 }
+
+function setLastLogin( $cust_id ){
+
+    $dbc = getConnection();
+    $insrt_query = 'UPDATE CUSTOMERS SET last_login = sysdate() WHERE cust_id = ' . $cust_id;
+	echo $insrt_query;
+    $r2 = @mysqli_query($dbc, $insrt_query);
+    $mysqlErrors = $r2->error;
+
+    if (!empty($mysqlErrors)) {
+        echo errorHandler(array('Error updating cart, sql error'));
+        return false;
+    } else {
+
+	return true;
+	}
+
+
+}
 function check_login($dbc, $email = '', $pass = '') {
 
     //This function checks login credentials and returns an array
