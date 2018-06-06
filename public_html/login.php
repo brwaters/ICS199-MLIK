@@ -26,26 +26,51 @@ $pass = escapeString($_POST['password']);
 if (sizeOf($_POST) > 0 ){
 
 	$login = check_login($conn, $email = $user, $pass = $pass);
-	
+	$privacy = false;
 
 	if ($login[0]){
+		$custID = $login[1]['cust_id'];
 		//login successful [1] is the name
-
 		
-		//setting session variables
-		$_SESSION['loggedIn'] = true;
-		$_SESSION['cust_id'] = $login[1]['cust_id'];
-		$_SESSION['fname'] = $login[1]['fname'];
-		$_SESSION['account_type'] = $login[1]['account_type'];
-
-		//if user was directed from trying to add something to cart
-		if ($_SESSION['addToCart']){
-			echo '<script> if(window.confirm("Welcome ' . $login[1]['fname'] . '! Added product to cart!")){window.location.href=\'products.php?submit=' . $_SESSION['addToCart_prod_id'].  '\';}; </script>';
-				
+		//is priavcy policy accepted
+		if(checkPolicy($custID)){
+			$privacy = true;
 		}
+		else{
 			
-		echo '<script> if(window.confirm("Welcome ' . $login[1]['fname'] . '!")){window.location.href=\'index.php\';}; </script>';
+			$policy = false;
+			?>
+			<script>
+			var r = confirm('Do you accept our privacy policy');
+			if (r == true) {
+				<?php $policy =true;?>
+			}
+			</script>
+			<?php
+			
+			if($policy === true){
+				echo "set policy";
+				$privacy = true;
+			}
+		}
+		
+		if($privacy){
+			//setting session variables
+			$_SESSION['loggedIn'] = true;
+			$_SESSION['cust_id'] = $custID;
+			$_SESSION['fname'] = $login[1]['fname'];
+			$_SESSION['account_type'] = $login[1]['account_type'];
 
+			//if user was directed from trying to add something to cart
+			if ($_SESSION['addToCart']){
+				echo '<script> if(window.confirm("Welcome ' . $login[1]['fname'] . '! Added product to cart!")){window.location.href=\'products.php?submit=' . $_SESSION['addToCart_prod_id'].  '\';}; </script>';
+					
+			}
+				
+			echo '<script> if(window.confirm("Welcome ' . $login[1]['fname'] . '!")){window.location.href=\'index.php\';}; </script>';
+		}else{
+			echo errorHandler("Unable to log in until privacy agreement is set");
+		}
 	} else {
 		//login failed [1] is an array of errors
 
