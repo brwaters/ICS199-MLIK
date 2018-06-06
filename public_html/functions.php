@@ -95,6 +95,16 @@ function checkPolicy( $cust_id ){
 	}
 		
 }
+function setPolicy( $cust_id , $val){
+	if ($val != 'Y' && $val != 'N'){
+		echo errorHandler(array('Error: Please set policy to Y or N'));
+		return '';
+	}
+	$dbc = getConnection();
+    	$query = 'UPDATE CUSTOMERS SET accept_policy = \'' . $val . '\' WHERE cust_id = ' . $cust_id;
+        $r = @mysqli_query($dbc, $query);
+		
+}
 
 function getLastLogin( $cust_id ){
 
