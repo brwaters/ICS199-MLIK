@@ -80,6 +80,21 @@ function escapeString($input) {
     return mysqli_real_escape_string($dbc, trim(strip_tags($input)));
 }
 
+function checkPolicy( $cust_id ){
+	$dbc = getConnection();
+        $query = "SELECT accept_policy  FROM ICS199Group07_dev.CUSTOMERS WHERE cust_id = '$cust_id'";
+        $r = @mysqli_query($dbc, $query);
+
+        $row = mysqli_fetch_array($r, MYSQLI_ASSOC);
+	$choice = $row['accept_policy'];
+	if ( $choice  === 'Y' ) {
+	
+		return true;
+	} else {
+		return false;
+	}
+		
+}
 function check_login($dbc, $email = '', $pass = '') {
 
     //This function checks login credentials and returns an array
