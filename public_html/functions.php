@@ -96,22 +96,25 @@ function checkPolicy( $cust_id ){
 		
 }
 
+function getLastLogin( $cust_id ){
+
+    $dbc = getConnection();
+    $insrt_query = 'SELECT * FROM CUSTOMERS WHERE cust_id = ' . $cust_id;
+    $r = @mysqli_query($dbc, $insrt_query);
+    $row = mysqli_fetch_array($r, MYSQLI_ASSOC);
+    if (! empty($row['last_login'])){
+	return $row['last_login'];
+	} else {
+	return '';
+	}
+
+}
 function setLastLogin( $cust_id ){
 
     $dbc = getConnection();
     $insrt_query = 'UPDATE CUSTOMERS SET last_login = sysdate() WHERE cust_id = ' . $cust_id;
-	echo $insrt_query;
     $r2 = @mysqli_query($dbc, $insrt_query);
     $mysqlErrors = $r2->error;
-
-    if (!empty($mysqlErrors)) {
-        echo errorHandler(array('Error updating cart, sql error'));
-        return false;
-    } else {
-
-	return true;
-	}
-
 
 }
 function check_login($dbc, $email = '', $pass = '') {
