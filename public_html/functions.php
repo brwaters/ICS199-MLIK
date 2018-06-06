@@ -127,7 +127,7 @@ function setLastLogin( $cust_id ){
     $mysqlErrors = $r2->error;
 
 }
-function check_login($dbc, $email = '', $pass = '') {
+function check_login($dbc, $email = '', $pass = '', $accept_policy = false) {
 
     //This function checks login credentials and returns an array
     //  array ( bool, arr )
@@ -171,7 +171,25 @@ function check_login($dbc, $email = '', $pass = '') {
         } else {
             //USER EXISTS IN DATABASE!!!
             $row = mysqli_fetch_array($r, MYSQLI_ASSOC);
-            return array(true, $row);
+	    $cust_id = $row['cust_id']
+
+	    if (! $accept_policy ) {
+		
+			if ( checkPolicy($cust_id)){
+				$accept_policy = true;
+			} 
+	     }
+ 
+	     if ( $accept_policy ) {
+		 setPolicy( $cust_id , 'Y');
+           	 return array(true, $row);
+		} else {
+			return array(false, array('Users must accept privacy policy'));	
+
+		}
+	     
+
+	    }
         }
     }
     return array(false, $errors);
