@@ -80,6 +80,53 @@ function escapeString($input) {
     return mysqli_real_escape_string($dbc, trim(strip_tags($input)));
 }
 
+function checkPolicy( $cust_id ){
+	$dbc = getConnection();
+        $query = "SELECT accept_policy  FROM ICS199Group07_dev.CUSTOMERS WHERE cust_id = '$cust_id'";
+        $r = @mysqli_query($dbc, $query);
+
+        $row = mysqli_fetch_array($r, MYSQLI_ASSOC);
+	$choice = $row['accept_policy'];
+	if ( $choice  === 'Y' ) {
+	
+		return true;
+	} else {
+		return false;
+	}
+		
+}
+function setPolicy( $cust_id , $val){
+	if ($val != 'Y' && $val != 'N'){
+		echo errorHandler(array('Error: Please set policy to Y or N'));
+		return '';
+	}
+	$dbc = getConnection();
+    	$query = 'UPDATE CUSTOMERS SET accept_policy = \'' . $val . '\' WHERE cust_id = ' . $cust_id;
+        $r = @mysqli_query($dbc, $query);
+		
+}
+
+function getLastLogin( $cust_id ){
+
+    $dbc = getConnection();
+    $insrt_query = 'SELECT * FROM CUSTOMERS WHERE cust_id = ' . $cust_id;
+    $r = @mysqli_query($dbc, $insrt_query);
+    $row = mysqli_fetch_array($r, MYSQLI_ASSOC);
+    if (! empty($row['last_login'])){
+	return $row['last_login'];
+	} else {
+	return '';
+	}
+
+}
+function setLastLogin( $cust_id ){
+
+    $dbc = getConnection();
+    $insrt_query = 'UPDATE CUSTOMERS SET last_login = sysdate() WHERE cust_id = ' . $cust_id;
+    $r2 = @mysqli_query($dbc, $insrt_query);
+    $mysqlErrors = $r2->error;
+
+}
 function check_login($dbc, $email = '', $pass = '') {
 
     //This function checks login credentials and returns an array
