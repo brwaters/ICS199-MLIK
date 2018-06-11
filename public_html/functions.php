@@ -171,9 +171,9 @@ function check_login($dbc, $email = '', $pass = '', $accept_policy = false) {
         } else {
             //USER EXISTS IN DATABASE!!!
             $row = mysqli_fetch_array($r, MYSQLI_ASSOC);
-	    $cust_id = $row['cust_id']
+	    $cust_id = $row['cust_id'];
 
-	    /*if (! $accept_policy ) {
+	    if (! $accept_policy ) {
 		
 			if ( checkPolicy($cust_id)){
 				$accept_policy = true;
@@ -181,15 +181,15 @@ function check_login($dbc, $email = '', $pass = '', $accept_policy = false) {
 	     }
  
 	     if ( $accept_policy ) {
-		     setPolicy( $cust_id , 'Y');*/
-           	 return array(true, $row);/*
+		     setPolicy( $cust_id , 'Y');
+           	 return array(true, $row);
 		} else {
 			return array(false, array('Users must accept privacy policy'));	
 
 		}
 	     
 
-	}*/
+	
         }
     }
     return array(false, $errors);
