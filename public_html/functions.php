@@ -173,23 +173,7 @@ function check_login($dbc, $email = '', $pass = '', $accept_policy = false) {
             $row = mysqli_fetch_array($r, MYSQLI_ASSOC);
 	    $cust_id = $row['cust_id'];
 
-	    if (! $accept_policy ) {
-		
-			if ( checkPolicy($cust_id)){
-				$accept_policy = true;
-			} 
-	     }
- 
-	     if ( $accept_policy ) {
-		     setPolicy( $cust_id , 'Y');
            	 return array(true, $row);
-		} else {
-			return array(false, array('Users must accept privacy policy'));	
-
-		}
-	     
-
-	
         }
     }
     return array(false, $errors);
