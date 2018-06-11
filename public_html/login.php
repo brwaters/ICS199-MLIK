@@ -93,7 +93,7 @@ if (sizeOf($_POST) > 0 && isSet($accept_policy)){
 			//#######################################################################################
 			//THIS LINE IS COMMENTED OUT FOR TESTING PURPOSES. This needs to be uncommented when done
 			//#######################################################################################
-			//setPolicy($_SESSION['cust_id'], 'Y');
+			setPolicy($_SESSION['cust_id'], 'Y');
 			//#######################################################################################
 
 			//if user was directed from trying to add something to cart
