@@ -89,6 +89,7 @@ if (sizeOf($_POST) > 0 && isSet($accept_policy)){
 			$_SESSION['fname'] = $login[1]['fname'];
 			$_SESSION['account_type'] = $login[1]['account_type'];
 			$_SESSION['logInFailed'] = false;
+			
 
 			//#######################################################################################
 			//THIS LINE IS COMMENTED OUT FOR TESTING PURPOSES. This needs to be uncommented when done
@@ -102,7 +103,10 @@ if (sizeOf($_POST) > 0 && isSet($accept_policy)){
 					
 			}
 				
-			echo '<script> if(window.confirm("Welcome ' . $login[1]['fname'] . '!")){window.location.href=\'index.php\';}; </script>';
+			echo '<script> if(window.confirm("Welcome ' . $login[1]['fname'] . '!\nLast login: ' . getLastLogin($custID) .  ' ")){window.location.href=\'index.php\';}; </script>';
+
+			//setting last login
+			setLastLogin($custID);
 		}else{
 			echo errorHandler(array("Please accept our privacy policy"));
 		}
