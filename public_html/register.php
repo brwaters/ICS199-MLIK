@@ -71,7 +71,7 @@
             }
             else{
                  //echo "no errors";
-                 echo addUser($address = $address, $fname = $fname, $lname = $lname, $pass2 = $pass, $email = $email, $city = $city, $postal = $postal, $prov = $prov);
+                 echo addUser($address = $address, $fname = $fname, $lname = $lname, $pass = $pass2, $email = $email, $city = $city, $postal = $postal, $prov = $prov);
 		echo errorHandler(array('Successfully added user'));
             }
         }
