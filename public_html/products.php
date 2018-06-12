@@ -43,8 +43,8 @@
 		    <input type='submit'>
 		</form>
 	</div>
-
-        <div id = "item_grid">
+        <div class="container">
+        <div class="item_grid">
 
             <?php
             // Displaying products based on selection of category
@@ -83,7 +83,8 @@
                		</form>
 			<br/>
                     </div>
-
+        </div>
+        </div>
                 <?php
                 //Closing the while loop from before. Yes this is wierd.
             }
