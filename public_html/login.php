@@ -10,7 +10,7 @@
 		<form action="login.php" method="POST" enctype="multipart/form-data">
 		<p> Username: <input type="text" name="username" id="usrname"></p>
 		<p> Password: <input type="password" name="password" id="passwd"</p>
-		<p>Accept Privacy Policy <input type="checkbox" name="accept_policy" checked>
+		<p>Accept our <a href="privacyPolicy.php">Privacy Policy</a> <input type="checkbox" name="accept_policy" checked>
 		<input type="submit" value="submit" id="submit1" />
 		</form>';
 		
