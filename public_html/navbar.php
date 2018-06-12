@@ -19,6 +19,7 @@
 		if ($_SESSION['loggedIn']) {
 			
 			$nav =  $nav . "<li><a href=\"cart.php\">Cart</a></li>";
+			$nav =  $nav . "<li><a href=\"account.php\">Account</a></li>";
 			$nav =  $nav . "<li><a href=\"logout.php\">Log Out</a></li>";
 
 			if ($_SESSION['account_type'] == 'admin'){
