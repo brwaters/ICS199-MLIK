@@ -1,4 +1,20 @@
 /* CSS Document */
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 50%;
+    //margin: auto;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
 header {
     background-image: url("header_bg.jpg");
 	background-position-y: center;
