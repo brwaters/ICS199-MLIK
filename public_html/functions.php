@@ -127,13 +127,12 @@ function setLastLogin( $cust_id ){
     $mysqlErrors = $r2->error;
 
 }
-function check_login($dbc, $email = '', $pass = '', $accept_policy = false) {
+function check_login($dbc, $email = '', $pass = '') {
 
     //This function checks login credentials and returns an array
     //  array ( bool, arr )
     // If the bool is true, the login was successfull and the array is the customers first name and email
     // if the bool is false, the array is a list of errors that occured. Unsuccessfull logon is an error.	
-
 
     $errors = array();
 
@@ -152,7 +151,7 @@ function check_login($dbc, $email = '', $pass = '', $accept_policy = false) {
     if (empty($pass)) {
         array_push($errors, 'Please enter password');
     } else {
-        $p = mysqli_real_escape_string($dbc, md5(trim($pass)));
+        $p = md5(escapeString($pass));
     }
 
     //checking to see if we got this far
@@ -166,8 +165,8 @@ function check_login($dbc, $email = '', $pass = '', $accept_policy = false) {
         //checking results
         if (mysqli_num_rows($r) != 1) {
 
-            //error wrong number of rows returned, user doesn't exist in database
-            array_push($errors, 'Wrong email or password');
+                //error wrong number of rows returned, user doesn't exist in database
+            	array_push($errors, 'Wrong email or password');
         } else {
             //USER EXISTS IN DATABASE!!!
             $row = mysqli_fetch_array($r, MYSQLI_ASSOC);
@@ -325,10 +324,10 @@ function deleteFromCart($prod_id) {
 }
 
 function addUser($address, $fname, $lname, $pass, $email, $city, $postal, $prov) {
-    $hashedPass = md5($pass);
+    $hashedPass =  md5(escapeString($pass));
     
     if (isset($fname)) {
-        $connection = new mysqli("localhost", "cst170", "381953", "ICS199Group07_dev"); // Connecting to database
+        $connection = getConnection();
         if ($connection->connect_error) { //show error if database connection fails
             die("Connection failed: " . $connection->connect_error);
         } else {
@@ -362,37 +361,91 @@ function clearCart(){
 			return true;
 		} 
 }
+
+function makeOrder( $cust_id ){
+
+
+	
+	//First this function makes a reciept
+	//This then function takes the items in the users cart and puts them in the PURCHASES table under a common transaction id
+	//then after all of that clears the cart
+
+	$dbc = getConnection();
+	$errors = array();
+	
+	//generating transaction id
+	$query = "SELECT max(trans_id) as max_trans_id FROM ICS199Group07_dev.RECIEPT";
+        $r = @mysqli_query($dbc, $query);
+        //checking results
+        if (mysqli_num_rows($r) == 0) {
+		//This is the first transaction, CONGRATS!
+		$trans_id = 0;
+        } else {
+		//This is just one of many insignifigant transactions
+		$trans_id = $r->fetch_assoc()['max_trans_id'] + 1;
+	} 
+	echo $trans_id . '<br>';
+
+
+	//ensuring customer has items in their cart
+	$query = "SELECT * FROM ICS199Group07_dev.CART WHERE cust_id = '" . $cust_id . "'";
+        $r = @mysqli_query($dbc, $query);
+
+        //checking results to ensure cart isnt empty
+        if (mysqli_num_rows($r) == 0) {
+        	array_push($errors, 'Cart is empty');
+		return $errors;
+        } 
+
+	//if we are here, the cart isn't empty
+
+	//making a reciept yo
+	$rcpt_query = 'INSERT INTO  ICS199Group07_dev.RECIEPT (time, cust_id) values ( sysdate(), ' . $cust_id . ')';
+        $r2 = @mysqli_query($dbc, $rcpt_query);
+	if (! $r2 ) {
+  		$err =   "Error description: " . mysqli_error($dbc);
+		array_push ($errors, $err);
+		return $errors;
+	}
+
+	//  $r currently contains all of the cart information
+	//  we need to take the information from the cart and throw that into the purchases table under the transaction id 
+	while ( $cartItem = $r->fetch_assoc()){
+
+		//getting info about the item
+		$qty = $cartItem['quantity'];
+		$prod_id = $cartItem['prod_id'];
+		//getting price
+		$query = "SELECT Price FROM ICS199Group07_dev.PRODUCTS WHERE prod_id = '" . $prod_id . "'";
+		$r3 = @mysqli_query($dbc, $query);
+		if (! $r3 ) {
+			$err =   "Error getting information about product";
+			array_push ($errors, $err);
+			return $errors;
+		}
+		$price = $r3->fetch_assoc()['Price'];	
+		
+		
+
+		$query = "INSERT INTO ICS199Group07_dev.PURCHASES (quantity, trans_id, cust_id, prod_id, original_price) VALUES ( " . $qty . ", " . $trans_id . ", " . $cust_id . ", " . $prod_id. ", " . $price . " )";	
+		echo ($query);
+		echo '<br>';
+	}
+	
+		
+
+	//removing all items from cart
+	//clearCart();
+
+	/*if (! $r ) {
+  		$err =   "Error description: " . mysqli_error($dbc);
+		array_push ($errors, $err);
+		return $errors;
+	}*/
+	
+
+}
+
+
+
 ?>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
