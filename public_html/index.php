@@ -15,7 +15,5 @@
 <p> Vestibulum dapibus, diam eu consectetur auctor, neque sapien iaculis odio, sed porttitor neque diam et est. Morbi eu ante vel lectus gravida sollicitudin. Etiam faucibus mollis scelerisque. Morbi dapibus nibh sed purus ornare congue. Sed maximus, nisi vel tristique blandit, lacus libero mollis justo, pulvinar commodo eros lorem eu dui. Nunc lacinia luctus sodales. Integer ac mattis mi. Curabitur egestas justo nec risus pretium aliquet. Nunc ac nibh non augue ultricies congue. Vivamus faucibus, odio sit amet bibendum fermentum, ex elit venenatis arcu, quis imperdiet nisl quam ut neque. Aenean enim nisi, elementum a sem eu, vestibulum pellentesque lacus. Aenean eget libero felis. Aenean at facilisis mi, eu fringilla nibh. </p>
 	</div>
 </body>
-<footer>
-  <hr>
-  We sell quality goods! Check us out on Twitter, Social Media Site 1, Social Media Site 2</footer>
+<?php include 'footer.php';?>
 </html>
