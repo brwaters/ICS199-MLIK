@@ -373,18 +373,6 @@ function makeOrder( $cust_id ){
 	$dbc = getConnection();
 	$errors = array();
 	
-	//generating transaction id
-	$query = "SELECT max(trans_id) as max_trans_id FROM ICS199Group07_dev.RECIEPT";
-        $r = @mysqli_query($dbc, $query);
-        //checking results
-        if (mysqli_num_rows($r) == 0) {
-		//This is the first transaction, CONGRATS!
-		$trans_id = 0;
-        } else {
-		//This is just one of many insignifigant transactions
-		$trans_id = $r->fetch_assoc()['max_trans_id'] + 1;
-	} 
-	echo $trans_id . '<br>';
 
 
 	//ensuring customer has items in their cart
@@ -405,8 +393,20 @@ function makeOrder( $cust_id ){
 	if (! $r2 ) {
   		$err =   "Error description: " . mysqli_error($dbc);
 		array_push ($errors, $err);
-		return $errors;
+		//return $errors;
 	}
+
+	//generating transaction id
+	$query = "SELECT max(trans_id) as max_trans_id FROM ICS199Group07_dev.RECIEPT";
+        $recp = @mysqli_query($dbc, $query);
+        //checking results
+        if (mysqli_num_rows($recp) == 0) {
+		//This is the first transaction, CONGRATS!
+		$trans_id = 0;
+        } else {
+		//This is just one of many insignifigant transactions
+		$trans_id = $recp->fetch_assoc()['max_trans_id'];
+	} 
 
 	//  $r currently contains all of the cart information
 	//  we need to take the information from the cart and throw that into the purchases table under the transaction id 
@@ -415,6 +415,7 @@ function makeOrder( $cust_id ){
 		//getting info about the item
 		$qty = $cartItem['quantity'];
 		$prod_id = $cartItem['prod_id'];
+
 		//getting price
 		$query = "SELECT Price FROM ICS199Group07_dev.PRODUCTS WHERE prod_id = '" . $prod_id . "'";
 		$r3 = @mysqli_query($dbc, $query);
@@ -426,23 +427,20 @@ function makeOrder( $cust_id ){
 		$price = $r3->fetch_assoc()['Price'];	
 		
 		
-
+		//inserting item into database
 		$query = "INSERT INTO ICS199Group07_dev.PURCHASES (quantity, trans_id, cust_id, prod_id, original_price) VALUES ( " . $qty . ", " . $trans_id . ", " . $cust_id . ", " . $prod_id. ", " . $price . " )";	
-		echo ($query);
-		echo '<br>';
+		$r4 = @mysqli_query($dbc, $query);
+		if (! $r4 ) {
+			$err =   "Error adding purchase";
+			array_push ($errors, $err);
+			return $errors;
+		}
 	}
 	
 		
 
 	//removing all items from cart
-	//clearCart();
-
-	/*if (! $r ) {
-  		$err =   "Error description: " . mysqli_error($dbc);
-		array_push ($errors, $err);
-		return $errors;
-	}*/
-	
+	clearCart();
 
 }
 
