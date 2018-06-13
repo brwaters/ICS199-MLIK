@@ -117,6 +117,7 @@
 		//  		END TABLE
 		
                 require_once('config.php'); 
+                $sub_total = number_format((float) $sub_total, 2, '.', '');
                 ?>
                 <h3>Sub Total: $<?php echo $sub_total; ?> </h3>
                 <form action="charge.php" method="post">
