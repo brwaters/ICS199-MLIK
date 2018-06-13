@@ -183,10 +183,10 @@ function typethis() {
 }
 
 function logOut() {
-    $_SESSION['loggedIn'] = false;
-    $_SESSION['cust_id'] = NULL;
-    $_SESSION['fname'] = NULL;
-    $_SESSION['account_type'] = NULL;
+    unset($_SESSION['loggedIn']);
+    unset($_SESSION['cust_id']);
+    unset($_SESSION['fname']);
+    unset($_SESSION['account_type']);
 }
 
 function addToCart($prod_id) {
