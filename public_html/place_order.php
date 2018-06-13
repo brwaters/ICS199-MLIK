@@ -6,11 +6,12 @@
         <?php
         $page = 'order_summary';
         include 'navbar.php';
+        include 'functions.php';
         ?>
     </head>
     <body>
         <?php
-        $connection = new mysqli("localhost", "cst170", "381953", "ICS199Group07_dev");
+        $connection = getConnection();
 
         if ($connection->connect_error) {
             die("Connection failed: " . $connection->connect_error);
@@ -18,7 +19,7 @@
             //echo '<pre>' . print_r($_SESSION) . '</pre>';
 
             $queryName = "";
-            $queryAddress = "SELECT fname, lname, address, city, province, postal_code FROM ICS199Group07_dev.CUSTOMERS WHERE cust_id =" . $_SESSION['cust_id'] . ";";
+            $queryAddress = "SELECT * FROM ICS199Group07_dev.CUSTOMERS WHERE cust_id =" . $_SESSION['cust_id'] . ";";
 
             //print_r($queryAddress);
             $query = $connection->query($queryAddress);
@@ -28,8 +29,34 @@
                 ?>
                 <div>
                     <h1>Order Summary</h1>
-                    <p>Name: <?php print $orderData['fname'] . ' ' . $orderData['lname']; ?></p>
-                    <p>Address: <?php print $orderData['address'] . ', ' . $orderData['city'] . ', ' . $orderData['province'] . ' ' . $orderData['postal_code']; ?></p>
+		    <?php
+	
+			// START SHIPPING INFO
+
+                    /*<p>Name: <?php print $orderData['fname'] . ' ' . $orderData['lname']; ?></p>
+                    <p>Address: <?php print $orderData['address'] . ', ' . $orderData['city'] . ', ' . $orderData['province'] . ' ' . $orderData['postal_code']; ?></p> */
+		    
+			echo '
+				<table>
+
+					<tr>
+						<th>Shipping Info</th>
+					</tr>
+
+					<tr> <td>' . $orderData['fname'] . ' ' . $orderData['lname'] . '</td> </tr>
+					<tr> <td>' . $orderData['address'] . '</td> </tr>
+					<tr> <td>' . $orderData['city'] . ', ' . $orderData['province'] . ', ' . $orderData['postal_code'] . '</td> </tr>
+					<tr> <td>Canada</td> </tr>
+
+							
+				</table>
+				<br>
+			'; 
+			// END SHIPPING INFO
+			?>
+			
+			
+	
                 </div>
                 <?php
                 //$attributes = array();
@@ -40,21 +67,29 @@
                 //print_r($queryCart);
                 $query = $connection->query($queryCart);
                 //each iteration here is a single cart item
+
+
+
+
+	
+		//	STARTING TABLE 
+
+		echo '<table>
+		<tr>
+			<th>Product</th>
+			<th>Quantity</th>
+			<th>Individual Price</th>
+			<th>Price</th>
+		</tr>
+		';
+
                 while ($cartData = $query->fetch_assoc()) {
 
                     $prod_id = $cartData['prod_id'];
 
-                    //getting information on the product for this list item
-                    //$where = 'WHERE prod_id = ' . $prod_id; // . ' AND cust_id = ' . $_SESSION['cust_id'];
-                    //$product = selectFromDB($attributes, 'PRODUCTS', $where)->fetch_assoc();
                     $queryProduct = "SELECT * FROM ICS199Group07_dev.PRODUCTS WHERE prod_id = " . $prod_id . ";";
                     $querySummary = $connection->query($queryProduct);
                     $product = $querySummary->fetch_assoc();
-                    //$product = "SELECT * FROM ICS199Group07_dev.PRODUCTS WHERE prod_id = " . $prod_id . ";";
-                    //print_r($queryProduct);
-                    //print_r($product);
-                    //echo '<pre>' . print_r($_POST) . '</pre>';
-                    //storing product information in variables to make it easier to access
                     $prod_name = $product['Name'];
                     $qty = $cartData['quantity'];
                     $single_price = $product['Price'];
@@ -66,20 +101,21 @@
                     $sub_total = $sub_total + $total_price;
 
                     //echoing items
-                    echo '
-                        <div class=\'cart_item\'>
-                        <ul class=\'cart_info\'>
-                                <li class=\'cart_info\' ><img src=\'product_pics/' . $prod_id . '\' class=\'cart_img\'/></li>
-                                <li class=\'cart_info\' >' . $prod_name . '</li>
-                                <li class=\'cart_info\'><form class=\'cart_info\'  action = "cart.php" method = "post"><input type="submit" name="decrementCart" value="-" /><input type="hidden" name="prod_id" value="' . $prod_id . '"/></form>
-                                Qty: ' . $qty . '
-                                <form class=\'cart_info\'  action = "cart.php" method = "post"><input type="submit" name="incrementCart" value="+" /><input type="hidden" name= "prod_id" value="' . $prod_id . '"/></form></li>
-                                <li class=\'cart_info\'  >Individual Price: ' . $single_price . '</li>
-                                <li class=\'cart_info\' >Price: ' . $total_price . '</li>
-                                <li class=\'cart_info\' ><form class=\'cart_info\'  action = "cart.php" method = "post"><input type="submit" name="removeItem" value="Remove" /><input type="hidden" name= "prod_id" value="' . $prod_id . '"/></form></li>
-                        </ul>
-                        </div>';
+		    echo '
+			<tr>
+				<td> ' . $prod_name . ' </td> 
+				<td> ' . $qty . ' </td> 
+				<td> ' . $single_price . ' </td> 
+				<td> ' . $total_price . ' </td> 
+			</tr>
+			
+
+			'; //end echo 
                 }
+		
+		echo '</table>';
+		//  		END TABLE
+		
                 require_once('config.php'); 
                 ?>
                 <h3>Sub Total: $<?php echo $sub_total; ?> </h3>
