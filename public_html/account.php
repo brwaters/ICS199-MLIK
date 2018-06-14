@@ -38,7 +38,7 @@
 		$has_ordered = false;
 
 		//getting list of orders by this user
-		$query = 'SELECT * FROM ICS199Group07_dev.RECIEPT WHERE cust_id = ' . $cust_id . ' order by trans_id desc';
+		$query = 'SELECT * FROM ICS199Group07_dev.RECEIPT WHERE cust_id = ' . $cust_id . ' order by trans_id desc';
 		$r = @mysqli_query($dbc, $query);
 
 		//checking if they have made any orders
@@ -53,7 +53,7 @@
 		} else {
 		
 			while ( $recpt = $r->fetch_assoc()) {
-			//this part is run FOR EACH RECIEPT
+			//this part is run FOR EACH RECEIPT
 			$trans_id = $recpt['trans_id'];
 
 				$query = 'select sum(original_price) as total from ICS199Group07_dev.PURCHASES WHERE trans_id = ' . $trans_id . ' and cust_id = ' . $cust_id  ;
