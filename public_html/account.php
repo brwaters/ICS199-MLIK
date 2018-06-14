@@ -38,7 +38,7 @@
 		$has_ordered = false;
 
 		//getting list of orders by this user
-		$query = 'SELECT * FROM ICS199Group07_dev.RECIEPT WHERE cust_id = ' . $cust_id . ' order by trans_id desc';
+		$query = 'SELECT * FROM ICS199Group07_dev.RECEIPT WHERE cust_id = ' . $cust_id . ' order by trans_id desc';
 		$r = @mysqli_query($dbc, $query);
 
 		//checking if they have made any orders
