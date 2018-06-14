@@ -397,7 +397,7 @@ function makeOrder( $cust_id ){
 	}
 
 	//generating transaction id
-	$query = "SELECT max(trans_id) as max_trans_id FROM ICS199Group07_dev.RECIEPT";
+	$query = "SELECT max(trans_id) as max_trans_id FROM ICS199Group07_dev.RECEIPT";
         $recp = @mysqli_query($dbc, $query);
         //checking results
         if (mysqli_num_rows($recp) == 0) {
@@ -445,5 +445,174 @@ function makeOrder( $cust_id ){
 }
 
 
+function generateReceipt($trans_id, $cust_id){
+	//starting output
+	$output = '';
 
+	//this returns the path to the file
+	$dbc = getConnection();
+
+	//this variable will control the output of the page
+	//If this is false, the user wont see anything  on the screen
+	$has_ordered = false;
+
+	//getting list of orders by this user
+	$queryRec = 'SELECT * FROM ICS199Group07_dev.RECEIPT WHERE trans_id = ' . $trans_id;
+	$r = @mysqli_query($dbc, $queryRec);
+
+	//checking if they have made any orders
+	if (mysqli_num_rows($r) != 0) {
+		$has_ordered = true;
+	}
+
+
+
+	if ( ! $has_ordered ){
+		$output = $output .   '<p> Order Doesn\'t Exist! </p>';	
+	} else {
+		// managing css 	START CSS
+		$output = $output . ' 
+		<html>
+			<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
+			<head>
+				<title>Order ' . $trans_id . '</title>	
+			<style>
+				table {
+				    font-family: arial, sans-serif;
+				    border-collapse: collapse;
+				    width: 50%;
+				    //margin: auto;
+				}
+				
+				h1, h3 {
+				    font-family: arial, sans-serif;
+				}
+
+				td, th {
+				    border: 1px solid #dddddd;
+				    text-align: left;
+				    padding: 8px;
+				}
+
+				tr:nth-child(even) {
+				    background-color: #dddddd;
+				}
+			</style>
+			</head>
+			<body>
+
+			<h1>MLIK</h1>
+			<h3>Quality lactate products and services</h3>
+		';
+
+		$timeOfPurchase = $r->fetch_assoc()['time'];
+
+		$query = 'select sum(original_price) as total from ICS199Group07_dev.PURCHASES WHERE trans_id = ' . $trans_id . ' and cust_id = ' . $cust_id  ;
+		$total_query = @mysqli_query($dbc, $query);
+		$total = $total_query->fetch_assoc()['total'];
+
+							// start of order info table
+		$output = $output .   '
+		<table>
+
+		<tr>
+			<th>Order No</th>
+			<th>' . $trans_id . '</th>
+		</tr>
+	
+		<tr>
+			<td>Time</td> 
+			<td>' . $timeOfPurchase . '</td>
+		</tr>
+		<tr>
+			<td>Order Total</td> 
+			<td><b>' . $total . '</b> </p>
+		</tr>
+		</table>';				// end of order info table
+		
+
+		// START SHIPPING INFO
+		$queryAddress = "SELECT * FROM ICS199Group07_dev.CUSTOMERS WHERE cust_id =" . $cust_id;
+
+		$query = $dbc->query($queryAddress);
+
+		while ($orderData = $query->fetch_assoc()) {
+									// start of shipping info table
+		$output = $output .   '
+			<table>
+
+				<tr>
+					<th>Shipping Info</th>
+				</tr>
+
+				<tr> <td>' . $orderData['fname'] . ' ' . $orderData['lname'] . '</td> </tr>
+				<tr> <td>' . $orderData['address'] . '</td> </tr>
+				<tr> <td>' . $orderData['city'] . ', ' . $orderData['province'] . ', ' . $orderData['postal_code'] . '</td> </tr>
+				<tr> <td>Canada</td> </tr>
+
+						
+			</table>
+		';						// end of shipping info table 
+		}  // END SHIPPING INFO
+
+		
+
+		//START PRODUCT INFO
+								// start product into 
+		$output = $output .  '
+
+		<table>
+		<tr>
+			<th>Product</th>
+			<th>Quantity</th>
+			<th>Price</th>
+		</tr>';
+
+		$query = 'SELECT * FROM ICS199Group07_dev.PURCHASES WHERE trans_id = ' . $trans_id . ' and cust_id = ' . $cust_id . ' order by trans_id desc';
+		$order = @mysqli_query($dbc, $query);
+
+		while ($order_info = $order->fetch_assoc()){
+
+			//getting product name
+			$query = 'SELECT * FROM ICS199Group07_dev.PRODUCTS WHERE prod_id = ' . $order_info['prod_id'];
+			$prod_info = @mysqli_query($dbc, $query);
+			$prod_name = $prod_info->fetch_assoc()['Name'];
+
+
+
+			$output = $output .   '<tr>';
+			$output = $output .   '<td>' . $prod_name . '</td>';	
+			$output = $output .   '<td>' . $order_info['quantity'] . '</td>';	
+			$output = $output .   '<td>' . $order_info['original_price'] . '</td>';	
+			
+			$output = $output .   '</tr>';
+		}
+		$output = $output .   '</table><br>';
+									// end product info
+
+	} //End of else where we check if they have ordered. 
+
+	// END OF PRODUCT INFO 
+
+				//start of end of html document stuff
+$output = $output . '
+	</body>
+</html>
+';
+
+				// end of end of html document stuff
+return $output;
+} // end printReceipt function
+
+function printReceipt($trans_id, $cust_id){
+
+		$msg = generateReceipt($trans_id, $cust_id);
+
+		$outputFile = 'output/orderNo' . $trans_id .  '.html';
+
+		$output = fopen($outputFile, 'w');
+
+		fwrite($output, $msg);
+		fclose($output);	
+}
 ?>
