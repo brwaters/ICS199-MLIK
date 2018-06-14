@@ -53,7 +53,7 @@
 		} else {
 		
 			while ( $recpt = $r->fetch_assoc()) {
-			//this part is run FOR EACH RECIEPT
+			//this part is run FOR EACH RECEIPT
 			$trans_id = $recpt['trans_id'];
 
 				$query = 'select sum(original_price) as total from ICS199Group07_dev.PURCHASES WHERE trans_id = ' . $trans_id . ' and cust_id = ' . $cust_id  ;
