@@ -12,6 +12,7 @@
     <body>
         <?php
         $connection = getConnection();
+		
 
         if ($connection->connect_error) {
             die("Connection failed: " . $connection->connect_error);
@@ -115,7 +116,12 @@
 		
 		echo '</table>';
 		//  		END TABLE
-		
+		//get user info
+		$queryCus = "SELECT * FROM ICS199Group07_dev.CUSTOMERS WHERE cust_id = " .  $_SESSION['cust_id'] . ";";
+        $queryResults = $connection->query($queryCus);
+        $customer = $queryResults->fetch_assoc();
+		$customerEmail = $customer['username'];
+		echo $customerEmail;
                 require_once('config.php'); 
                 $sub_total = number_format((float) $sub_total, 2, '.', '');
                 ?>
@@ -125,7 +131,8 @@
                             data-key="<?php echo $stripe['publishable_key']; ?>"
                             data-description="<?php echo 'Payment Form'; ?>"
                             data-amount="<?php echo $sub_total * 100; ?>"
-                        data-locale="auto"></script>
+                        data-locale="auto"
+						data-email="<?php echo $customerEmail;?>"></script>
                     <input type="hidden" name="sub_total" value="<?php echo $sub_total; ?>" />
                 </form>
                 <?php
