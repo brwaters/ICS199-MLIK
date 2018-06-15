@@ -62,7 +62,7 @@
 
 			echo '<h3>Order No: ' . $trans_id . '</h3>
 				<p>Time: ' . $recpt['time'] . '</p>
-				<p>Total: ' . $total . ' </p>
+				<p>Total: $' . $total . ' </p>
 			<table>
 			<tr>
 				<th>Product</th>
@@ -85,7 +85,7 @@
 
 				echo '<td>' . $prod_name . '</td>';	
 				echo '<td>' . $order_info['quantity'] . '</td>';	
-				echo '<td>' . $order_info['original_price'] . '</td>';	
+				echo '<td>$' . $order_info['original_price'] . '</td>';	
 
 
 
