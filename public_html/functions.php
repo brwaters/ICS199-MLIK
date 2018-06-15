@@ -366,7 +366,7 @@ function makeOrder( $cust_id ){
 
 
 	
-	//First this function makes a reciept
+	//First this function makes a receipt
 	//This then function takes the items in the users cart and puts them in the PURCHASES table under a common transaction id
 	//then after all of that clears the cart
 
@@ -387,8 +387,8 @@ function makeOrder( $cust_id ){
 
 	//if we are here, the cart isn't empty
 
-	//making a reciept yo
-	$rcpt_query = 'INSERT INTO  ICS199Group07_dev.RECIEPT (time, cust_id) values ( sysdate(), ' . $cust_id . ')';
+	//making a receipt yo
+	$rcpt_query = 'INSERT INTO  ICS199Group07_dev.RECEIPT (time, cust_id) values ( sysdate(), ' . $cust_id . ')';
         $r2 = @mysqli_query($dbc, $rcpt_query);
 	if (! $r2 ) {
   		$err =   "Error description: " . mysqli_error($dbc);

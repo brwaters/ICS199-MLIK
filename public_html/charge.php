@@ -21,12 +21,12 @@
 
   //echo '<h1>Successfully charged ' . number_format((float) $total_amount, 2, '.', '') . '</h1>';
   //echo '<a href="./index.php">Return to the main page.</a>';
-  echo $cust_id;
+  //echo $cust_id;
   makeOrder( $cust_id );
-  //echo '<script>'
-  //. 'window.location.replace("index.php");'
-  //. 'alert("You\'re order has been complete! You have been billed for:  '
-  //. number_format((float) $total_amount, 2, '.', '')
-  //. '");'
-  //. '</script>';
+  echo '<script>'
+  . 'window.location.replace("index.php");'
+  . 'alert("You\'re order has been complete! You have been billed for:  '
+  . number_format((float) $total_amount, 2, '.', '')
+  . '");'
+  . '</script>';
 ?>
