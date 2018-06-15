@@ -397,7 +397,7 @@ function makeOrder( $cust_id ){
 	}
 
 	//generating transaction id
-	$query = "SELECT max(trans_id) as max_trans_id FROM ICS199Group07_dev.RECEIPT";
+	$query = "SELECT max(trans_id) as max_trans_id FROM ICS199Group07_dev.RECEIPT WHERE cust_id = '" . $cust_id . "'";
         $recp = @mysqli_query($dbc, $query);
         //checking results
         if (mysqli_num_rows($recp) == 0) {
@@ -415,7 +415,6 @@ function makeOrder( $cust_id ){
 		//getting info about the item
 		$qty = $cartItem['quantity'];
 		$prod_id = $cartItem['prod_id'];
-
 		//getting price
 		$query = "SELECT Price FROM ICS199Group07_dev.PRODUCTS WHERE prod_id = '" . $prod_id . "'";
 		$r3 = @mysqli_query($dbc, $query);
