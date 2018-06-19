@@ -8,7 +8,7 @@
         include 'navbar.php'; ?>
         <?php
         //Setting up connection to database
-        $connection = new mysqli("localhost", "cst170", "381953", "ICS199Group07_dev");
+        $connection = getConnection();
 
         if ($connection->connect_error) {
             die("Connection failed: " . $connection->connect_error);
@@ -23,6 +23,7 @@
 
 
     <body>
+	<div class='page_content'>
 	<div class='cat_select'>
 		<form class='cat_select_text' action="products.php" method='POST'> 
 		    <p class='cat_select_text'> Category: </p> 
@@ -45,17 +46,28 @@
 		    <input type='submit'>
 		</form>
 
-	<div class='search'>         <!-- START OF SEARCH -->
 
 		<form class='cat_select_text' action="products.php" method='POST'> 
 		    <p class='cat_select_text'> Search: </p> <input type='text' name='search'>
 		</form>
-	</div> 			    <!-- END OF SEARCH -->
 	</div> <!-- END OF CATAGORY SELECTOR -->
-        <div class="container">
-        <div class="item_grid">
 
             <?php
+
+//        <div class="container">
+//        <div class="item_grid">
+
+
+
+
+
+
+
+
+
+
+
+
             // Displaying products based on selection of category
             // 
             // If the the user made a selection for the category 
@@ -78,9 +90,25 @@
                 //Here we select everything	
                 $query = $connection->query("SELECT * FROM PRODUCTS");
             }
+
+
+
+
+
+
+
+
+
+
             //Here is a div generating loop, for each row that was returned in the query from earlier
             while ($dataCat = $query->fetch_assoc()) {
                 ?>
+
+
+		<?php
+		echo printProduct($dataCat['prod_id'],$dataCat['Name'],$dataCat['Price']);
+		
+		/*
                     <div class='product'>
 
                         <!-- subtle but important break -->
@@ -100,6 +128,7 @@
                     </div>
         </div>
         </div>
+	*/			?>
                 <?php
                 //Closing the while loop from before. Yes this is wierd.
             }
@@ -129,7 +158,7 @@
                         ';
                 } else {
 
-                $connection = new mysqli("localhost", "cst170", "381953", "ICS199Group07_dev");
+                $connection = getConnection();
 
                 if ($connection->connect_error) { //Connection to DB opened
                     die("Connection failed: " . $connection->connect_error);
@@ -165,7 +194,7 @@
             ?>
 
         </ul>
-    </div>
+    </div> <!-- END OF PAGE -->
     <br>
     <br>
 </body>

@@ -131,6 +131,7 @@ p {
     margin-right: auto;
     display: block;
 }
+
 .prod_txt {
     background-color:#393D3F;  
     color: white;
@@ -175,9 +176,7 @@ footer {
 	padding: 20px;
 	background-color: grey;
 	margin: 40px;
-}
-.page_content p {
-	background-color: grey;
+	overflow: auto;
 }
 body {
 	background-color: silver;

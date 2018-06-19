@@ -5,6 +5,12 @@
 <link rel="stylesheet" href="./css.css">
 <title>home</title>
 			<?php $page = "index"; include 'navbar.php'; ?>
+<style>
+
+.page_content p {
+	background-color: grey;
+}
+</style>
 </head>
 
 <body>
@@ -23,6 +29,7 @@ Our commitment to quality and service is what makes us stand out from the compet
 Our market research shows that Texas billionares are willing to pay more for ancient milk than most research teams are able to afford. For this reason the properties of ancient milk remain unsubstantiated by science.</p>
 
 <h4>Our dedication to Ugin the spirit dragon</h4>
+
 
 <p>Ugin guides our research and passion for lactate products, without his eternal wisdom we would be lost to the ether. He has chosen the prophet who has the power to extract the cryogens from the earths crust. Each milk product is blessed by Him.</p>
 
