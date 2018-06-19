@@ -617,4 +617,25 @@ function printReceipt( $trans_id, $cust_id ){
 		fwrite($output, $msg);
 		fclose($output);	
 }
+function printProduct($prod_id, $prod_name, $prod_price){
+return "
+                    <div class='product'>
+
+                        <!-- subtle but important break -->
+                        <br>
+
+                        <!-- Here we retrieve the image based on the product id. The product with a product id of 1 will retrieve 1.jpg from the product_pics directory -->
+                        <a href='product_info.php?product_id=" . $prod_id . "'>
+                        <img class='prod_img' src='product_pics/" . $prod_id. ".jpg' alt='" .  $prod_name . "' >	
+                        </a>
+                        <p class='prod_txt'><b>" .$prod_name . "</b></p> 
+                        <p class='prod_txt'>$ " . $prod_price . "</p>
+
+                	<form action='products.php' method='GET' enctype='multipart/form-data'>
+                        	<button class='prod_txt' type='Submit' name='submit' value='" . $prod_id . "'>Add to cart</button>
+               		</form>
+			<br/>
+                    </div>
+";
+}
 ?>
