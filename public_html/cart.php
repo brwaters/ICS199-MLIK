@@ -68,13 +68,14 @@
 			
 			$query = selectFromDB($attributes, 'CART', 'WHERE cust_id = ' . $_SESSION['cust_id']);	
 			$sub_total = 0;
+			$cartEmpty = true;
 
 
 
 
 			//each iteration here is a single cart item
 			while ($data = $query->fetch_assoc()){
-				
+				$cartEmpty = false;
 				$prod_id = $data['prod_id']; 
 
 				//getting information on the product for this list item
@@ -111,12 +112,16 @@
 
 			} //end while	
 			} //end else
-		?>
-		<h3>Sub Total: $<?php echo $sub_total; ?> </h3>
+	
+	if($cartEmpty){
+		echo '<h3> Nothing is in your cart </h3>';
+	}
+	else{
+		echo '<h3>Sub Total: $ ' . $sub_total . ' </h3>
 		<form class=\'clear_cart\'  action = "cart.php" method = "post"><input type="submit" name="clearCart" value="Clear Cart" /><input type="hidden" name="confirm" value="removeAllItemsFromCart"/></form>
 
-		<form action = "./place_order.php" method = "post"><input type="submit" name="placeOrder" value="Place Order" /></form>
-
+		<form action = "./place_order.php" method = "post"><input type="submit" name="placeOrder" value="Place Order" /></form> ';
+	} ?>
 	</body>
 
 <?php include 'footer.php';?>

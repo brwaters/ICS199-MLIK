@@ -1,8 +1,6 @@
 <?php
 	session_start();
-	$nav = "<header>
-
-			<h1>The mlik header image goes here!</h1>";
+	$nav = "<header>";
 
 	if ($_SESSION['loggedIn']){
 		$nav = $nav . '<h3>Welcome ' . $_SESSION['fname'] . '! </h3>';
@@ -11,14 +9,14 @@
 	}
 	$nav = $nav ." <ul id = \"navbar\">
 			<li><a href=\"index.php\">Home</a></li>
-			<li><a href=\"products.php\">Products</a></li>
-			<li><a href=\"search.php\">Search</a></li>";
+			<li><a href=\"products.php\">Products</a></li>";
 	
 
 
 		if ($_SESSION['loggedIn']) {
 			
 			$nav =  $nav . "<li><a href=\"cart.php\">Cart</a></li>";
+			$nav =  $nav . "<li><a href=\"account.php\">Account</a></li>";
 			$nav =  $nav . "<li><a href=\"logout.php\">Log Out</a></li>";
 
 			if ($_SESSION['account_type'] == 'admin'){

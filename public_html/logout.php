@@ -1,9 +1,9 @@
 
 <html>
-<meta http-equiv="refresh" content="0; url='index.php'" />	
-<?php
-include 'functions.php';
 	
-logOut();
+<?php
+session_start();
+session_destroy();
+header("Location: index.php");
 ?>
 </html>

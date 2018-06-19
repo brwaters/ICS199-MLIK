@@ -1,8 +1,12 @@
 <?php
+  session_start();
+  include 'functions.php';
   require_once('./config.php');
-
+  $cust_id = $_SESSION['cust_id'];
   $token  = $_POST['stripeToken'];
   $email  = $_POST['stripeEmail'];
+  $total_amount = $_POST['sub_total'];
+  $stripe_amount = $_POST['sub_total'] * 100;
 
   $customer = \Stripe\Customer::create(array(
       'email' => $email,
@@ -11,9 +15,18 @@
 
   $charge = \Stripe\Charge::create(array(
       'customer' => $customer->id,
-      'amount'   => 5000,
-      'currency' => 'usd'
+      'amount'   => $stripe_amount,
+      'currency' => 'cad'
   ));
 
-  echo '<h1>Successfully charged $50.00!</h1>';
+  //echo '<h1>Successfully charged ' . number_format((float) $total_amount, 2, '.', '') . '</h1>';
+  //echo '<a href="./index.php">Return to the main page.</a>';
+  //echo $cust_id;
+  makeOrder( $cust_id );
+  echo '<script>'
+   .'alert("You\'re order has been processed! You have been billed for:  '
+  . number_format((float) $total_amount, 2, '.', '')
+  . '");
+  window.location.replace("account.php");'
+  . '</script>'; 
 ?>

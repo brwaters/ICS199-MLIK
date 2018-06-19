@@ -3,6 +3,9 @@
     <head>
         <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="./css.css">
+        <?php $page = 'products';
+	include 'functions.php';
+        include 'navbar.php'; ?>
         <?php
         //Setting up connection to database
         $connection = new mysqli("localhost", "cst170", "381953", "ICS199Group07_dev");
@@ -13,10 +16,9 @@
 
         //variables
         $categories = $_POST['category'];
+        $search = escapeString($_POST['search']);
         ?>
         <title>Products - MLIK</title>
-        <?php $page = 'products';
-        include 'navbar.php'; ?>
     </head>
 
 
@@ -42,9 +44,16 @@
 		    </select>
 		    <input type='submit'>
 		</form>
-	</div>
 
-        <div id = "item_grid">
+	<div class='search'>         <!-- START OF SEARCH -->
+
+		<form class='cat_select_text' action="products.php" method='POST'> 
+		    <p class='cat_select_text'> Search: </p> <input type='text' name='search'>
+		</form>
+	</div> 			    <!-- END OF SEARCH -->
+	</div> <!-- END OF CATAGORY SELECTOR -->
+        <div class="container">
+        <div class="item_grid">
 
             <?php
             // Displaying products based on selection of category
@@ -58,7 +67,13 @@
                 //We are only looking at the category that they selected
                 $queryStr = "SELECT p.prod_id, p.Name, p.Price FROM PRODUCTS p, CATEGORIES c, PRODUCT_CATEGORY pc WHERE c.cat_name = '" . $categories . "' AND p.prod_id = pc.PRODUCTS_prod_id AND c.cat_id = pc.CATEGORIES_cat_id;";
                 $query = $connection->query($queryStr);
-            } else {
+            
+	   } elseif ( isset($search) ) {
+		
+                //We are only looking at the category that they selected
+                $queryStr = "SELECT * FROM PRODUCTS WHERE Name LIKE '%" . $search . "%'";
+                $query = $connection->query($queryStr);
+           } else {
 
                 //Here we select everything	
                 $query = $connection->query("SELECT * FROM PRODUCTS");
@@ -83,7 +98,8 @@
                		</form>
 			<br/>
                     </div>
-
+        </div>
+        </div>
                 <?php
                 //Closing the while loop from before. Yes this is wierd.
             }
