@@ -441,6 +441,9 @@ function makeOrder( $cust_id ){
 	//removing all items from cart
 	clearCart();
 
+	//printing reciept
+	 printReceipt( $trans_id, $cust_id ); 
+
 }
 
 
@@ -603,7 +606,7 @@ $output = $output . '
 return $output;
 } // end printReceipt function
 
-function printReceipt($trans_id, $cust_id){
+function printReceipt( $trans_id, $cust_id ){
 
 		$msg = generateReceipt($trans_id, $cust_id);
 
