@@ -1,8 +1,6 @@
 <?php
 	session_start();
-	$nav = "<header>
-
-			<h1>The mlik header image goes here!</h1>";
+	$nav = "<header>";
 
 	if ($_SESSION['loggedIn']){
 		$nav = $nav . '<h3>Welcome ' . $_SESSION['fname'] . '! </h3>';
