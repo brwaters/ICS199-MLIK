@@ -170,3 +170,15 @@ footer {
     margin: auto;
     text-align: center;
 }
+
+.page_content {
+	padding: 20px;
+	background-color: grey;
+	margin: 40px;
+}
+.page_content p {
+	background-color: grey;
+}
+body {
+	background-color: silver;
+}

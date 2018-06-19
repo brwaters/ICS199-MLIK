@@ -8,12 +8,28 @@
 </head>
 
 <body>
-<div>
-<p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel blandit nisi. Ut vitae orci ornare, varius turpis tristique, posuere magna. Nullam aliquet augue sapien, id mollis odio dictum id. Nullam pulvinar tristique eros, ac dapibus ipsum auctor eu. Praesent dapibus posuere commodo. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec scelerisque congue nibh et rhoncus. Nam dapibus nisl quis sollicitudin semper. Morbi in elit luctus, ullamcorper nisi in, imperdiet urna. Etiam justo urna, aliquet nec lobortis quis, scelerisque vitae libero. Curabitur ipsum nisl, tincidunt vel justo at, vulputate sodales elit. Nulla nec dui non risus lacinia tincidunt. Maecenas orci purus, rutrum at libero at, consectetur venenatis nunc. Donec elementum enim vel sapien venenatis, eu tristique mi volutpat. </p>
-<p> Aliquam euismod justo nec justo imperdiet, ut maximus nisi porta. Donec diam est, convallis at iaculis eu, viverra non enim. In consequat accumsan sapien et convallis. Etiam ac porttitor diam, vel mollis odio. Fusce sed leo efficitur, sagittis mi in, laoreet justo. Curabitur auctor lacus ac urna venenatis posuere. Aliquam erat volutpat. Maecenas volutpat ligula quis lacus feugiat, sit amet vehicula enim varius. Donec congue eget metus ut fringilla. Proin leo libero, lacinia sed augue aliquam, auctor placerat justo. </p>
-<p> Aenean et mi velit. Suspendisse blandit id enim nec feugiat. Vivamus leo massa, lobortis eget ante nec, dapibus luctus lectus. Aenean non urna quis urna vehicula tincidunt ac at quam. Nam consequat metus quis velit commodo, ut consequat tellus pulvinar. Quisque ullamcorper, neque eu varius aliquam, justo tellus rhoncus lectus, eu porttitor purus ante nec nisl. Sed tempor quam id velit cursus ultricies. Integer in nisl id nulla maximus malesuada. Morbi ornare vulputate sem, id lobortis nulla accumsan eget. Quisque aliquet maximus urna. In egestas sem quis magna vulputate, eu maximus quam convallis. </p>
-<p> Vestibulum dapibus, diam eu consectetur auctor, neque sapien iaculis odio, sed porttitor neque diam et est. Morbi eu ante vel lectus gravida sollicitudin. Etiam faucibus mollis scelerisque. Morbi dapibus nibh sed purus ornare congue. Sed maximus, nisi vel tristique blandit, lacus libero mollis justo, pulvinar commodo eros lorem eu dui. Nunc lacinia luctus sodales. Integer ac mattis mi. Curabitur egestas justo nec risus pretium aliquet. Nunc ac nibh non augue ultricies congue. Vivamus faucibus, odio sit amet bibendum fermentum, ex elit venenatis arcu, quis imperdiet nisl quam ut neque. Aenean enim nisi, elementum a sem eu, vestibulum pellentesque lacus. Aenean eget libero felis. Aenean at facilisis mi, eu fringilla nibh. </p>
-	</div>
+<div class='page_content'>
+	<h1>MLIK</h1>
+<p>For over 40 years our team at MLIK has provided easy and convientent access to lactate products from across the animal kingdom and worship lord Ugin the spirit dragon.
+
+Our commitment to quality and service is what makes us stand out from the competitors. Many of our customers inquire: how can you sell milk from extinct animals?  Our team traverses the ancient bogs and swamps of lower Antartica to find laden milk jugs left by our ancestors.</p>
+
+<p>We use our patented cryogenic freezing process to ensure the milk we provide remains fresh and succulent.<p>
+
+<h4>Why the large price tag?</h4>
+
+<p>Cryogens can only be found hundreds of kilometers below the earths surface and can only be extracted by The Chosen One.
+
+Our market research shows that Texas billionares are willing to pay more for ancient milk than most research teams are able to afford. For this reason the properties of ancient milk remain unsubstantiated by science.</p>
+
+<h4>Our dedication to Ugin the spirit dragon</h4>
+
+<p>Ugin guides our research and passion for lactate products, without his eternal wisdom we would be lost to the ether. He has chosen the prophet who has the power to extract the cryogens from the earths crust. Each milk product is blessed by Him.</p>
+
+<h4>Is our milk sourced ethically without the use of hormones or steroids</h4>
+
+<p>No thats crazy, all biological beings use hormones and steroids as part of their bodily functions.</p>
+</div>
 </body>
 <?php include 'footer.php';?>
 </html>
