@@ -61,7 +61,7 @@
 				$total_query = @mysqli_query($dbc, $query);
 				$total = $total_query->fetch_assoc()['total'];
 
-			echo '<h3>Order No: ' . $trans_id . '</h3>
+			echo '<div id="Order_History"><h3>Order No: ' . $trans_id . '</h3>
 				<p>Time: ' . $recpt['time'] . '</p>
 				<p>Total: $' . $total . ' </p>
 			<table>
@@ -93,7 +93,7 @@
 				
 				echo '</tr>';
 			}
-			echo '</table><br><hr>';
+			echo '</table><br><hr></div>';
 			
 			}
 
