@@ -29,8 +29,9 @@
             while ($orderData = $query->fetch_assoc()) {
                 //print_r(orderData);
                 ?>
-                <div>
+                
                     <h1>Order Summary</h1>
+					<div class="cart_item">
 		    <?php
                     		$queryCus = "SELECT * FROM ICS199Group07_dev.CUSTOMERS WHERE cust_id = " .  $_SESSION['cust_id'] . ";";
         $queryResults = $connection->query($queryCus);
@@ -65,7 +66,7 @@
 			
 			
 	
-                </div>
+               
                 <?php
                 //$attributes = array();
                 //array_push($attributes, '*');
@@ -78,11 +79,12 @@
 
 
 
-
+		
 	
 		//	STARTING TABLE 
 
-		echo '<table>
+		echo '
+			<table>
 		<tr>
 			<th>Product</th>
 			<th>Quantity</th>
@@ -121,7 +123,7 @@
 			'; //end echo 
                 }
 		
-		echo '</table>';
+		echo '</table> </div>';
 		//  		END TABLE
 		//get user info
 
@@ -134,8 +136,9 @@
                             data-key="<?php echo $stripe['publishable_key']; ?>"
                             data-description="<?php echo 'Payment Form'; ?>"
                             data-amount="<?php echo $sub_total * 100; ?>"
-                        data-locale="auto"
-						data-email="<?php echo $customerEmail;?>"></script>
+                            data-locale="auto"
+                            data-allow-remember-me="false"
+                            data-email="<?php echo $customerEmail;?>"></script>
                     <input type="hidden" name="sub_total" value="<?php echo $sub_total; ?>" />
                 </form>
                 <?php

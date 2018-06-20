@@ -121,6 +121,9 @@ p {
     margin-left: 10px;
     margin-bottom: 10px;
 }
+.product form{
+	background-color: #393D3F;
+}
 .prod_img {
     width: 200px;
     height:200px; 
@@ -139,9 +142,11 @@ p {
 .cart_item {
 	width: 100%;
 	margin: 10px;
-	background-color: grey;
+	margin-top: 25px;
+	background-color: #393D3F;
 	padding: 10px;	
-	padding-bottom: 30px;	
+	padding-bottom: 30px;
+	color: white;	
 }
 
 .cart_img {
@@ -154,6 +159,22 @@ p {
 	padding-right: 25px;
 	display: inline;
 	list-style-type: none;
+}
+.cart_item form{
+	background-color: #393D3F;
+}
+.cart_item table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 50%;
+	color: white;
+    //margin: auto;
+}
+.cart_item td, .cart_item th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+
 }
 
 footer {
@@ -191,25 +212,27 @@ input[type="text"], textarea {
 #Order_History{
 	margin-top: 25px;
 	padding: 20px;
-	background-color:#b4cbcb ;
+	background-color:#393D3F;
 	overflow: auto;
+	color: white;
 	
 }
 #Order_History table {
     font-family: arial, sans-serif;
     border-collapse: collapse;
     width: 50%;
+	color: black;
     //margin: auto;
 }
 
-#Order_History td, th {
+#Order_History td, #Order_History th {
     border: 1px solid #dddddd;
     text-align: left;
     padding: 8px;
 
 }
 #Order_History p{
-	background-color: #b4cbcb ;
+	background-color: #393D3F;;
     font-family: Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", "serif";
 }
 #Order_History tr:nth-child(odd) {
@@ -218,7 +241,9 @@ input[type="text"], textarea {
 #Order_History tr:nth-child(even) {
     background-color: #dddddd;
 }
-table{
+#User_Input{
+}
+#User_Input table{
 	
 	font-family: arial, sans-serif;
     border-collapse: collapse;
@@ -227,14 +252,22 @@ table{
 	margin-left: auto;
     margin-right: auto;
 }
-td, th {
+#User_Input td{
     border: 1px solid #dddddd;
     text-align: left;
     padding: 8px;
 
 }
+<<<<<<< HEAD
 h1, h2, h3, h4 {
 
 
     font-family: Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", "serif";
+=======
+#submit{
+	
+}
+h1{
+	text-shadow: 1px 1px 2px black, 0 0 7px white, 0 0 5px white;
+>>>>>>> 04ab8cf1264849570f0a700ca621c7f9ca20f584
 }

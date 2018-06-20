@@ -116,38 +116,11 @@ $(document).ready(function(){
 		<?php
 		echo printProduct($dataCat['prod_id'],$dataCat['Name'],$dataCat['Price']);
 		
-		/*
-                    <div class='product'>
-
-                        <!-- subtle but important break -->
-                        <br>
-
-                        <!-- Here we retrieve the image based on the product id. The product with a product id of 1 will retrieve 1.jpg from the product_pics directory -->
-                        <a href='product_info.php?product_id=<?php echo $dataCat['prod_id']; ?>'>
-                        <img class='prod_img' src='product_pics/<?php echo $dataCat['prod_id']; ?>.jpg' alt=<?php echo $dataCat['Name']; ?> >	
-                        </a>
-                        <p class='prod_txt'><b><?php print $dataCat['Name']; ?></b></p> 
-                        <p class='prod_txt'>$ <?php print $dataCat['Price']; ?></p>
-
-                	<form action="products.php" method="GET" enctype="multipart/form-data">
-                        	<button class='prod_txt' type="Submit" name="submit" value="<?php echo $dataCat['prod_id']; ?>">Add to cart</button>
-               		</form>
-			<br/>
-                    </div>
-        </div>
-        </div>
-	*/			?>
-                <?php
-                //Closing the while loop from before. Yes this is wierd.
             }
-            $connection->close()
-            ?>
-            <?php
-            $user_id = $_SESSION['cust_id'];
-            $product_id = $_GET['submit'];
-	
-            //echo 'Product ID:' . $product_id;
 
+            $user_id = $_SESSION['cust_id'];
+            $product_id = $_POST['submit'];
+	
             if (isset($product_id)) { //Once pages is reloaded by clicking add cart, a product value is passed back to this page
 		 if (!$_SESSION['loggedIn']) {
                     //handing product to add to session
