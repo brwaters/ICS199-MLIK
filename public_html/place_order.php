@@ -134,8 +134,9 @@
                             data-key="<?php echo $stripe['publishable_key']; ?>"
                             data-description="<?php echo 'Payment Form'; ?>"
                             data-amount="<?php echo $sub_total * 100; ?>"
-                        data-locale="auto"
-						data-email="<?php echo $customerEmail;?>"></script>
+                            data-locale="auto"
+                            data-allow-remember-me="false"
+                            data-email="<?php echo $customerEmail;?>"></script>
                     <input type="hidden" name="sub_total" value="<?php echo $sub_total; ?>" />
                 </form>
                 <?php
