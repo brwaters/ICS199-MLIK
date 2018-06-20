@@ -1,8 +1,9 @@
 <meta charset="utf-8">
 <link rel="stylesheet" href="./css.css">
-<title>Add Product - MLIK</title>
+<title>home</title>
 			<?php $page="productForm";include 'navbar.php'; include 'functionsIsaac.php';?>
 <body>
+<div class='page_content'>
     
 <form action="productForm.php" method="POST" enctype="multipart/form-data">
 <p> Name: <input type="text" name="name" value='' id='name'></p>
@@ -11,7 +12,7 @@
 <p> Image: <input type="file"  name="fileToUpload" id="fileToUpload"> </p>
 <p> Category: 
 <?php
-	$connection = new mysqli("localhost", "cst170","381953","ICS199Group07_dev");
+	$connection = getConnection();
 	
 	if($connection -> connect_error){
 		die("Connection failed: ". $connection ->connect_error);
@@ -24,7 +25,7 @@
 		}
 ?>
 </p>
-<input type="submit" value="Submit" id="submit1" />
+<input type="submit" value="submit" id="submit1" />
 </form>
     
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
@@ -97,6 +98,7 @@ if (sizeOf($_POST) > 0){
 
 
 ?>
+</div>
 </body>
 <?php include 'footer.php';?>
 </html>

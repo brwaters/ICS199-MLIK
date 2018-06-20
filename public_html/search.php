@@ -98,7 +98,7 @@
                         ';
                 } else {
 
-                $connection = new mysqli("localhost", "cst170", "381953", "ICS199Group07_dev");
+                $connection = getConnection();
 
                 if ($connection->connect_error) { //Connection to DB opened
                     die("Connection failed: " . $connection->connect_error);

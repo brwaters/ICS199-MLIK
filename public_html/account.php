@@ -3,7 +3,6 @@
     <head>
         <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="./css.css">
-        <title>Account - MLIK</title>
         <?php $page = 'account';
 	include 'functions.php';
         include 'navbar.php'; 
@@ -23,6 +22,7 @@
 	}?>
     </head>
 <body>
+	<div class='page_content'>
 	<h1>Account</h1>
 
 	<br>
@@ -100,6 +100,7 @@
 		} //End of else where we check if they have ordered. 
 	?>
 
+</div>
 </body>
 
 

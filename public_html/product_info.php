@@ -7,14 +7,14 @@
         <link rel="stylesheet" href="./css.css">
 
         <title>Product - MLIK</title>
-        <?php $page="product_info"; include 'navbar.php'; ?>
+        <?php $page="product_info"; include 'navbar.php'; include 'functions.php';?>
         <?php
         //session_start();	//start session
         //echo session_id();	//debug session
 
         $product_id = $_GET['product_id']; //get product id from last page
 
-        $connection = new mysqli("localhost", "cst170", "381953", "ICS199Group07_dev"); // Connecting to database
+        $connection = getConnection();
 
         if ($connection->connect_error) { //show error if database connection fails
             die("Connection failed: " . $connection->connect_error);

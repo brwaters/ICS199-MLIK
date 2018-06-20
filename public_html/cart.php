@@ -43,6 +43,7 @@
 	</head>
 
 	<body>
+	<div class='page_content'>
 		<?php
 			//ensuring customer is logged in.
 			if ( ! $_SESSION['loggedIn']) {
@@ -114,7 +115,7 @@
 			} //end else
 	
 	if($cartEmpty){
-		echo '<h3> Cart Empty </h3>';
+		echo '<h3> Cart is empty...  </h3>';
 	}
 	else{
 		echo '<h3>Sub Total: $ ' . $sub_total . ' </h3>
@@ -122,6 +123,7 @@
 
 		<form action = "./place_order.php" method = "post"><input type="submit" name="placeOrder" value="Place Order" /></form> ';
 	} ?>
+	</div>
 	</body>
 
 <?php include 'footer.php';?>

@@ -53,7 +53,7 @@ function check_login ($dbc, $email = '', $pass = '') {
 }
 $username = 'isaac.thiessen31@online.camosun.ca';
 $password = '1234asdf';
-$connection = new mysqli("localhost", "cst170","381953","ICS199Group07_dev");
+$connection = getConnection();
 $results = check_login($connection, $email = $username, $pass = $password);
 
 
