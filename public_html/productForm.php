@@ -11,7 +11,7 @@
 <p> Image: <input type="file"  name="fileToUpload" id="fileToUpload"> </p>
 <p> Category: 
 <?php
-	$connection = new mysqli("localhost", "cst170","381953","ICS199Group07_dev");
+	$connection = getConnection();
 	
 	if($connection -> connect_error){
 		die("Connection failed: ". $connection ->connect_error);

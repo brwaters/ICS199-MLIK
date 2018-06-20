@@ -114,7 +114,7 @@
 			} //end else
 	
 	if($cartEmpty){
-		echo '<h3> Nothing is in your cart </h3>';
+		echo '<h3> Cart is empty...  </h3>';
 	}
 	else{
 		echo '<h3>Sub Total: $ ' . $sub_total . ' </h3>
