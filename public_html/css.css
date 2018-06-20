@@ -173,6 +173,8 @@ footer {
 	background-color: grey;
 	margin: 40px;
 	overflow: auto;
+	margin:auto;
+	width:70%;
 }
 body {
 	background-color: silver;
