@@ -2,7 +2,7 @@
     <head>
         <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="./css.css">
-        <title>Order Summary</title>
+        <title>Order Summary - MLIK</title>
         <?php
         $page = 'order_summary';
         include 'navbar.php';

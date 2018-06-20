@@ -33,7 +33,7 @@ Our market research shows that Texas billionaires are willing to pay more for an
 
 <p>Ugin guides our research and passion for lactate products, without his eternal wisdom we would be lost to the ether. He has chosen the prophet who has the power to extract the cryogens from the earths crust. Each milk product is blessed by Him.</p>
 
-<h4>Is our milk sourced ethically without the use of hormones or steroids</h4>
+<h4>Is our milk sourced ethically without the use of hormones or steroids?</h4>
 
 <p>No that's crazy, all biological beings use hormones and steroids as part of their bodily functions.</p>
 </div>
