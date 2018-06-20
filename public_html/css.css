@@ -138,9 +138,11 @@ p {
 .cart_item {
 	width: 100%;
 	margin: 10px;
-	background-color: grey;
+	margin-top: 25px;
+	background-color: #393D3F;
 	padding: 10px;	
-	padding-bottom: 30px;	
+	padding-bottom: 30px;
+	color: white;	
 }
 
 .cart_img {
@@ -153,6 +155,9 @@ p {
 	padding-right: 25px;
 	display: inline;
 	list-style-type: none;
+}
+.cart_item form{
+	background-color: #393D3F;
 }
 
 footer {
