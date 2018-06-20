@@ -1,6 +1,6 @@
 <meta charset="utf-8">
 <link rel="stylesheet" href="./css.css">
-<title>Add Product - MLIK</title>
+<title>home</title>
 			<?php $page="productForm";include 'navbar.php'; include 'functionsIsaac.php';?>
 <body>
 <div class='page_content'>
@@ -19,15 +19,18 @@
 		die("Connection failed: ". $connection ->connect_error);
 	}
 	$query =$connection->query("SELECT * FROM CATEGORIES");
-	
+	$counter = 0;
 	while($dataCat = $query->fetch_assoc()){ 
-		
+		if($counter == 3){
+			echo "<br>";
+			$counter = 0;
+		}
 		echo "<input type='checkbox' name=".$dataCat["cat_id"].">".$dataCat["cat_name"]." </input>";
-
+		$counter++;
 		}
 ?>
 </td></tr>
-<tr><td>	<input type="submit" value="submit" id="submit1" />	</td></tr>
+<tr><td colspan="2">	<input type="Submit" value="submit" id="submit1" />	</td></tr>
 </table>
 </form>
     
