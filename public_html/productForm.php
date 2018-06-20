@@ -1,6 +1,6 @@
 <meta charset="utf-8">
 <link rel="stylesheet" href="./css.css">
-<title>home</title>
+<title>Add Product - MLIK</title>
 			<?php $page="productForm";include 'navbar.php'; include 'functionsIsaac.php';?>
 <body>
     
@@ -24,7 +24,7 @@
 		}
 ?>
 </p>
-<input type="submit" value="submit" id="submit1" />
+<input type="submit" value="Submit" id="submit1" />
 </form>
     
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>

@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <link rel="stylesheet" href="./css.css">
-<title>home</title>
+<title>Home - MLIK</title>
 			<?php $page = "index"; include 'navbar.php'; ?>
 <style>
 
@@ -16,17 +16,17 @@
 <body>
 <div class='page_content'>
 	<h1>MLIK</h1>
-<p>For over 40 years our team at MLIK has provided easy and convientent access to lactate products from across the animal kingdom and worship lord Ugin the spirit dragon.
+<p>For over 40 years our team at MLIK has provided easy and convenient access to lactate products from across the animal kingdom and worship lord Ugin the Spirit Dragon.
 
-Our commitment to quality and service is what makes us stand out from the competitors. Many of our customers inquire: how can you sell milk from extinct animals?  Our team traverses the ancient bogs and swamps of lower Antartica to find laden milk jugs left by our ancestors.</p>
+Our commitment to quality and service is what makes us stand out from the competitors. Many of our customers inquire: how can you sell milk from extinct animals? Well, our team traverses the ancient bogs and swamps of lower Antarctica to find milk laden jugs left by our ancestors.</p>
 
 <p>We use our patented cryogenic freezing process to ensure the milk we provide remains fresh and succulent.<p>
 
 <h4>Why the large price tag?</h4>
 
-<p>Cryogens can only be found hundreds of kilometers below the earths surface and can only be extracted by The Chosen One.
+<p>Cryogens can only be found hundreds of kilometers below the Earth's surface and can only be extracted by The Chosen One.
 
-Our market research shows that Texas billionares are willing to pay more for ancient milk than most research teams are able to afford. For this reason the properties of ancient milk remain unsubstantiated by science.</p>
+Our market research shows that Texas billionaires are willing to pay more for ancient milk than most research teams are able to afford. For this reason the properties of ancient milk remain unsubstantiated by science.</p>
 
 <h4>Our dedication to Ugin the spirit dragon</h4>
 
@@ -35,7 +35,7 @@ Our market research shows that Texas billionares are willing to pay more for anc
 
 <h4>Is our milk sourced ethically without the use of hormones or steroids</h4>
 
-<p>No thats crazy, all biological beings use hormones and steroids as part of their bodily functions.</p>
+<p>No that's crazy, all biological beings use hormones and steroids as part of their bodily functions.</p>
 </div>
 </body>
 <?php include 'footer.php';?>

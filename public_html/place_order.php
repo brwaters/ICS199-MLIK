@@ -2,7 +2,7 @@
     <head>
         <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="./css.css">
-        <title>Order Summary</title>
+        <title>Order Summary - MLIK</title>
         <?php
         $page = 'order_summary';
         include 'navbar.php';
@@ -31,6 +31,11 @@
                 <div>
                     <h1>Order Summary</h1>
 		    <?php
+                    $queryCus = "SELECT * FROM ICS199Group07_dev.CUSTOMERS WHERE cust_id = " .  $_SESSION['cust_id'] . ";";
+                    $queryResults = $connection->query($queryCus);
+                    $customer = $queryResults->fetch_assoc();
+                    $customerEmail = $customer['username'];
+                    //echo $customerEmail;
 	
 			// START SHIPPING INFO
 
@@ -45,6 +50,7 @@
 					</tr>
 
 					<tr> <td>' . $orderData['fname'] . ' ' . $orderData['lname'] . '</td> </tr>
+                                        <tr> <td>' . $customerEmail . '</td></tr>
 					<tr> <td>' . $orderData['address'] . '</td> </tr>
 					<tr> <td>' . $orderData['city'] . ', ' . $orderData['province'] . ', ' . $orderData['postal_code'] . '</td> </tr>
 					<tr> <td>Canada</td> </tr>
@@ -117,11 +123,8 @@
 		echo '</table>';
 		//  		END TABLE
 		//get user info
-		$queryCus = "SELECT * FROM ICS199Group07_dev.CUSTOMERS WHERE cust_id = " .  $_SESSION['cust_id'] . ";";
-        $queryResults = $connection->query($queryCus);
-        $customer = $queryResults->fetch_assoc();
-		$customerEmail = $customer['username'];
-		echo $customerEmail;
+		
+		
                 require_once('config.php'); 
                 $sub_total = number_format((float) $sub_total, 2, '.', '');
                 ?>
