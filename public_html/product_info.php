@@ -7,12 +7,47 @@
         <link rel="stylesheet" href="./css.css">
 
         <title>Product - MLIK</title>
-        <?php $page="product_info"; include 'navbar.php'; include 'functions.php';?>
-        <?php
-        //session_start();	//start session
-        //echo session_id();	//debug session
+        <?php $page="product_info"; include 'navbar.php'; include 'functions.php';
+	
+    $product_id = $_POST['submit'];
 
-        $product_id = $_GET['product_id']; //get product id from last page
+    if (isset($product_id)) { //Once pages is reloaded by clicking add cart, a product value is passed back to this page
+	 if (! $_SESSION['loggedIn']) {
+	    //handing product to add to session
+	    $_SESSION['addToCart'] = true;
+	    $_SESSION['addToCart_prod_id'] = $product_id;
+
+	    //customer is not logged in, we display a message and redirect them to the login page
+	    echo '
+		<script>
+		    if (window.confirm(\'You are not logged in\')){
+			window.location.href=\'login.php\';
+		    } else {
+			window.location.href=\'login.php\';
+		    }
+		</script>
+		';
+	} else {
+		//checking if item is in cart
+		$dbc = getConnection();
+		$checkProdExists = "SELECT prod_id FROM ICS199Group07_dev.CART WHERE cust_id = " . $_SESSION['cust_id'] . " AND prod_id = " . $product_id . ";";                                  
+		$prod_exists = $dbc->query($checkProdExists);
+		if (($prod_exists->num_rows) == 1){
+			addToCart($product_id);
+		} else {
+			$addToCart = "INSERT INTO ICS199Group07_dev.CART(quantity,cust_id,prod_id) VALUES(1," . $_SESSION['cust_id'] . "," . $product_id . ");";
+			$addToCart = $dbc->query($addToCart);
+		}
+		echo errorHandler(array('Successfully added to cart!'));
+		$prod_id = $product_id;	
+		
+	}	
+    } 
+
+
+	if (!isset($prod_id)){
+	        $prod_id = $_GET['product_id']; //get product id from last page
+	}
 
         $connection = getConnection();
 
@@ -23,28 +58,16 @@
     </head>
 
     <body>
-        <p> Product: </p>
-        <div class='product'>
+	<div class='page_content'>
+	<?php
+		prodPageOutput($prod_id);	
+		echo ' 
+                <form action="product_info.php" method="POST" enctype="multipart/form-data">
+                <button class="prod_txt" type="Submit" name="submit" value="' . $prod_id . '">Add to cart</button>
+               	</form>';
 
-            <!-- subtle but important break -->
-            <?php
-            $queryStr = 'SELECT * FROM PRODUCTS WHERE prod_id = $product_id;';
-            $query[] = $connection->query($queryStr);
-            $name = $query['Name'];
-            $price = $query['Price'];
-            $description = $query['Description'];
-            
-            mysqli_close($connection);
-            ?>	
-
-            <!-- Here we retrieve the image based on the product id. The product with a product id of 1 will retrieve 1.jpg from the product_pics directory -->
-            <img class='prod_img' src='product_pics/<?php echo $product_id ?>.jpg'>
-            <p class='prod_txt'>Name: <?php print $name; ?></p> 
-            <p class='prod_txt'>Price: <?php print $price; ?></p>
-            <p class='prod_txt'>Description: <?php print $description; ?></p>
-            
-        </div>
-
+	?>
+	</div>
     </body>
     <?php include 'footer.php'; ?>
 </html>
