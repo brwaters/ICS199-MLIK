@@ -1,7 +1,7 @@
 <meta charset="utf-8">
 <link rel="stylesheet" href="./css.css">
 <title>Add Products - MLIK</title>
-			<?php $page="productForm";include 'navbar.php'; include 'functionsIsaac.php';?>
+			<?php $page="productForm";include 'navbar.php'; include 'functions.php';?>
 <body>
 <div class='page_content'>
 <h1>Add Product</h1> 
