@@ -77,7 +77,8 @@
         }
     ?>
         <form action="register.php" method="POST" enctype="multipart/form-data">
-<table id="User_Input"> 
+<div id="User_Input">
+<table > 
     <tr><td>First name:</td><td><input type="text" name="fname" value='' id='name'></td></tr>
     <tr><td>Last name:</td><td> <input type="text" name="lname" ></td></tr>
     <tr><td> Email: </td><td><input type="text" name="email" ></td></tr>
@@ -98,6 +99,7 @@
 
     <tr><td colspan="2" ><div id=submit ><input type="submit" value="Submit" id="submit1" />	</div> </td><tr>
 </table>
+</div>
 </form>
 </body>
 <?php include 'footer.php';?>

@@ -6,7 +6,8 @@
 <div class='page_content'>
     
 <form action="productForm.php" method="POST" enctype="multipart/form-data">
-<table id="User_Input">
+<div id="User_Input">
+<table >
 <tr><td>Name:</td>	<td><input type="text" name="name" value='' id='name'>	</td></tr>
 <tr><td>Description:</td>	<td><input type="text" name="description" >	</td></tr>
 <tr><td>Price:</td> 	<td><input type="text" name="price" >	</td></tr>
@@ -32,6 +33,7 @@
 </td></tr>
 <tr><td colspan="2">	<div id=submit> <input type="Submit" value="submit" id="submit1" />	</div></td></tr>
 </table>
+</div>
 </form>
     
 
