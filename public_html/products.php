@@ -6,6 +6,13 @@
         <?php $page = 'products';
 	include 'functions.php';
         include 'navbar.php'; ?>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+        //$('.product').hide();
+	$('.product').slideDown(999);
+});
+</script>
         <?php
         //Setting up connection to database
         $connection = getConnection();
@@ -24,6 +31,7 @@
 
     <body>
 	<div class='page_content'>
+	<h1>Products</h1>
 	<div class='cat_select'>
 		<form class='cat_select_text' action="products.php" method='POST'> 
 		    <p class='cat_select_text'> Category: </p> 
@@ -195,8 +203,6 @@
 
         </ul>
     </div> <!-- END OF PAGE -->
-    <br>
-    <br>
 </body>
 
 

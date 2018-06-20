@@ -113,6 +113,7 @@ p {
 
 
 .product {
+    display: none;
     height:350px; 
     width:250px; 
     background-color:#393D3F;
@@ -231,4 +232,9 @@ td, th {
     text-align: left;
     padding: 8px;
 
+}
+h1, h2, h3, h4 {
+
+
+    font-family: Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", "serif";
 }
