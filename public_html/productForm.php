@@ -1,6 +1,6 @@
 <meta charset="utf-8">
 <link rel="stylesheet" href="./css.css">
-<title>home</title>
+<title>Add Product - MLIK</title>
 			<?php $page="productForm";include 'navbar.php'; include 'functionsIsaac.php';?>
 <body>
 <div class='page_content'>
