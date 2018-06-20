@@ -78,11 +78,11 @@
     ?>
         <form action="register.php" method="POST" enctype="multipart/form-data">
 <table style="width:100%"> 
-    <tr> <td>First name:</td> <td><input type="text" name="fname" value='' id='name'></td></tr>
-    <tr> <td>Last name:</td><td> <input type="text" name="lname" ></td></tr>
+    <tr><td>First name:</td><td><input type="text" name="fname" value='' id='name'></td></tr>
+    <tr><td>Last name:</td><td> <input type="text" name="lname" ></td></tr>
     <tr><td> Email: </td><td><input type="text" name="email" ></td></tr>
-    <tr><td> Address: </td><td><input type="text" name="address" ><td></tr>
-    <tr><td> City: </td><td><input type="text" name="city" ><td></tr>
+    <tr><td> Address: </td><td><input type="text" name="address" ></td></tr>
+    <tr><td> City: </td><td><input type="text" name="city" ></td></tr>
     <tr><td> Postal Code: </td><td><input type="text" name="postal" ></td></tr>
     <tr><td> Province: </td><td><select name="province">
         <option value="BC">BC</option><option value="AB">AB</option>
