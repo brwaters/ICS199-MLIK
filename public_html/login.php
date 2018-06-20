@@ -2,21 +2,22 @@
 <head>
 <meta charset="utf-8">
 <link rel="stylesheet" href="./css.css">
-<title>Login - MLIK</title>
+<title>home</title>
 		<?php $page="login"; include 'functions.php'; include 'navbar.php'; 
 		
 			echo '
-		<h1>Login</h1>
+		<body>
+		<div class="page_content">
+		<h1>LOGIN PAGE!!</h1>
 		<form action="login.php" method="POST" enctype="multipart/form-data">
 		<p> Username: <input type="text" name="username" id="usrname"></p>
 		<p> Password: <input type="password" name="password" id="passwd"</p>
 		<p>Accept our <a href="privacyPolicy.php">Privacy Policy</a> <input type="checkbox" name="accept_policy" checked>
-		<input type="submit" value="Submit" id="submit1" />
+		<input type="submit" value="submit" id="submit1" />
 		</form>';
 		
 	?>
 </head>
-<body>
 
 <?php
 if (sizeOf($_POST) == 0){
@@ -89,6 +90,7 @@ if (sizeOf($_POST) > 0){
 	}
 }
 ?>
+</div>
 </body>
 <?php include 'footer.php';?>
 </html>
