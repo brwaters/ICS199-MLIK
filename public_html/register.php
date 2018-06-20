@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <link rel="stylesheet" href="./css.css">
-<title>home</title>
+<title>Register - MLIK</title>
 			<?php $page="register"; include 'functions.php'; include 'navbar.php'; ?>
 </head>
     <?php
@@ -96,7 +96,7 @@
     <tr><td> Verify password:</td><td> <input type="password"  name="password2"></td> </tr>
 
 
-    <tr><td></td><td><input type="submit" value="submit" id="submit1" /> </td><tr>
+    <tr><td></td><td><input type="submit" value="Submit" id="submit1" /> </td><tr>
 </table>
 </form>
 </body>
