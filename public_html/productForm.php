@@ -1,6 +1,6 @@
 <meta charset="utf-8">
 <link rel="stylesheet" href="./css.css">
-<title>home</title>
+<title>Add Products - MLIK</title>
 			<?php $page="productForm";include 'navbar.php'; include 'functionsIsaac.php';?>
 <body>
 <div class='page_content'>
@@ -31,7 +31,7 @@
 		}
 ?>
 </td></tr>
-<tr><td colspan="2">	<div id=submit> <input type="Submit" value="submit" id="submit1" />	</div></td></tr>
+<tr><td colspan="2">	<div id=submit> <input type="Submit" value="Submit" id="submit1" />	</div></td></tr>
 </table>
 </div>
 </form>

@@ -10,7 +10,7 @@
 
         if(sizeOf($_POST) > 0){
 	
-            include'functionsRegister.php';
+            //include'functionsRegister.php';
             $errors = array();
             $fname = escapeString($_POST["fname"]);
             $lname = escapeString($_POST["lname"]);
@@ -44,7 +44,7 @@
             //validate address
             $valid = checkNameReg($address);
             if( ! $valid ){
-                array_push($errors, 'Invalid address');
+                array_push($errors, 'Invalid Address');
             }
                   
             
@@ -56,7 +56,7 @@
             //validate postal code
            $valid = checkPostReg($postal);
            if( ! $valid ){
-                array_push($errors,'Invalid Postal code \(We accept format: "V0G1H1\)');
+                array_push($errors,'Invalid Postal Code \(We accept format: "V0G1H1\)');
             }
             // validate password
             $valid = checkPassReg($pass1,$pass2);
@@ -71,8 +71,9 @@
             }
             else{
                  //echo "no errors";
-                 echo addUser($address = $address, $fname = $fname, $lname = $lname, $pass = $pass2, $email = $email, $city = $city, $postal = $postal, $prov = $prov);
-		echo errorHandler(array('Successfully added user'));
+                echo addUser($address = $address, $fname = $fname, $lname = $lname, $pass = $pass2, $email = $email, $city = $city, $postal = $postal, $prov = $prov);
+		echo errorHandler(array('Success! Redirecting to Login Page'));
+                echo '<script> window.location.href = "./login.php";</script>';
             }
         }
     ?>
