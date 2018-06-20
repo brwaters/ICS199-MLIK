@@ -76,8 +76,10 @@
             }
         }
     ?>
+	
         <form action="register.php" method="POST" enctype="multipart/form-data">
 <div id="User_Input">
+<h1>Registration</h1>
 <table > 
     <tr><td>First name:</td><td><input type="text" name="fname" value='' id='name'></td></tr>
     <tr><td>Last name:</td><td> <input type="text" name="lname" ></td></tr>

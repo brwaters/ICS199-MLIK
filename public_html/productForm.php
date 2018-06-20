@@ -4,7 +4,7 @@
 			<?php $page="productForm";include 'navbar.php'; include 'functionsIsaac.php';?>
 <body>
 <div class='page_content'>
-    
+<h1>Add Product</h1> 
 <form action="productForm.php" method="POST" enctype="multipart/form-data">
 <div id="User_Input">
 <table >
