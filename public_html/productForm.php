@@ -6,30 +6,34 @@
 <div class='page_content'>
     
 <form action="productForm.php" method="POST" enctype="multipart/form-data">
-<p> Name: <input type="text" name="name" value='' id='name'></p>
-<p> Description: <input type="text" name="description" ></p>
-<p> Price: <input type="text" name="price" ></p>
-<p> Image: <input type="file"  name="fileToUpload" id="fileToUpload"> </p>
-<p> Category: 
-<?php
+<table>
+<tr><td>Name:</td>	<td><input type="text" name="name" value='' id='name'>	</td></tr>
+<tr><td>Description:</td>	<td><input type="text" name="description" >	</td></tr>
+<tr><td>Price:</td> 	<td><input type="text" name="price" >	</td></tr>
+<tr><td>Image:</td> 	<td><input type="file"  name="fileToUpload" id="fileToUpload">	</td></tr>
+<tr><td>Category:</td>  
+<td><?php
 	$connection = getConnection();
 	
 	if($connection -> connect_error){
 		die("Connection failed: ". $connection ->connect_error);
 	}
 	$query =$connection->query("SELECT * FROM CATEGORIES");
+	$counter = 0;
 	while($dataCat = $query->fetch_assoc()){ 
-		
+		if($counter == 3){
+			echo "<br>";
+			$counter = 0;
+		}
 		echo "<input type='checkbox' name=".$dataCat["cat_id"].">".$dataCat["cat_name"]." </input>";
-
+		$counter++;
 		}
 ?>
-</p>
-<input type="submit" value="submit" id="submit1" />
+</td></tr>
+<tr><td colspan="2">	<input type="Submit" value="submit" id="submit1" />	</td></tr>
+</table>
 </form>
     
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-<script src="productForm.js"></script>
 
 <?php
 

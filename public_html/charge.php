@@ -24,7 +24,7 @@
   //echo $cust_id;
   makeOrder( $cust_id );
   echo '<script>'
-   .'alert("You\'re order has been processed! You have been billed for:  '
+   .'alert("Your order has been processed! You have been billed for: $'
   . number_format((float) $total_amount, 2, '.', '')
   . '");
   window.location.replace("account.php");'

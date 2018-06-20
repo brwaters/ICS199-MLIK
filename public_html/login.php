@@ -2,7 +2,7 @@
 <head>
 <meta charset="utf-8">
 <link rel="stylesheet" href="./css.css">
-<title>home</title>
+<title>Login - MLIK</title>
 		<?php $page="login"; include 'functions.php'; include 'navbar.php'; 
 		
 			echo '

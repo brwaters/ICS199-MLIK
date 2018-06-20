@@ -1,20 +1,5 @@
 /* CSS Document */
-table {
-    font-family: arial, sans-serif;
-    border-collapse: collapse;
-    width: 50%;
-    //margin: auto;
-}
 
-td, th {
-    border: 1px solid #dddddd;
-    text-align: left;
-    padding: 8px;
-}
-
-tr:nth-child(even) {
-    background-color: #dddddd;
-}
 header {
     background-image: url("header_bg.jpg");
     background-position-y: center;
@@ -33,7 +18,7 @@ body {
 }
 
 p {
-    background: white;
+   background-color: grey;
     font-family: Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", "serif";
 }
 #navbar {
@@ -191,4 +176,57 @@ footer {
 }
 body {
 	background-color: silver;
+}
+form{
+	background-color: grey;
+}
+input[type="text"], textarea {
+
+  background-color : #d1d1d1; 
+
+}
+#Order_History{
+	margin-top: 25px;
+	padding: 20px;
+	background-color:#b4cbcb ;
+	overflow: auto;
+	
+}
+#Order_History table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 50%;
+    //margin: auto;
+}
+
+#Order_History td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+
+}
+#Order_History p{
+	background-color: #b4cbcb ;
+    font-family: Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", "serif";
+}
+#Order_History tr:nth-child(odd) {
+    background-color: grey;
+}
+#Order_History tr:nth-child(even) {
+    background-color: #dddddd;
+}
+table{
+	
+	font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 50%;
+    //margin: auto;
+	margin-left: auto;
+    margin-right: auto;
+}
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+
 }

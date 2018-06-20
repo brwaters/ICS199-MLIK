@@ -504,7 +504,7 @@ function generateReceipt($trans_id, $cust_id){
 			<body>
 
 			<h1>MLIK</h1>
-			<h3>Quality lactate products and services</h3>
+			<h3>Quality Lactate Products and Services</h3>
 		';
 
 		$timeOfPurchase = $r->fetch_assoc()['time'];
