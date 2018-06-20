@@ -77,7 +77,7 @@
         }
     ?>
         <form action="register.php" method="POST" enctype="multipart/form-data">
-<table style="width:100%"> 
+<table id="User_Input"> 
     <tr><td>First name:</td><td><input type="text" name="fname" value='' id='name'></td></tr>
     <tr><td>Last name:</td><td> <input type="text" name="lname" ></td></tr>
     <tr><td> Email: </td><td><input type="text" name="email" ></td></tr>
@@ -96,7 +96,7 @@
     <tr><td> Verify password:</td><td> <input type="password"  name="password2"></td> </tr>
 
 
-    <tr><td></td><td><input type="submit" value="Submit" id="submit1" /> </td><tr>
+    <tr><td colspan="2" ><div id=submit ><input type="submit" value="Submit" id="submit1" />	</div> </td><tr>
 </table>
 </form>
 </body>

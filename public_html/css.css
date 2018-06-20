@@ -215,7 +215,7 @@ input[type="text"], textarea {
 #Order_History tr:nth-child(even) {
     background-color: #dddddd;
 }
-table{
+#User_Input table{
 	
 	font-family: arial, sans-serif;
     border-collapse: collapse;
@@ -224,9 +224,12 @@ table{
 	margin-left: auto;
     margin-right: auto;
 }
-td, th {
+#User_Input td, th {
     border: 1px solid #dddddd;
     text-align: left;
     padding: 8px;
 
+}
+#submit{
+	
 }
