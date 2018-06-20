@@ -203,7 +203,7 @@ body {
 form{
 	background-color: grey;
 }
-input[type="text"], textarea {
+input[type="text"], textarea ,input[type="password"], select, checkbox{
 
   background-color : #d1d1d1; 
 
