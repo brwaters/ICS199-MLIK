@@ -548,6 +548,7 @@ function generateReceipt($trans_id, $cust_id){
 				</tr>
 
 				<tr> <td>' . $orderData['fname'] . ' ' . $orderData['lname'] . '</td> </tr>
+                                <tr> <td>' . $orderData['email'] . ' </td> </tr>
 				<tr> <td>' . $orderData['address'] . '</td> </tr>
 				<tr> <td>' . $orderData['city'] . ', ' . $orderData['province'] . ', ' . $orderData['postal_code'] . '</td> </tr>
 				<tr> <td>Canada</td> </tr>
