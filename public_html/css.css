@@ -257,9 +257,12 @@ input[type="text"], textarea ,input[type="password"], select, checkbox{
     padding: 8px;
 
 }
-#submit{
-	
+#User_Input th{
+	background-color:#393D3F;
+	 border: 1px solid #dddddd;
+	color: white;
 }
+
 h1{
 	text-shadow: 1px 1px 2px black, 0 0 7px white, 0 0 5px white;
 }

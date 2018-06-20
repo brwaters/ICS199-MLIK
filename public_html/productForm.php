@@ -8,11 +8,11 @@
 <form action="productForm.php" method="POST" enctype="multipart/form-data">
 <div id="User_Input">
 <table >
-<tr><td>Name:</td>	<td><input type="text" name="name" value='' id='name'>	</td></tr>
-<tr><td>Description:</td>	<td><input type="text" name="description" >	</td></tr>
-<tr><td>Price:</td> 	<td><input type="text" name="price" >	</td></tr>
-<tr><td>Image:</td> 	<td><input type="file"  name="fileToUpload" id="fileToUpload">	</td></tr>
-<tr><td>Category:</td>  
+<tr><th>Name:</th>	<td><input type="text" name="name" value='' id='name'>	</td></tr>
+<tr><th>Description:</th>	<td><input type="text" name="description" >	</td></tr>
+<tr><th>Price:</th> 	<td><input type="text" name="price" >	</td></tr>
+<tr><th>Image:</th> 	<td><input type="file"  name="fileToUpload" id="fileToUpload">	</td></tr>
+<tr><th>Category:</th>  
 <td><?php
 	$connection = getConnection();
 	
