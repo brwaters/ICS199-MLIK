@@ -98,12 +98,13 @@ p {
 
 }
 
-.cat_select {
+.filters {
 	background-color: #393D3F;
 	padding: 10px;
         margin: auto;
 	margin-bottom: 14px;
 	width: 80%;
+	overflow: auto;
 
 }
 .cat_select_text {
@@ -115,6 +116,16 @@ p {
 	width: 80%;
 
 }
+
+.category {
+	float:left;
+}
+
+
+.search {
+	float:left;
+}
+
 
 .product {
     height:350px; 
