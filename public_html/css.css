@@ -208,7 +208,7 @@ input[type="text"], textarea {
     //margin: auto;
 }
 
-#Order_History td, th {
+#Order_History td, #Order_History th {
     border: 1px solid #dddddd;
     text-align: left;
     padding: 8px;
@@ -235,7 +235,7 @@ input[type="text"], textarea {
 	margin-left: auto;
     margin-right: auto;
 }
-#User_Input td, th {
+#User_Input td{
     border: 1px solid #dddddd;
     text-align: left;
     padding: 8px;
