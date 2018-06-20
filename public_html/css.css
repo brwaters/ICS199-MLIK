@@ -120,6 +120,9 @@ p {
     margin-left: 10px;
     margin-bottom: 10px;
 }
+.product form{
+	background-color: #393D3F;
+}
 .prod_img {
     width: 200px;
     height:200px; 
@@ -256,4 +259,7 @@ input[type="text"], textarea {
 }
 #submit{
 	
+}
+h1{
+	text-shadow: 1px 1px 2px black, 0 0 7px white, 0 0 5px white;
 }
