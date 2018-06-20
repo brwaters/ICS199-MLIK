@@ -4,12 +4,16 @@ header {
     background-image: url("header_bg.jpg");
     background-position-y: center;
     background-size: cover;
-}
-header, footer {
-    margin: 10px 10px 0px 10px;
+  
     text-align: center;
     font-family: Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", "serif";
     padding-top: 300px;
+}
+footer{
+	text-align: center;
+    font-family: Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", "serif";
+	background-color:#393D3F;
+	bottom: 0;
 }
 
 body {
@@ -57,8 +61,6 @@ p {
     color: #9BB9C1;
 }
 
-#footer {
-}
 
 .searched_items {
     list-style-type: none;
@@ -176,9 +178,25 @@ p {
 
 }
 
-footer {
-    clear: both;
+#foot{
+	background-color:#393D3F;
+	color: white;
+	height: 40px;
 }
+#foot p{
+	background-color:#393D3F;
+	color: white;
+}
+#foot a:link {
+	color: white;
+}
+#foot a:visited {
+	color: purple;
+}
+#foot a:hover {
+	color:blue;
+}
+
 
 .item_grid {
     margin: auto;
@@ -231,7 +249,7 @@ input[type="text"], textarea ,input[type="password"], select, checkbox{
 
 }
 #Order_History p{
-	background-color: #393D3F;;
+	background-color: #393D3F;
     font-family: Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", "serif";
 }
 #Order_History tr:nth-child(odd) {
