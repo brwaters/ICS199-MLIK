@@ -159,6 +159,19 @@ p {
 .cart_item form{
 	background-color: #393D3F;
 }
+.cart_item table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 50%;
+	color: white;
+    //margin: auto;
+}
+.cart_item td, .cart_item th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+
+}
 
 footer {
     clear: both;
