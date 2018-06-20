@@ -44,6 +44,7 @@
 
 	<body>
 	<div class='page_content'>
+	
 		<?php
 			//ensuring customer is logged in.
 			if ( ! $_SESSION['loggedIn']) {
@@ -65,7 +66,7 @@
 			//getting cart info
 			$attributes = array();
 			array_push($attributes, '*');
-			echo '<br>';
+			echo '<h1>Your Cart</h1><br>';
 			
 			$query = selectFromDB($attributes, 'CART', 'WHERE cust_id = ' . $_SESSION['cust_id']);	
 			$sub_total = 0;

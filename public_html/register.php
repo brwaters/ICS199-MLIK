@@ -76,16 +76,18 @@
             }
         }
     ?>
+	
         <form action="register.php" method="POST" enctype="multipart/form-data">
 <div id="User_Input">
+<h1>Registration</h1>
 <table > 
-    <tr><td>First name:</td><td><input type="text" name="fname" value='' id='name'></td></tr>
-    <tr><td>Last name:</td><td> <input type="text" name="lname" ></td></tr>
-    <tr><td> Email: </td><td><input type="text" name="email" ></td></tr>
-    <tr><td> Address: </td><td><input type="text" name="address" ></td></tr>
-    <tr><td> City: </td><td><input type="text" name="city" ></td></tr>
-    <tr><td> Postal Code: </td><td><input type="text" name="postal" ></td></tr>
-    <tr><td> Province: </td><td><select name="province">
+    <tr><th>First name:</th>	<td><input type="text" name="fname" value='' id='name'></td></tr>
+    <tr><th>Last name:</th>	<td> <input type="text" name="lname" ></td></tr>
+    <tr><th> Email: </th>	<td><input type="text" name="email" ></td></tr>
+    <tr><th> Address: </th>	<td><input type="text" name="address" ></td></tr>
+    <tr><th> City: </th>	<td><input type="text" name="city" ></td></tr>
+    <tr><th> Postal Code: </th>	<td><input type="text" name="postal" ></td></tr>
+    <tr><th> Province: </th>	<td><select name="province">
         <option value="BC">BC</option><option value="AB">AB</option>
         <option value="SK">SK</option><option value="MB">MB</option>
         <option value="ON">ON</option><option value="QC">QC</option>
@@ -93,11 +95,11 @@
         <option value="PE">PE</option>
     
             </select></td></tr>
-    <tr><td> Password:</td><td> <input type="password" name="password1" ></td></tr>
-    <tr><td> Verify password:</td><td> <input type="password"  name="password2"></td> </tr>
+    <tr><th> Password:</th>	<td> <input type="password" name="password1" ></td></tr>
+    <tr><th> Verify password:</th>	<td> <input type="password"  name="password2"></td> </tr>
 
 
-    <tr><td colspan="2" ><div id=submit ><input type="submit" value="Submit" id="submit1" />	</div> </td><tr>
+    <th><td colspan="2" ><div id=submit ><input type="submit" value="Submit" id="submit1" />	</div> </th><tr>
 </table>
 </div>
 </form>
