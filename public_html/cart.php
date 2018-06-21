@@ -129,7 +129,7 @@
 			</tr>		
 			';
 		echo $productHTML;	
-		echo '<h3>Sub Total: $ ' . $sub_total . ' </h3>
+		echo '<h3 align="right">Sub Total: $ ' . $sub_total . ' </h3>
 		<form class=\'clear_cart\'  action = "cart.php" method = "post"><input type="submit" name="clearCart" value="Clear Cart" /><input type="hidden" name="confirm" value="removeAllItemsFromCart"/></form>
 
 		<form action = "./place_order.php" method = "post"><input type="submit" name="placeOrder" value="Place Order" /></form> ';

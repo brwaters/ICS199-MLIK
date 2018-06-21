@@ -201,7 +201,7 @@ input[type="text"], textarea ,input[type="password"], select, checkbox {
 }
 
 
-/* CART PAGE ONLY */
+/* Place order PAGE ONLY */
 .cart_content{
 	padding: 20px;
     background-color:#393D3F ;
@@ -216,9 +216,9 @@ input[type="text"], textarea ,input[type="password"], select, checkbox {
 	 background-color:#393D3F ;
 }
 
-/*
+
 .cart_item {
-    /*width: 100%;
+    width: 100%;
     margin: 10px;
     margin-top: 25px;
     background-color: #393D3F;
@@ -245,7 +245,7 @@ input[type="text"], textarea ,input[type="password"], select, checkbox {
     font-family: arial, sans-serif;
     border-collapse: collapse;
     width: 50%;
-    color: ;
+    color: white;
     //margin: auto;
 }
 .cart_item td, .cart_item th {
@@ -254,7 +254,7 @@ input[type="text"], textarea ,input[type="password"], select, checkbox {
     padding: 8px;
 
 }
-*/
+
 
 .item_grid {
     margin: auto;
@@ -266,6 +266,7 @@ input[type="text"], textarea ,input[type="password"], select, checkbox {
     margin: auto;
     text-align: center;
 }
+/* CART PAGE ONLY */
 #cart_table{
     font-family: arial, sans-serif;
     border-collapse: collapse;
@@ -301,7 +302,13 @@ input[type="text"], textarea ,input[type="password"], select, checkbox {
 #cart_table tr:nth-child(odd) {
     background-color: grey;
 }
+#cart_table tr:nth-child(odd) form{
+    background-color: grey;
+}
 #cart_table tr:nth-child(even) {
+    background-color: #dddddd;
+}
+#cart_table tr:nth-child(even) form{
     background-color: #dddddd;
 }
 
@@ -320,7 +327,8 @@ input[type="text"], textarea ,input[type="password"], select, checkbox {
     border-collapse: collapse;
     width: 50%;
     color: black;
-    //margin: auto;
+	 margin:auto;
+    
 }
 
 #Order_History td, #Order_History th {

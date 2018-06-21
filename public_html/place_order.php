@@ -31,7 +31,7 @@
                 ?>
                 
                     <h1>Order Summary</h1>
-					<div class="cart_item">
+					<div id="Order_history">
 		    <?php
                     		$queryCus = "SELECT * FROM ICS199Group07_dev.CUSTOMERS WHERE cust_id = " .  $_SESSION['cust_id'] . ";";
         $queryResults = $connection->query($queryCus);
