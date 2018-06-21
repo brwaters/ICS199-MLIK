@@ -75,6 +75,16 @@
 
 
 
+			echo '
+			<table id="cart_table">
+			<tr>
+				<th>Product</th>
+				<th>Quantiy</h1>
+				<th>Single Price</th>
+				<th>Price</th>
+				<th></th>
+			</tr>		
+			';
 			//each iteration here is a single cart item
 			while ($data = $query->fetch_assoc()){
 				$cartEmpty = false;
@@ -99,20 +109,18 @@
 
 				//echoing items
 				echo '
-				<div class=\'cart_item\'>
-				<ul class=\'cart_info\'>
-					<li class=\'cart_info\' ><img src=\'product_pics/' . $prod_id . '\' class=\'cart_img\'/></li>
-					<li class=\'cart_info\' >' . $prod_name . '</li>
-					<li class=\'cart_info\'><form class=\'cart_info\'  action = "cart.php" method = "post"><input type="submit" name="decrementCart" value="-" /><input type="hidden" name="prod_id" value="' . $prod_id  . '"/></form>
-					Qty: ' . $qty . '
-					<form class=\'cart_info\'  action = "cart.php" method = "post"><input type="submit" name="incrementCart" value="+" /><input type="hidden" name= "prod_id" value="' . $prod_id  . '"/></form></li>
-					<li class=\'cart_info\'  >Individual Price: ' . $single_price . '</li>
-					<li class=\'cart_info\' >Price: ' . $total_price . '</li>
-					<li class=\'cart_info\' ><form class=\'cart_info\'  action = "cart.php" method = "post"><input type="submit" name="removeItem" value="Remove" /><input type="hidden" name= "prod_id" value="' . $prod_id  . '"/></form></li>
-				</ul>
-				</div>';
+				<tr>
+					<td>' . $prod_name . '</td>
+					<td><form class=\'cart_info\'  action = "cart.php" method = "post"><input type="submit" name="decrementCart" value="-" /><input type="hidden" name="prod_id" value="' . $prod_id  . '"/></form>' . $qty . '<form class=\'cart_info\'  action = "cart.php" method = "post"><input type="submit" name="incrementCart" value="+" /><input type="hidden" name= "prod_id" value="' . $prod_id  . '"/></form></td>
+					<td>' . $single_price . '</td>
+					<td>' . $total_price . '</td>
+					<td><form class=\'cart_info\'  action = "cart.php" method = "post"><input type="submit" name="removeItem" value="Remove" /><input type="hidden" name= "prod_id" value="' . $prod_id  . '"/></form></td>
+				</tr>
 
+				';
+				
 			} //end while	
+			echo '</table>'; //end table
 			} //end else
 	
 	if($cartEmpty){
