@@ -6,16 +6,17 @@ header {
     background-image: url("header_bg.jpg");
     background-position-y: center;
     background-size: cover;
+    padding-top: 300px;
 }
 header, footer {
     margin: 10px 10px 0px 10px;
     text-align: center;
     font-family: Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", "serif";
-    padding-top: 300px;
 }
 
 footer {
     clear: both;
+    border-top: 3px solid #9BB9C1;
 }
 
 body {
@@ -32,7 +33,7 @@ h1{
 }
 
 p {
-   background-color: grey;
+   
     font-family: Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", "serif";
 }
 
@@ -57,9 +58,8 @@ input[type="text"], textarea ,input[type="password"], select, checkbox {
 
 
 /* NAVBAR ONLY */
-#navbar {
+#navbar{
     background-color: #393D3F;
-
 }
 
 #navbar ul {
@@ -93,17 +93,25 @@ input[type="text"], textarea ,input[type="password"], select, checkbox {
 }
 
 
-/* PRODUCTS PAGE ONLY */
+
+/* FILTER BAR & PRODUCTS PAGE ONLY */
 .filters {
     background-color: #393D3F;
     padding: 10px;
-    margin: auto;
+    margin: 15px;
     margin-bottom: 14px;
     width: 80%;
     overflow: auto;
     clear: both;
-
 }
+
+.cat_select {
+    display: -webkit-flex; /* Safari */
+    -webkit-justify-content: space-between; /* Safari 6.1+ */
+    display: flex;
+    justify-content: space-between;
+}
+
 .cat_select_text {
     background-color: #393D3F;
     margin: auto;
@@ -119,9 +127,12 @@ input[type="text"], textarea ,input[type="password"], select, checkbox {
 }
 
 
-.search {
+/* .search {
     float:left;
-}
+} */
+
+
+
 
 
 /* PRODUCT TILES ONLY */
@@ -144,7 +155,7 @@ input[type="text"], textarea ,input[type="password"], select, checkbox {
     padding: 5px;
 }
 
-.item	{
+.item   {
     display: inline-grid;
 }
 
@@ -169,7 +180,7 @@ input[type="text"], textarea ,input[type="password"], select, checkbox {
     margin-bottom: 10px;
 }
 .product form   {
-	background-color: #393D3F;
+    background-color: #393D3F;
 }
 .prod_img {
     width: 200px;
@@ -189,34 +200,34 @@ input[type="text"], textarea ,input[type="password"], select, checkbox {
 
 /* CART PAGE ONLY */
 .cart_item {
-	/*width: 100%;*/
-	margin: 10px;
-	margin-top: 25px;
-	background-color: #393D3F;
-	padding: 10px;	
-	padding-bottom: 30px;
-	color: white;	
+    /*width: 100%;*/
+    margin: 10px;
+    margin-top: 25px;
+    background-color: #393D3F;
+    padding: 10px;  
+    padding-bottom: 30px;
+    color: white;   
 }
 
 .cart_img {
-	height: 150px;
-	width: 150px;
-}	
+    height: 150px;
+    width: 150px;
+}   
 
 .cart_info {
-	padding-left: 15px;
-	padding-right: 25px;
-	display: inline;
-	list-style-type: none;
+    padding-left: 15px;
+    padding-right: 25px;
+    display: inline;
+    list-style-type: none;
 }
 .cart_item form{
-	background-color: #393D3F;
+    background-color: #393D3F;
 }
 .cart_item table {
     font-family: arial, sans-serif;
     border-collapse: collapse;
     width: 50%;
-	color: white;
+    color: white;
     //margin: auto;
 }
 .cart_item td, .cart_item th {
@@ -241,18 +252,18 @@ input[type="text"], textarea ,input[type="password"], select, checkbox {
 /* ACCOUNT/ORDER HISTORY ONLY */
 
 #Order_History{
-	margin-top: 25px;
-	padding: 20px;
-	background-color:#393D3F;
-	overflow: auto;
-	color: white;
-	
+    margin-top: 25px;
+    padding: 20px;
+    background-color:#393D3F;
+    overflow: auto;
+    color: white;
+    
 }
 #Order_History table {
     font-family: arial, sans-serif;
     border-collapse: collapse;
     width: 50%;
-	color: black;
+    color: black;
     //margin: auto;
 }
 
@@ -263,7 +274,7 @@ input[type="text"], textarea ,input[type="password"], select, checkbox {
 
 }
 #Order_History p{
-	background-color: #393D3F;;
+    background-color: #393D3F;;
     font-family: Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", "serif";
 }
 #Order_History tr:nth-child(odd) {
@@ -279,12 +290,12 @@ input[type="text"], textarea ,input[type="password"], select, checkbox {
 
 }
 #Product_Input table{
-	
-	font-family: arial, sans-serif;
+    
+    font-family: arial, sans-serif;
     border-collapse: collapse;
     width: 50%;
     //margin: auto;
-	margin-left: auto;
+    margin-left: auto;
     margin-right: auto;
 }
 #Product_Input td{
@@ -294,5 +305,5 @@ input[type="text"], textarea ,input[type="password"], select, checkbox {
 
 }
 #submit {
-	
+    
 }
