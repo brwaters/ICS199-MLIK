@@ -1,5 +1,7 @@
 /* CSS Document */
 
+
+/* basic and generic styles */
 header {
     background-image: url("header_bg.jpg");
     background-position-y: center;
@@ -12,15 +14,35 @@ header, footer {
     padding-top: 300px;
 }
 
+footer {
+    clear: both;
+}
+
 body {
     display: block;
-    background-color: #FFFFFF;
+    background-color: silver;
+}
+
+form {
+    background-color: grey;
+}
+
+h1{
+    text-shadow: 1px 1px 2px black, 0 0 7px white, 0 0 5px white;
 }
 
 p {
    background-color: grey;
     font-family: Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", "serif";
 }
+
+input[type="text"], textarea ,input[type="password"], select, checkbox{
+
+  background-color : #d1d1d1; 
+
+}
+
+/* NAVBAR ONLY */
 #navbar {
     background-color: #393D3F;
 
@@ -51,15 +73,44 @@ p {
     background-color: #111;
 }
 
-/* Change the link color to #111 (black) on hover */
+        /* Change the link color to #111 (black) on hover */
 #navbar li a:hover {
     background-color: #111;
     color: #9BB9C1;
 }
 
-#footer {
+
+/* PRODUCTS PAGE ONLY */
+.filters {
+    background-color: #393D3F;
+    padding: 10px;
+        margin: auto;
+    margin-bottom: 14px;
+    width: 80%;
+    overflow: auto;
+
+}
+.cat_select_text {
+    background-color: #393D3F;
+    margin: auto;
+    display: inline;
+    text-align: center;
+    color: white;
+    width: 80%;
+
 }
 
+.category {
+    float:left;
+}
+
+
+.search {
+    float:left;
+}
+
+
+/* PRODUCT TILES ONLY */
 .searched_items {
     list-style-type: none;
     padding: 5px;
@@ -82,35 +133,6 @@ p {
 .item_info {
 
 }
-
-.filters {
-	background-color: #393D3F;
-	padding: 10px;
-        margin: auto;
-	margin-bottom: 14px;
-	width: 80%;
-	overflow: auto;
-
-}
-.cat_select_text {
-	background-color: #393D3F;
-	margin: auto;
-	display: inline;
-	text-align: center;
-	color: white;
-	width: 80%;
-
-}
-
-.category {
-	float:left;
-}
-
-
-.search {
-	float:left;
-}
-
 
 .product {
     height:350px; 
@@ -176,20 +198,20 @@ p {
 
 }
 
-footer {
-    clear: both;
-}
 
 .item_grid {
     margin: auto;
 }
+
+
 
 .container {
     margin: auto;
     text-align: center;
 }
 
-.page_content {
+
+.account_page_content {
 	padding: 20px;
 	background-color: grey;
 	margin: 40px;
@@ -197,17 +219,9 @@ footer {
 	margin:auto;
 	width:70%;
 }
-body {
-	background-color: silver;
-}
-form{
-	background-color: grey;
-}
-input[type="text"], textarea ,input[type="password"], select, checkbox{
 
-  background-color : #d1d1d1; 
+/* ACCOUNT/ORDER HISTORY ONLY */
 
-}
 #Order_History{
 	margin-top: 25px;
 	padding: 20px;
@@ -240,9 +254,13 @@ input[type="text"], textarea ,input[type="password"], select, checkbox{
 #Order_History tr:nth-child(even) {
     background-color: #dddddd;
 }
-#User_Input{
+
+
+/* productForm.php ONLY */
+#Product_Input {
+
 }
-#User_Input table{
+#Product_Input table{
 	
 	font-family: arial, sans-serif;
     border-collapse: collapse;
@@ -251,15 +269,12 @@ input[type="text"], textarea ,input[type="password"], select, checkbox{
 	margin-left: auto;
     margin-right: auto;
 }
-#User_Input td{
+#Product_Input td{
     border: 1px solid #dddddd;
     text-align: left;
     padding: 8px;
 
 }
-#submit{
+#submit {
 	
-}
-h1{
-	text-shadow: 1px 1px 2px black, 0 0 7px white, 0 0 5px white;
 }

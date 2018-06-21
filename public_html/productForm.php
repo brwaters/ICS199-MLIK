@@ -6,7 +6,7 @@
 <div class='page_content'>
 <h1>Add Product</h1> 
 <form action="productForm.php" method="POST" enctype="multipart/form-data">
-<div id="User_Input">
+<div id="Product_Input">
 <table >
 <tr><td>Name:</td>	<td><input type="text" name="name" value='' id='name'>	</td></tr>
 <tr><td>Description:</td>	<td><input type="text" name="description" >	</td></tr>

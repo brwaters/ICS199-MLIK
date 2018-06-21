@@ -23,7 +23,7 @@
 	}?>
     </head>
 <body>
-	<div class='page_content'>
+	<div class='account_page_content'>
 	<h1>Account</h1>
 
 	<br>
