@@ -43,7 +43,7 @@
 	</head>
 
 	<body>
-	<div class='page_content'>
+	<div class='cart_content'>
 	
 		<?php
 			//ensuring customer is logged in.
