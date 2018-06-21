@@ -6,14 +6,14 @@
         <?php $page = 'products';
 	include 'functions.php';
         include 'navbar.php'; ?>
-<<<<<<< HEAD
+
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script>
-$(document).ready(function(){
-        //$('.product').hide();
-	$('.product').slideDown(999);
-});
-</script>
+	<script> 
+	$(document).ready(function(){
+		$(".product").slideDown(999);
+	});
+	</script>
+
         <?php
         //Setting up connection to database
         $connection = getConnection();
@@ -94,7 +94,6 @@ $(document).ready(function(){
             // Here is a div generating loop, for each row that was returned in the query from earlier
             while ($dataCat = $query->fetch_assoc()) {
                 ?>
-
         		<?php
         		echo printProduct($dataCat['prod_id'],$dataCat['Name'],$dataCat['Price']);
         		
@@ -126,8 +125,10 @@ $(document).ready(function(){
                 ?>
             <?php
             $user_id = $_SESSION['cust_id'];
-            $product_id = $_POST['submit'];
+            $product_id = $_GET['submit'];
 	
+            //echo 'Product ID:' . $product_id;
+
             if (isset($product_id)) { //Once pages is reloaded by clicking add cart, a product value is passed back to this page
         		 if (!$_SESSION['loggedIn']) {
                         //handing product to add to session
@@ -184,6 +185,8 @@ $(document).ready(function(){
         </ul>
     </div>
     </div> <!-- END OF PAGE -->
+    <br>
+    <br>
 </body>
 
 
