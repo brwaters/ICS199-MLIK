@@ -44,11 +44,7 @@
 						
 						?></td></tr>
 
-
-<!-- looks like someone missed a pair of quotes on that div id... -->
-
-
-				<tr><td colspan="2">	<div id=submit> <input type="Submit" value="Submit" id="submit1"/>	</div></td></tr>
+				<tr><td colspan="2">	<div id="submit"> <input type="Submit" value="Submit" id="submit1"/>	</div></td></tr>
 			</table>
 			</div>
 		</form>
