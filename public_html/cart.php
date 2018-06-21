@@ -129,8 +129,8 @@
 			</tr>		
 			';
 		echo $productHTML;	
-		echo '<h3 align="right">Sub Total: $ ' . $sub_total . ' </h3>
-		<form class=\'clear_cart\'  action = "cart.php" method = "post"><input type="submit" name="clearCart" value="Clear Cart" /><input type="hidden" name="confirm" value="removeAllItemsFromCart"/></form>
+		echo '<h3 align="right">Sub Total: $ ' .number_format( $sub_total, 2, '.', ''). ' </h3>
+		<form  class=\'clear_cart\'  action = "cart.php" method = "post"> <div align="right"> <input type="submit" name="clearCart" value="Clear Cart"><input type="hidden" name="confirm" value="removeAllItemsFromCart"/></div></form>
 
 		<form action = "./place_order.php" method = "post"><input type="submit" name="placeOrder" value="Place Order" /></form> ';
 	} ?>
