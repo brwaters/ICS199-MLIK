@@ -3,6 +3,7 @@
     <head>
         <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="./css.css">
+        <title>Account Summary - MLIK</title>
         <?php $page = 'account';
 	include 'functions.php';
         include 'navbar.php'; 
@@ -22,7 +23,7 @@
 	}?>
     </head>
 <body>
-	<div class='page_content'>
+	<div class='account_page_content'>
 	<h1>Account</h1>
 
 	<br>

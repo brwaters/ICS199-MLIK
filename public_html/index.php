@@ -16,9 +16,9 @@
 <body>
 <div class='page_content'>
 	<h1>MLIK</h1>
-<p>For over 40 years our team at MLIK has provided easy and convenient access to lactate products from across the animal kingdom and worship lord Ugin the Spirit Dragon.
+<p>For over 40 years our team at MLIK has provided easy and convenient access to lactate products from across the animal kingdom and worship Lord Ugin, The Spirit Dragon.
 
-Our commitment to quality and service is what makes us stand out from the competitors. Many of our customers inquire: how can you sell milk from extinct animals? Well, our team traverses the ancient bogs and swamps of lower Antarctica to find milk laden jugs left by our ancestors.</p>
+Our commitment to quality and service is what makes us stand out from the competition. Many of our customers inquire 'how can you sell milk from extinct animals?' Our team traverses the ancient bogs and swamps of lower Antarctica to find milk laden jugs left by our ancestors.</p>
 
 <p>We use our patented cryogenic freezing process to ensure the milk we provide remains fresh and succulent.<p>
 
@@ -26,16 +26,15 @@ Our commitment to quality and service is what makes us stand out from the compet
 
 <p>Cryogens can only be found hundreds of kilometers below the Earth's surface and can only be extracted by The Chosen One.
 
-Our market research shows that Texas billionaires are willing to pay more for ancient milk than most research teams are able to afford. For this reason the properties of ancient milk remain unsubstantiated by science.</p>
+Our market research shows that Texas billionaires are willing to pay more for ancient milk than most research teams are able to afford, for this reason the properties of ancient milk remain unsubstantiated by science.</p>
 
-<h4>Our dedication to Ugin the spirit dragon</h4>
+<h4>Our dedication to Ugin, The Spirit Dragon</h4>
 
+<p>Ugin guides our research and passion for lactate products, without His eternal wisdom we would be lost to the ether. He has chosen the prophet who has the power to extract the cryogens from the earths crust. Each milk product is blessed by Him.</p>
 
-<p>Ugin guides our research and passion for lactate products, without his eternal wisdom we would be lost to the ether. He has chosen the prophet who has the power to extract the cryogens from the earths crust. Each milk product is blessed by Him.</p>
+<h4>Is our milk sourced ethically, free of hormones or steroids?</h4>
 
-<h4>Is our milk sourced ethically without the use of hormones or steroids?</h4>
-
-<p>No that's crazy, all biological beings use hormones and steroids as part of their bodily functions.</p>
+<p>No. All biological beings use hormones and steroids as part of their bodily functions.</p>
 </div>
 </body>
 <?php include 'footer.php';?>
