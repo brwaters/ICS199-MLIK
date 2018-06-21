@@ -6,6 +6,14 @@
         <?php $page = 'products';
 	include 'functions.php';
         include 'navbar.php'; ?>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script> 
+	$(document).ready(function(){
+		$(".product").slideDown(999);
+	});
+	</script>
+
         <?php
         //Setting up connection to database
         $connection = getConnection();
