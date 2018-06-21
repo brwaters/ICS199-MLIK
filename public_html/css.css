@@ -204,9 +204,9 @@ input[type="text"], textarea ,input[type="password"], select, checkbox {
 }
 
 
-/* CART PAGE ONLY */
+/* CART PAGE ONLY 
 .cart_item {
-    /*width: 100%;*/
+    /*width: 100%;
     margin: 10px;
     margin-top: 25px;
     background-color: #393D3F;
@@ -233,7 +233,7 @@ input[type="text"], textarea ,input[type="password"], select, checkbox {
     font-family: arial, sans-serif;
     border-collapse: collapse;
     width: 50%;
-    color: white;
+    color: ;
     //margin: auto;
 }
 .cart_item td, .cart_item th {
@@ -242,7 +242,7 @@ input[type="text"], textarea ,input[type="password"], select, checkbox {
     padding: 8px;
 
 }
-
+*/
 
 .item_grid {
     margin: auto;
@@ -253,6 +253,44 @@ input[type="text"], textarea ,input[type="password"], select, checkbox {
 .container {
     margin: auto;
     text-align: center;
+}
+#cart_table{
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 80%;
+    margin:auto;
+    color: black;
+    
+}#cart_table table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    //width: 50%;
+    color: black;
+    //margin: auto;
+}
+
+#cart_table td, #cart_table th {
+    border: 1px solid #dddddd;
+    white-space: nowrap;
+    text-align: left;
+    padding: 8px;
+
+}
+.cart_info {
+	display:inline-block;
+	margin-left: 15px;
+	margin-right: 15px;
+}
+
+#cart_table p{
+    background-color: #393D3F;;
+    font-family: Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", "serif";
+}
+#cart_table tr:nth-child(odd) {
+    background-color: grey;
+}
+#cart_table tr:nth-child(even) {
+    background-color: #dddddd;
 }
 
 /* ACCOUNT/ORDER HISTORY ONLY */
