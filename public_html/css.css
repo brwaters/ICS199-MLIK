@@ -36,11 +36,21 @@ p {
     font-family: Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", "serif";
 }
 
-input[type="text"], textarea ,input[type="password"], select, checkbox{
+input[type="text"], textarea ,input[type="password"], select, checkbox {
 
   background-color : #d1d1d1; 
 
 }
+
+.page_content {
+    padding: 20px;
+    background-color: grey;
+    margin: 40px;
+    overflow: auto;
+    margin:auto;
+    width:70%;
+}
+
 
 /* NAVBAR ONLY */
 #navbar {
@@ -142,7 +152,7 @@ input[type="text"], textarea ,input[type="password"], select, checkbox{
     margin-left: 10px;
     margin-bottom: 10px;
 }
-.product form{
+.product form   {
 	background-color: #393D3F;
 }
 .prod_img {
@@ -160,8 +170,10 @@ input[type="text"], textarea ,input[type="password"], select, checkbox{
     margin-right: 30px;
 }
 
+
+/* CART PAGE ONLY */
 .cart_item {
-	width: 100%;
+	/*width: 100%;*/
 	margin: 10px;
 	margin-top: 25px;
 	background-color: #393D3F;
@@ -208,16 +220,6 @@ input[type="text"], textarea ,input[type="password"], select, checkbox{
 .container {
     margin: auto;
     text-align: center;
-}
-
-
-.account_page_content {
-	padding: 20px;
-	background-color: grey;
-	margin: 40px;
-	overflow: auto;
-	margin:auto;
-	width:70%;
 }
 
 /* ACCOUNT/ORDER HISTORY ONLY */
