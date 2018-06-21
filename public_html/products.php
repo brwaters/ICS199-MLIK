@@ -6,6 +6,7 @@
         <?php $page = 'products';
 	include 'functions.php';
         include 'navbar.php'; ?>
+<<<<<<< HEAD
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script>
 $(document).ready(function(){
@@ -31,37 +32,6 @@ $(document).ready(function(){
 
     <body>
 	<div class='page_content'>
-<<<<<<< HEAD
-	<h1>Products</h1>
-	<div class='cat_select'>
-		<form class='cat_select_text' action="products.php" method='POST'> 
-		    <p class='cat_select_text'> Category: </p> 
-		    <select name='category'>
-
-			<?php
-			//category info
-			//getting all categories
-			$query = $connection->query("SELECT * FROM CATEGORIES");
-			?><option value="ALL">ALL</option> <?php
-			//Looping for each category in database
-			while ($dataCat = $query->fetch_assoc()) {
-
-			    $name = $dataCat['cat_name'];
-			    ?>
-
-			    <option value="<?php echo $name; ?>"><?php echo $name; ?></option>
-	<?php } ?>
-		    </select>
-		    <input type='submit'>
-		</form>
-
-
-		<form class='cat_select_text' action="products.php" method='POST'> 
-		    <p class='cat_select_text'> Search: </p> <input type='text' name='search'>
-		</form>
-	</div> <!-- END OF CATAGORY SELECTOR -->
-
-=======
     	<div class='cat_select'>
     		<form class='cat_select_text' action="products.php" method='POST'> 
     		    <p class='cat_select_text'> Category: </p> 
@@ -91,7 +61,6 @@ $(document).ready(function(){
         <!-- END OF CATEGORY SELECTOR, BEGIN PRODUCT TILE DISPLAY -->
             <div id="div_products_list">
             <ul id="products_list">
->>>>>>> 5c303d77732811bb571d2f8721eff8b5cde2f966
             <?php
 
 //        <div class="container">
@@ -125,15 +94,7 @@ $(document).ready(function(){
             // Here is a div generating loop, for each row that was returned in the query from earlier
             while ($dataCat = $query->fetch_assoc()) {
                 ?>
-<<<<<<< HEAD
 
-
-		<?php
-		echo printProduct($dataCat['prod_id'],$dataCat['Name'],$dataCat['Price']);
-		
-            }
-
-=======
         		<?php
         		echo printProduct($dataCat['prod_id'],$dataCat['Name'],$dataCat['Price']);
         		
@@ -164,7 +125,6 @@ $(document).ready(function(){
                     $connection->close()
                 ?>
             <?php
->>>>>>> 5c303d77732811bb571d2f8721eff8b5cde2f966
             $user_id = $_SESSION['cust_id'];
             $product_id = $_POST['submit'];
 	
