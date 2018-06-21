@@ -1,0 +1,310 @@
+/* CSS Document */
+
+
+/* basic and generic styles */
+header {
+    background-image: url("header_bg.jpg");
+    background-position-y: center;
+    background-size: cover;
+    padding-top: 300px;
+}
+header, footer {
+    margin: 10px 10px 0px 10px;
+    text-align: center;
+    font-family: Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", "serif";
+}
+
+footer {
+    clear: both;
+    border-top: 3px solid #24487b;
+}
+
+body {
+    display: block;
+    background-color: silver;
+}
+
+form {
+    background-color: grey;
+}
+
+h1{
+    text-shadow: 1px 1px 2px black, 0 0 7px white, 0 0 5px white;
+}
+
+p {
+   
+    font-family: Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", "serif";
+}
+
+ul {
+    list-style-type: none;
+}
+
+input[type="text"], textarea ,input[type="password"], select, checkbox {
+
+  background-color : #d1d1d1; 
+
+}
+
+.page_content {
+    padding: 20px;
+    background-color: grey;
+    margin: 40px;
+    overflow: auto;
+    margin:auto;
+    width:70%;
+}
+
+
+/* NAVBAR ONLY */
+#navbar{
+    background-color: #393D3F;
+}
+
+#navbar ul {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+
+}
+
+#navbar li {
+    text-align: center;
+    display:inline-block;
+}
+
+#navbar li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+#active {
+    background-color: #111;
+}
+
+        /* Change the link color to #111 (black) on hover */
+#navbar li a:hover {
+    background-color: #111;
+    color: #24487b;
+}
+
+
+
+/* FILTER BAR & PRODUCTS PAGE ONLY */
+.filters {
+    background-color: #393D3F;
+    padding: 10px;
+    margin: 0 -5px;
+    margin-bottom: 14px;
+    width: 80%;
+    overflow: auto;
+    clear: both;
+}
+
+.cat_select {
+    display: -webkit-flex; /* Safari */
+    -webkit-justify-content: space-between; /* Safari 6.1+ */
+    display: flex;
+    justify-content: space-between;
+    margin: 0 5px;
+}
+
+.cat_select_text {
+    background-color: #393D3F;
+    margin: auto;
+    display: inline;
+    text-align: center;
+    color: white;
+    width: 80%;
+
+}
+
+.category {
+    float:left;
+}
+
+
+.search {
+    margin:0 5px;
+}
+
+
+
+
+
+/* PRODUCT TILES ONLY */
+
+#products_list {
+    margin: 0 auto;
+    padding: 0 auto;
+    text-align: center;
+}
+
+.printProductFunctions  {
+    display: inline-block;
+    margin: 0 auto;
+    padding: 0 auto;
+}
+
+
+.searched_items {
+    list-style-type: none;
+    padding: 5px;
+}
+
+.item   {
+    display: inline-grid;
+}
+
+.item_tile  {
+    margin: 5px;
+}
+
+.item_photo {
+
+}
+
+.item_info {
+
+}
+
+.product {
+    height:350px; 
+    width:250px; 
+    background-color:#393D3F;
+    float: left;
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+.product form   {
+    background-color: #393D3F;
+}
+.prod_img {
+    width: 200px;
+    height:200px; 
+    margin-left: auto; 
+    margin-right: auto;
+    display: block;
+}
+
+.prod_txt {
+    background-color:#393D3F;  
+    color: white;
+    margin-left: 30px;
+    margin-right: 30px;
+}
+
+
+/* CART PAGE ONLY */
+.cart_item {
+    /*width: 100%;*/
+    margin: 10px;
+    margin-top: 25px;
+    background-color: #393D3F;
+    padding: 10px;  
+    padding-bottom: 30px;
+    color: white;   
+}
+
+.cart_img {
+    height: 150px;
+    width: 150px;
+}   
+
+.cart_info {
+    padding-left: 15px;
+    padding-right: 25px;
+    display: inline;
+    list-style-type: none;
+}
+.cart_item form{
+    background-color: #393D3F;
+}
+.cart_item table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 50%;
+    color: white;
+    //margin: auto;
+}
+.cart_item td, .cart_item th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+
+}
+
+
+.item_grid {
+    margin: auto;
+}
+
+
+
+.container {
+    margin: auto;
+    text-align: center;
+}
+
+/* ACCOUNT/ORDER HISTORY ONLY */
+
+#Order_History{
+    margin-top: 25px;
+    padding: 20px;
+    background-color:#393D3F;
+    overflow: auto;
+    color: white;
+    
+}
+#Order_History table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 50%;
+    color: black;
+    //margin: auto;
+}
+
+#Order_History td, #Order_History th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+
+}
+#Order_History p{
+    background-color: #393D3F;;
+    font-family: Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", "serif";
+}
+#Order_History tr:nth-child(odd) {
+    background-color: grey;
+}
+#Order_History tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+
+/* productForm.php ONLY */
+#Product_Input {
+
+}
+#Product_Input table{
+    
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 50%;
+    //margin: auto;
+    margin-left: auto;
+    margin-right: auto;
+}
+#Product_Input td{
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+
+}
+#submit {
+    
+}
