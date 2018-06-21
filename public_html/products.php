@@ -8,14 +8,13 @@
         include 'navbar.php'; 
 
 	
-	if (! isset($_SESSION['firstViewOfProductsPage'])){
+	if (! isset($_GET['submit'])){
 	echo '<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script> 
 	$(document).ready(function(){
 		$(".product").slideDown(999);
 	});
 	</script>';
-	$_SESSION['firstViewOfProductsPage'] = false;
 	} else {
 	echo '<style>
 		.product {
