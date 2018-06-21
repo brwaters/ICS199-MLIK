@@ -16,7 +16,7 @@ header, footer {
 
 footer {
     clear: both;
-    border-top: 3px solid #9BB9C1;
+    border-top: 3px solid #24487b;
 }
 
 body {
@@ -89,7 +89,7 @@ input[type="text"], textarea ,input[type="password"], select, checkbox {
         /* Change the link color to #111 (black) on hover */
 #navbar li a:hover {
     background-color: #111;
-    color: #9BB9C1;
+    color: #24487b;
 }
 
 
@@ -98,7 +98,7 @@ input[type="text"], textarea ,input[type="password"], select, checkbox {
 .filters {
     background-color: #393D3F;
     padding: 10px;
-    margin: 15px;
+    margin: 0 -5px;
     margin-bottom: 14px;
     width: 80%;
     overflow: auto;
@@ -110,6 +110,7 @@ input[type="text"], textarea ,input[type="password"], select, checkbox {
     -webkit-justify-content: space-between; /* Safari 6.1+ */
     display: flex;
     justify-content: space-between;
+    margin: 0 5px;
 }
 
 .cat_select_text {
@@ -127,9 +128,9 @@ input[type="text"], textarea ,input[type="password"], select, checkbox {
 }
 
 
-/* .search {
-    float:left;
-} */
+.search {
+    margin:0 5px;
+}
 
 
 
