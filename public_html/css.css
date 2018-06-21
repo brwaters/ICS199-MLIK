@@ -28,9 +28,7 @@ form {
     background-color: grey;
 }
 
-h1{
-    text-shadow: 1px 1px 2px black, 0 0 7px white, 0 0 5px white;
-}
+
 
 p {
    
@@ -203,7 +201,22 @@ input[type="text"], textarea ,input[type="password"], select, checkbox {
 }
 
 
-/* CART PAGE ONLY 
+/* CART PAGE ONLY */
+.cart_content{
+	padding: 20px;
+    background-color:#393D3F ;
+    margin: 40px;
+    overflow: auto;
+    margin:auto;
+    width:70%;
+	color: white;
+	
+}
+.cart_content form{
+	 background-color:#393D3F ;
+}
+
+/*
 .cart_item {
     /*width: 100%;
     margin: 10px;
