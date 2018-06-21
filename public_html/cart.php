@@ -71,20 +71,11 @@
 			$query = selectFromDB($attributes, 'CART', 'WHERE cust_id = ' . $_SESSION['cust_id']);	
 			$sub_total = 0;
 			$cartEmpty = true;
+			$productHTML = "";
 
 
 
-
-			echo '
-			<table id="cart_table">
-			<tr>
-				<th>Product</th>
-				<th>Quantiy</h1>
-				<th>Single Price</th>
-				<th>Price</th>
-				<th></th>
-			</tr>		
-			';
+			
 			//each iteration here is a single cart item
 			while ($data = $query->fetch_assoc()){
 				$cartEmpty = false;
@@ -108,7 +99,7 @@
 
 
 				//echoing items
-				echo '
+				$productHTML = $productHTML.'
 				<tr>
 					<td>' . $prod_name . '</td>
 					<td><form class=\'cart_info\'  action = "cart.php" method = "post"><input type="submit" name="decrementCart" value="-" /><input type="hidden" name="prod_id" value="' . $prod_id  . '"/></form>' . $qty . '<form class=\'cart_info\'  action = "cart.php" method = "post"><input type="submit" name="incrementCart" value="+" /><input type="hidden" name= "prod_id" value="' . $prod_id  . '"/></form></td>
@@ -120,20 +111,32 @@
 				';
 				
 			} //end while	
-			echo '</table>'; //end table
+			$productHTML= $productHTML.'</table>'; //end table
 			} //end else
 	
 	if($cartEmpty){
 		echo '<h3> Cart is empty...  </h3>';
 	}
 	else{
+		echo '
+			<table id="cart_table">
+			<tr>
+				<th>Product</th>
+				<th>Quantiy</h1>
+				<th>Single Price</th>
+				<th>Price</th>
+				<th></th>
+			</tr>		
+			';
+		echo $productHTML;	
 		echo '<h3>Sub Total: $ ' . $sub_total . ' </h3>
 		<form class=\'clear_cart\'  action = "cart.php" method = "post"><input type="submit" name="clearCart" value="Clear Cart" /><input type="hidden" name="confirm" value="removeAllItemsFromCart"/></form>
 
 		<form action = "./place_order.php" method = "post"><input type="submit" name="placeOrder" value="Place Order" /></form> ';
 	} ?>
 	</div>
+	<?php include 'footer.php';?>
 	</body>
 
-<?php include 'footer.php';?>
+
 </html>
