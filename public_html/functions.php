@@ -713,6 +713,7 @@ function printReceipt( $trans_id, $cust_id ){
 function printProduct($prod_id, $prod_name, $prod_price){
 return "
                     <div class='product'>
+                    <li class='printProductFunctions'>
 
                         <!-- subtle but important break -->
                         <br>
@@ -728,6 +729,7 @@ return "
                         	<button class='prod_txt' type='Submit' name='submit' value='" . $prod_id . "'>Add to cart</button>
                		</form>
 			<br/>
+            </li>
                     </div>
 ";
 }

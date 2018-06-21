@@ -24,49 +24,39 @@
 
     <body>
 	<div class='page_content'>
-	<div class='cat_select'>
-		<form class='cat_select_text' action="products.php" method='POST'> 
-		    <p class='cat_select_text'> Category: </p> 
-		    <select name='category'>
+    	<div class='cat_select'>
+    		<form class='cat_select_text' action="products.php" method='POST'> 
+    		    <p class='cat_select_text'> Category: </p> 
+    		    <select name='category'>
+        			<?php
+        			//category info
+        			//getting all categories
+        			$query = $connection->query("SELECT * FROM CATEGORIES");
+        			?><option value="ALL">ALL</option> <?php
+        			//Looping for each category in database
+        			while ($dataCat = $query->fetch_assoc()) {
 
-			<?php
-			//category info
-			//getting all categories
-			$query = $connection->query("SELECT * FROM CATEGORIES");
-			?><option value="ALL">ALL</option> <?php
-			//Looping for each category in database
-			while ($dataCat = $query->fetch_assoc()) {
+        			    $name = $dataCat['cat_name'];
+        			    ?>
 
-			    $name = $dataCat['cat_name'];
-			    ?>
+        			    <option value="<?php echo $name; ?>"><?php echo $name; ?></option>
+        	        <?php } ?>
+    		    </select>
+    		    <input type='submit'>
+    		</form>
 
-			    <option value="<?php echo $name; ?>"><?php echo $name; ?></option>
-	<?php } ?>
-		    </select>
-		    <input type='submit'>
-		</form>
+    		<form class='cat_select_text' action="products.php" method='POST'> 
+    		    <p class='cat_select_text'> Search: </p> <input type='text' name='search'>
+    		</form>
+    	</div> 
 
-
-		<form class='cat_select_text' action="products.php" method='POST'> 
-		    <p class='cat_select_text'> Search: </p> <input type='text' name='search'>
-		</form>
-	</div> <!-- END OF CATAGORY SELECTOR -->
-
+        <!-- END OF CATEGORY SELECTOR, BEGIN PRODUCT TILE DISPLAY -->
+            <div id="div_products_list">
+            <ul id="products_list">
             <?php
 
 //        <div class="container">
-//        <div class="item_grid">
-
-
-
-
-
-
-
-
-
-
-
+//        <ul class="item_grid">
 
             // Displaying products based on selection of category
             // 
@@ -80,11 +70,12 @@
                 $queryStr = "SELECT p.prod_id, p.Name, p.Price FROM PRODUCTS p, CATEGORIES c, PRODUCT_CATEGORY pc WHERE c.cat_name = '" . $categories . "' AND p.prod_id = pc.PRODUCTS_prod_id AND c.cat_id = pc.CATEGORIES_cat_id;";
                 $query = $connection->query($queryStr);
             
-	   } elseif ( isset($search) ) {
-		
+        	} elseif ( isset($search) ) {
+        		
                 //We are only looking at the category that they selected
                 $queryStr = "SELECT * FROM PRODUCTS WHERE Name LIKE '%" . $search . "%'";
                 $query = $connection->query($queryStr);
+
            } else {
 
                 //Here we select everything	
@@ -92,48 +83,38 @@
             }
 
 
-
-
-
-
-
-
-
-
-            //Here is a div generating loop, for each row that was returned in the query from earlier
+            // Here is a div generating loop, for each row that was returned in the query from earlier
             while ($dataCat = $query->fetch_assoc()) {
                 ?>
+        		<?php
+        		echo printProduct($dataCat['prod_id'],$dataCat['Name'],$dataCat['Price']);
+        		
+        		/*
+                            <div class='product'>
 
+                                <!-- subtle but important break -->
+                                <br>
 
-		<?php
-		echo printProduct($dataCat['prod_id'],$dataCat['Name'],$dataCat['Price']);
-		
-		/*
-                    <div class='product'>
+                                <!-- Here we retrieve the image based on the product id. The product with a product id of 1 will retrieve 1.jpg from the product_pics directory -->
+                                <a href='product_info.php?product_id=<?php echo $dataCat['prod_id']; ?>'>
+                                <img class='prod_img' src='product_pics/<?php echo $dataCat['prod_id']; ?>.jpg' alt=<?php echo $dataCat['Name']; ?> >	
+                                </a>
+                                <p class='prod_txt'><b><?php print $dataCat['Name']; ?></b></p> 
+                                <p class='prod_txt'>$ <?php print $dataCat['Price']; ?></p>
 
-                        <!-- subtle but important break -->
-                        <br>
-
-                        <!-- Here we retrieve the image based on the product id. The product with a product id of 1 will retrieve 1.jpg from the product_pics directory -->
-                        <a href='product_info.php?product_id=<?php echo $dataCat['prod_id']; ?>'>
-                        <img class='prod_img' src='product_pics/<?php echo $dataCat['prod_id']; ?>.jpg' alt=<?php echo $dataCat['Name']; ?> >	
-                        </a>
-                        <p class='prod_txt'><b><?php print $dataCat['Name']; ?></b></p> 
-                        <p class='prod_txt'>$ <?php print $dataCat['Price']; ?></p>
-
-                	<form action="products.php" method="GET" enctype="multipart/form-data">
-                        	<button class='prod_txt' type="Submit" name="submit" value="<?php echo $dataCat['prod_id']; ?>">Add to cart</button>
-               		</form>
-			<br/>
-                    </div>
-        </div>
-        </div>
-	*/			?>
+                        	<form action="products.php" method="GET" enctype="multipart/form-data">
+                                	<button class='prod_txt' type="Submit" name="submit" value="<?php echo $dataCat['prod_id']; ?>">Add to cart</button>
+                       		</form>
+        			<br/>
+                            </div>
+                </div>
+                </div>*/			
+                ?>
                 <?php
                 //Closing the while loop from before. Yes this is wierd.
-            }
-            $connection->close()
-            ?>
+                    }
+                    $connection->close()
+                ?>
             <?php
             $user_id = $_SESSION['cust_id'];
             $product_id = $_GET['submit'];
@@ -141,27 +122,27 @@
             //echo 'Product ID:' . $product_id;
 
             if (isset($product_id)) { //Once pages is reloaded by clicking add cart, a product value is passed back to this page
-		 if (!$_SESSION['loggedIn']) {
-                    //handing product to add to session
-                    $_SESSION['addToCart'] = true;
-                    $_SESSION['addToCart_prod_id'] = $product_id;
+        		 if (!$_SESSION['loggedIn']) {
+                        //handing product to add to session
+                        $_SESSION['addToCart'] = true;
+                        $_SESSION['addToCart_prod_id'] = $product_id;
 
-                    //customer is not logged in, we display a message and redirect them to the login page
-                    echo '
-                        <script>
-                            if (window.confirm(\'You are not logged in\')){
-                                window.location.href=\'login.php\';
-                            } else {
-                                window.location.href=\'login.php\';
-                            }
-                        </script>
-                        ';
+                        //customer is not logged in, we display a message and redirect them to the login page
+                        echo '
+                            <script>
+                                if (window.confirm(\'You are not logged in\')){
+                                    window.location.href=\'login.php\';
+                                } else {
+                                    window.location.href=\'login.php\';
+                                }
+                            </script>
+                            ';
                 } else {
 
-                $connection = getConnection();
+                    $connection = getConnection();
 
-                if ($connection->connect_error) { //Connection to DB opened
-                    die("Connection failed: " . $connection->connect_error);
+                     if ($connection->connect_error) { //Connection to DB opened
+                         die("Connection failed: " . $connection->connect_error);
                 }
 
                 $addToCart = "INSERT INTO ICS199Group07_dev.CART(quantity,cust_id,prod_id) VALUES(1," . $user_id . "," . $product_id . ");";
@@ -194,6 +175,7 @@
             ?>
 
         </ul>
+    </div>
     </div> <!-- END OF PAGE -->
     <br>
     <br>
