@@ -13,7 +13,7 @@
 		<p> Username: <input type="text" name="username" id="usrname"></p>
 		<p> Password: <input type="password" name="password" id="passwd"</p>
 		<p>Accept our <a href="privacyPolicy.php">Privacy Policy</a> <input type="checkbox" name="accept_policy" checked>
-		<input type="submit" value="submit" id="submit1" />
+		<input type="submit" value="Submit" id="submit1" />
 		</form>';
 		
 	?>
