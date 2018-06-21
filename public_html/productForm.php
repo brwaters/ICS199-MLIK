@@ -3,11 +3,10 @@
 <title>Add Products - MLIK</title>
 			<?php $page="productForm";include 'navbar.php'; include 'functions.php';?>
 <body>
-<<<<<<< HEAD
 <div class='page_content'>
 <h1>Add Product</h1> 
 <form action="productForm.php" method="POST" enctype="multipart/form-data">
-<div id="User_Input">
+<div id="Product_Input">
 <table >
 <tr><th>Name:</th>	<td><input type="text" name="name" value='' id='name'>	</td></tr>
 <tr><th>Description:</th>	<td><input type="text" name="description" >	</td></tr>
@@ -36,55 +35,6 @@
 </table>
 </div>
 </form>
-    
-=======
-	<div class='page_content'>
-		<h1>Add Product</h1> 
-		<form action="productForm.php" method="POST" enctype="multipart/form-data">
-			<div id="Product_Input">
-			<table>
-				<tr>
-					<td>Name:</td>	
-					<td><input type="text" name="name" value='' id='name'></td></tr>
-				<tr>
-					<td>Description:</td>	
-					<td><input type="text" name="description" >	</td></tr>
-				<tr>
-					<td>Price:</td> 	
-					<td><input type="text" name="price" >	</td></tr>
-				<tr>
-					<td>Image:</td> 	
-					<td><input type="file"  name="fileToUpload" id="fileToUpload">	</td></tr>
-				<tr>
-					<td>Category:</td>  
-					<td><?php
-						$connection = getConnection();
-						
-						if($connection -> connect_error){
-							die("Connection failed: ". $connection ->connect_error);
-						}
-
-						$query =$connection->query("SELECT * FROM CATEGORIES");
-						$counter = 0;
-						while($dataCat = $query->fetch_assoc()){ 
-							
-							if($counter == 3){
-								echo "<br>";
-								$counter = 0;
-							}
->>>>>>> 5c303d77732811bb571d2f8721eff8b5cde2f966
-
-							echo "<input type='checkbox' name=".$dataCat["cat_id"].">".$dataCat["cat_name"]." </input>";
-							$counter++;
-							}
-						
-						?></td></tr>
-
-				<tr><td colspan="2">	<div id="submit"> <input type="Submit" value="Submit" id="submit1"/>	</div></td></tr>
-			</table>
-			</div>
-		</form>
-	    
 
 		<?php
 
