@@ -31,7 +31,7 @@
 		}
 ?>
 </td></tr>
-<tr><td colspan="2">	<div id=submit> <input type="Submit" value="submit" id="submit1" />	</div></td></tr>
+<tr><td colspan="2">	<div id=submit> <input type="Submit" value="Submit" id="submit1" />	</div></td></tr>
 </table>
 </div>
 </form>
