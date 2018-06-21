@@ -5,16 +5,27 @@
         <link rel="stylesheet" href="./css.css">
         <?php $page = 'products';
 	include 'functions.php';
-        include 'navbar.php'; ?>
+        include 'navbar.php'; 
 
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	
+	if (! isset($_SESSION['firstViewOfProductsPage'])){
+	echo '<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script> 
 	$(document).ready(function(){
 		$(".product").slideDown(999);
 	});
-	</script>
+	</script>';
+	$_SESSION['firstViewOfProductsPage'] = false;
+	} else {
+	echo '<style>
+		.product {
+			display:inline;
+		}
+	</style>';
+	} 
 
-        <?php
+
+
         //Setting up connection to database
         $connection = getConnection();
 
@@ -45,10 +56,9 @@
         			while ($dataCat = $query->fetch_assoc()) {
 
         			    $name = $dataCat['cat_name'];
-        			    ?>
 
-        			    <option value="<?php echo $name; ?>"><?php echo $name; ?></option>
-        	        <?php } ?>
+        			    echo '<option value="' . $name . '">' . $name . '</option>';
+        	        } ?>
     		    </select>
     		    <input type='submit'>
     		</form>
