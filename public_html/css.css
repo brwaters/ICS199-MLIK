@@ -106,15 +106,11 @@ input[type="text"], textarea ,input[type="password"], select, checkbox {
 }
 
 .cat_select {
-    background-color: #393D3F;
-    padding: 10px;
-    margin: 0 -5px;
-    margin-bottom: 14px;
     display: -webkit-flex; /* Safari */
     -webkit-justify-content: space-between; /* Safari 6.1+ */
     display: flex;
     justify-content: space-between;
-    
+    margin: 0 5px;
 }
 
 .cat_select_text {
@@ -346,6 +342,42 @@ input[type="text"], textarea ,input[type="password"], select, checkbox {
     border: 1px solid #dddddd;
     text-align: left;
     padding: 8px;
+
+}
+#Product_Input th{
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+	 background-color: #393D3F;
+	 color: white;
+
+}
+/* productForm.php ONLY */
+#Product_Input {
+
+}
+/* register.php */
+#User_Input table{
+    
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 50%;
+    //margin: auto;
+    margin-left: auto;
+    margin-right: auto;
+}
+#User_Input td{
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+
+}
+#User_Input th{
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+	 background-color: #393D3F;
+	 color: white;
 
 }
 #submit {
